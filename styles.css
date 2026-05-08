@@ -1,16 +1,12 @@
-/* ==============================
-   Base + background
-   ============================== */
-
 :root {
-  --glass: rgba(5, 6, 10, 0.68);
-  --glass-strong: rgba(5, 6, 10, 0.82);
-  --border: rgba(255, 223, 191, 0.2);
-  --accent: #e1a86b;
-  --accent-soft: rgba(225, 168, 107, 0.18);
-  --text-main: #f7f3ee;
-  --text-muted: #c2b3a4;
-  --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.8);
+  --glass: rgba(5, 6, 8, 0.64);
+  --glass-strong: rgba(5, 6, 8, 0.82);
+  --border: rgba(210, 156, 92, 0.32);
+  --accent: #d29c5c;
+  --accent-bright: #f0c487;
+  --text-main: #f7f1e8;
+  --text-muted: #d0bda6;
+  --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.82);
   --radius-lg: 26px;
 }
 
@@ -26,30 +22,34 @@ body {
   padding: 0;
 }
 
-/* Fixed background layer for all devices */
 .page-bg {
   position: fixed;
   inset: 0;
-  z-index: -1;
-  background-color: #050608;
-  background-image: url("assets-bbq/bbq-bg-web.png");
+  z-index: -2;
+  background-color: #050505;
+  background-image: url("assets/coffee-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Content layer */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.72)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.88));
+  pointer-events: none;
+}
+
 body {
-  font-family: "Cardo", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", serif;
+  font-family: "Cardo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", serif;
   color: var(--text-main);
   line-height: 1.6;
   text-align: center;
 }
-
-/* ==============================
-   Typography
-   ============================== */
 
 h1,
 h2 {
@@ -57,33 +57,27 @@ h2 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin: 0 0 1rem;
+  color: var(--text-main);
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.85);
 }
 
 h1 {
-  font-size: clamp(2.4rem, 5vw, 3.1rem);
+  font-size: clamp(2.15rem, 5vw, 3.5rem);
 }
 
 h2 {
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
 }
 
-/* body text upgrade */
 p {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.9rem;
   color: var(--text-muted);
-  font-size: 1.15rem;  /* bigger */
-  font-weight: 600;    /* bolder */
+  font-size: 1.15rem;
+  font-weight: 600;
 }
 
-/* ==============================
-   Layout
-   ============================== */
-
-.glass {
-  background: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
+a {
+  color: var(--accent-bright);
 }
 
 .hero {
@@ -91,178 +85,146 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem 1.75rem 3.5rem;
-  background: none;
+  padding: 3rem 1.5rem 3.5rem;
 }
 
 .hero-content {
-  padding: 0;
+  width: min(920px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 2.25rem;
+  background: rgba(3, 3, 4, 0.46);
+  border: 1px solid rgba(210, 156, 92, 0.24);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(5px);
 }
 
 .hero-logo img {
-  width: 170px;
-  max-width: 50vw;
+  width: 210px;
+  max-width: 58vw;
   display: block;
-  margin: 0 auto 1.75rem;
+  margin: 0 auto 1.6rem;
+  border-radius: 0;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.85));
 }
 
 .tagline {
-  font-size: 1.15rem;
-  letter-spacing: 0.18em;
-  color: #f4e3ce;
-  font-weight: 600;
+  font-size: 1.12rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f2d2a0;
+  font-weight: 700;
 }
 
 .launch-note {
-  font-size: 1.15rem;
-  color: #c2b3a4;
-  font-weight: 600;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: #d0bda6;
 }
 
 .section {
-  padding: 2.25rem 1.75rem;
+  padding: 2.25rem 1.5rem;
   background: transparent;
 }
 
 .section-inner {
-  max-width: 960px;
+  max-width: 860px;
   margin: 0 auto;
-  padding: 1.75rem 1.5rem 2rem;
+  padding: 1.85rem 1.5rem 2.1rem;
+}
+
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(6, 6, 8, 0.74),
+    rgba(6, 5, 4, 0.62)
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(4px);
 }
 
 .section-inner p {
-  max-width: 40rem;
+  max-width: 42rem;
   margin-left: auto;
   margin-right: auto;
 }
-
-/* ==============================
-   Images
-   ============================== */
-.truck-view {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
-}
-
-.truck-img {
-  width: 100%;
-  max-width: 1200px;
-  display: block;
-  border-radius: 6px;
-}
-img {
-  border-radius: 18px;
-}
-
-.image-wrap {
-  margin-top: 1.5rem;
-}
-
-.image-wrap img {
-  max-width: min(100%, 720px);
-  height: auto;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-/* ==============================
-   Socials + Truck
-   ============================== */
-
-.truck-wrap {
-  margin: 1.75rem 0 1rem;
-}
-
-.truck-image {
-  max-width: min(100%, 640px);
-  display: block;
-  margin: 0 auto;
-}
-
-.check-us-out {
-  margin-top: 1.25rem;
-}
-
-.check-label {
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #f4e3ce;
-  margin-bottom: 0.75rem;
-  font-size: 1.05rem;
-}
-
-.social-row {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-}
-
-.social-link img {
-  width: 44px;
-  height: 44px;
-}
-
-/* ==============================
-   Mailto Button
-   ============================== */
 
 .btn {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.95rem 2.2rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.32);
-  background: radial-gradient(circle at top left, #f1c28a, #c16b2c);
-  color: #1a0b04;
+  border: 1px solid rgba(240, 196, 135, 0.45);
+  background: linear-gradient(135deg, #f0c487, #9f5b2d);
+  color: #160b04;
   font-family: "Cinzel", "Times New Roman", serif;
   font-size: 1rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   text-decoration: none;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
 }
 
 .btn:hover {
-  filter: brightness(1.05);
+  filter: brightness(1.08);
 }
 
-/* ==============================
-   Footer
-   ============================== */
-
 .footer {
-  padding: 1.5rem 1.75rem 2.25rem;
+  padding: 1.75rem 1.5rem 2.5rem;
   text-align: center;
-  font-size: 0.95rem;
-  color: #a99b8d;
-  background: transparent;
+  color: #b9a894;
+  background: rgba(0, 0, 0, 0.36);
   font-weight: 600;
 }
 
-/* ==============================
-   Responsive
-   ============================== */
+.footer p {
+  font-size: 0.98rem;
+  margin-bottom: 0.35rem;
+}
 
 @media (max-width: 800px) {
   .page-bg {
-    background-image: url("assets-bbq/bbq-bg-mobile.png");
-    background-size: cover;
     background-position: center top;
   }
 
+  body::before {
+    background:
+      radial-gradient(circle at center top, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.82)),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.9));
+  }
+
   .hero {
-    padding: 2.5rem 1.25rem 3rem;
+    min-height: 92vh;
+    padding: 2.25rem 1rem 2.75rem;
+  }
+
+  .hero-content {
+    padding: 1.65rem 1rem 1.9rem;
+  }
+
+  .hero-logo img {
+    width: 180px;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
   }
 
   .section {
-    padding: 2rem 1.25rem;
+    padding: 1.75rem 1rem;
   }
 
   .section-inner {
-    padding: 1.5rem 1.25rem 2rem;
+    padding: 1.45rem 1.1rem 1.75rem;
+  }
+
+  p {
+    font-size: 1.05rem;
   }
 }
