@@ -361,44 +361,40 @@ a {
 }
 
 /* ==============================
-   Buttons
+   Book Cart PNG Button
    ============================== */
 
-.btn {
+.book-btn {
   display: inline-block;
 
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 
-  padding: 0.95rem 2.2rem;
-
-  border-radius: 999px;
-
-  border: 1px solid rgba(240,196,135,0.45);
-
-  background:
-    linear-gradient(
-      135deg,
-      #f0c487,
-      #9f5b2d
-    );
-
-  color: #160b04;
-
-  font-family: "Cinzel", "Times New Roman", serif;
-  font-size: 1rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-weight: 700;
-
-  cursor: pointer;
   text-decoration: none;
-
-  box-shadow:
-    0 14px 32px rgba(0,0,0,0.55);
 }
 
-.btn:hover {
-  filter: brightness(1.08);
+.book-btn img {
+  width: min(520px, 88vw);
+  height: auto;
+
+  display: block;
+
+  filter:
+    drop-shadow(0 14px 30px rgba(0,0,0,0.62));
+
+  transition:
+    transform .18s ease,
+    filter .18s ease;
+}
+
+.book-btn:hover img {
+  transform: translateY(-2px);
+
+  filter:
+    drop-shadow(0 20px 42px rgba(0,0,0,0.76));
+}
+
+.book-btn:active img {
+  transform: translateY(0) scale(0.985);
 }
 
 /* ==============================
@@ -474,6 +470,10 @@ a {
   .hero-logo img {
     width: 320px;
     max-width: 88vw;
+  }
+
+  .book-btn img {
+    width: min(420px, 92vw);
   }
 
   .tagline {
