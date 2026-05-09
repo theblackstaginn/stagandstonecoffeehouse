@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <title>Stag & Stone Coffeehouse</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <link rel="manifest" href="manifest.json">
+
   <link rel="icon" type="image/png" href="assets/coffee-logo.png">
   <link rel="apple-touch-icon" href="assets/coffee-logo.png">
 
@@ -15,13 +17,21 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cardo:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cardo:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
 
   <div class="page-bg"></div>
 
+  <!-- Lantern glow -->
+  <div class="lantern-glow lantern-left"></div>
+  <div class="lantern-glow lantern-right"></div>
+
+  <!-- Fairy dust -->
   <div class="dust" aria-hidden="true">
     <span></span>
     <span></span>
@@ -38,13 +48,14 @@
   </div>
 
   <!-- HERO -->
-
   <section class="hero">
     <div class="hero-content">
 
       <div class="hero-logo">
-        <img src="assets/coffee-logo.png"
-             alt="Stag & Stone Coffeehouse logo" />
+        <img
+          src="assets/coffee-logo.png"
+          alt="Stag & Stone Coffeehouse logo"
+        />
       </div>
 
       <p class="tagline">
@@ -52,7 +63,8 @@
       </p>
 
       <p class="launch-note">
-        Mobile coffeehouse serving North Georgia gatherings, markets, and festivals
+        Mobile coffee cart for markets, festivals, weddings,
+        and private gatherings across North Georgia.
       </p>
 
     </div>
@@ -60,77 +72,91 @@
 
   <main>
 
-    <!-- BUILT BY HAND -->
-
+    <!-- ABOUT -->
     <section class="section">
       <div class="section-inner glass">
 
-        <h2>Built by Hand</h2>
+        <h2>Old-World Coffee, Built by Hand</h2>
 
         <p>
-          Stag &amp; Stone Coffeehouse is a handcrafted mobile coffee cart serving
-          North Georgia markets, festivals, weddings, and private gatherings.
+          A handcrafted mobile coffee cart bringing warm espresso,
+          house drinks, and old-world atmosphere to events across North Georgia.
         </p>
 
         <p>
-          Espresso, pour overs, house teas, and fresh pastries served from a
-          traveling old-world coffeehouse built for atmosphere as much as flavor.
+          Built for markets, festivals, weddings,
+          private events, and memorable gatherings.
         </p>
 
       </div>
     </section>
 
-    <!-- WHAT WE SERVE -->
-
+    <!-- OFFERINGS -->
     <section class="section">
       <div class="section-inner glass">
 
         <h2>What We Serve</h2>
 
         <p>
-          Espresso drinks, iced coffee, pour overs, hot coffee, seasonal specials,
-          house teas, and commissary-made pastries.
+          Espresso drinks, pour overs, iced coffee,
+          house teas, seasonal offerings, and fresh pastries.
         </p>
+
+        <a class="offerings-btn"
+           href="https://theblackstaginn.github.io/Stag-and-stone-menu/"
+           target="_blank"
+           rel="noopener noreferrer">
+
+          <img
+            src="assets/offerings-button.png"
+            alt="View Offerings"
+          >
+
+        </a>
 
       </div>
     </section>
 
     <!-- EVENTS -->
-
     <section class="section">
       <div class="section-inner glass">
 
-        <h2>Made for Gatherings</h2>
+        <h2>Built for Gatherings</h2>
 
         <p>
-          Designed for farmers markets, evening events, renaissance fairs,
-          weddings, breweries, and private celebrations.
-        </p>
-
-        <p>
-          Warm light, quiet atmosphere, and handcrafted coffee wherever the cart arrives.
+          Designed to bring both coffee and atmosphere to farmers markets,
+          festivals, renaissance fairs, weddings,
+          night markets, and private events.
         </p>
 
       </div>
     </section>
 
     <!-- BOOKING -->
-
     <section class="section">
       <div class="section-inner glass">
 
         <h2>Book the Cart</h2>
 
         <p>
-          Planning an event? Send the date, location, guest count,
-          and a few details about the gathering.
+          Interested in bringing Stag &amp; Stone Coffeehouse
+          to your event?
         </p>
 
-        <a class="book-btn"
-           href="mailto:theblackstaginn@gmail.com?subject=Stag%20%26%20Stone%20Coffeehouse%20Booking&body=Hey%20Stag%20%26%20Stone%2C%0D%0A%0D%0AI%27m%20interested%20in%20booking%20the%20cart.%0D%0A%0D%0AEvent%20Date%3A%20%0D%0AEvent%20Location%3A%20%0D%0AEstimated%20Guests%3A%20%0D%0AAdditional%20Details%3A%20%0D%0A%0D%0AThanks!">
+        <p>
+          Send the date, location, estimated guest count,
+          and a few event details to get started.
+        </p>
 
-          <img src="assets/Book-cart-button.png"
-               alt="Book the Cart">
+        <a
+          class="book-btn"
+          href="mailto:theblackstaginn@gmail.com?subject=Stag%20%26%20Stone%20Coffeehouse%20Booking&body=Hey%20Stag%20%26%20Stone%2C%0D%0A%0D%0AI%27m%20interested%20in%20booking%20the%20cart.%0D%0A%0D%0AEvent%20Date%3A%20%0D%0AEvent%20Location%3A%20%0D%0AEstimated%20Guests%3A%20%0D%0AAdditional%20Details%3A%20%0D%0A%0D%0AThanks!"
+        >
+
+          <img
+            src="assets/Book-cart-button.png"
+            alt="Book the Cart"
+          >
 
         </a>
 
@@ -140,7 +166,6 @@
   </main>
 
   <!-- FOOTER -->
-
   <footer class="footer">
 
     <p>
@@ -150,9 +175,12 @@
 
     <p class="footer-sub">
       Website by
-      <a href="https://blackstagweb.com"
-         rel="noopener noreferrer">
-         Black Stag Web Studio
+      <a
+        href="https://blackstagweb.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Black Stag Web Studio
       </a>
     </p>
 
