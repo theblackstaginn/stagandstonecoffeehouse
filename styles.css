@@ -492,6 +492,52 @@ a {
 }
 
 /* ==============================
+   Offerings Button
+   ============================== */
+
+.offerings-btn {
+  display: inline-block;
+
+  margin-top: 1.5rem;
+}
+
+.offerings-btn img {
+  width: min(520px, 88vw);
+
+  height: auto;
+
+  display: block;
+
+  filter:
+    drop-shadow(0 10px 24px rgba(0,0,0,0.55));
+
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
+}
+
+.offerings-btn:hover img {
+  transform: translateY(-2px);
+
+  filter:
+    drop-shadow(0 16px 34px rgba(0,0,0,0.72));
+}
+
+.offerings-btn:active img {
+  transform: scale(0.985);
+}
+
+/* mobile restraint */
+
+@media (max-width: 800px) {
+
+  .offerings-btn img {
+    width: min(440px, 92vw);
+  }
+
+}
+
+/* ==============================
    Footer
    ============================== */
 
