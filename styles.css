@@ -35,7 +35,10 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
 
-  filter: brightness(1.02);
+  filter:
+    brightness(1.14)
+    contrast(1.03)
+    saturate(1.04);
 }
 
 /* ==============================
@@ -517,6 +520,11 @@ a {
 
     background-size: cover;
     background-position: center center;
+
+    filter:
+      brightness(1.18)
+      contrast(1.03)
+      saturate(1.05);
   }
 
   body::before {
