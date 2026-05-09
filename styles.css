@@ -463,13 +463,17 @@ a {
 .book-cart-btn {
   display: inline-block;
 
+  width: min(420px, 88vw);
+
+  overflow: hidden;
+
   transition:
     transform 0.18s ease,
     filter 0.18s ease;
 }
 
 .book-cart-btn img {
-  width: min(420px, 88vw);
+  width: 100%;
 
   height: auto;
   display: block;
@@ -582,7 +586,7 @@ a {
     font-size: 1.05rem;
   }
 
-  .book-cart-btn img {
+  .book-cart-btn {
     width: min(320px, 88vw);
   }
 }
