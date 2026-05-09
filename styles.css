@@ -38,12 +38,16 @@ body {
   filter: brightness(1.02);
 }
 
-/* cinematic overlay */
+/* ==============================
+   Cinematic Overlay
+   ============================== */
 
 body::before {
   content: "";
+
   position: fixed;
   inset: 0;
+
   z-index: -1;
 
   background:
@@ -60,6 +64,39 @@ body::before {
     );
 
   pointer-events: none;
+}
+
+/* ==============================
+   Lantern Flicker Glow
+   ============================== */
+
+body::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 8% 42%,
+      rgba(255, 180, 90, 0.18),
+      rgba(255, 140, 40, 0.10) 10%,
+      transparent 22%
+    ),
+
+    radial-gradient(
+      circle at 92% 44%,
+      rgba(255, 180, 90, 0.18),
+      rgba(255, 140, 40, 0.10) 10%,
+      transparent 22%
+    );
+
+  mix-blend-mode: screen;
+
+  animation: lanternFlicker 5.8s ease-in-out infinite;
 }
 
 /* ==============================
@@ -226,6 +263,54 @@ body {
 }
 
 /* ==============================
+   Lantern Flicker Animation
+   ============================== */
+
+@keyframes lanternFlicker {
+
+  0% {
+    opacity: 0.72;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+
+  8% {
+    opacity: 0.86;
+  }
+
+  16% {
+    opacity: 0.68;
+  }
+
+  28% {
+    opacity: 0.92;
+    transform: scale(1.01);
+  }
+
+  40% {
+    opacity: 0.74;
+  }
+
+  52% {
+    opacity: 0.88;
+  }
+
+  66% {
+    opacity: 0.70;
+    transform: scale(0.995);
+  }
+
+  82% {
+    opacity: 0.90;
+  }
+
+  100% {
+    opacity: 0.76;
+    transform: scale(1);
+  }
+}
+
+/* ==============================
    Typography
    ============================== */
 
@@ -300,7 +385,7 @@ a {
 
 .hero-logo img {
   width: 420px;
-  max-width: 82vw;
+  max-width: 88vw;
 
   display: block;
   margin: 0 auto 1.6rem;
@@ -364,37 +449,39 @@ a {
    Book Cart PNG Button
    ============================== */
 
-.book-btn {
-  display: inline-block;
+.book-cart-wrap {
+  margin-top: 1.75rem;
 
-  margin-top: 1.2rem;
-
-  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.book-btn img {
-  width: min(520px, 88vw);
-  height: auto;
+.book-cart-btn {
+  display: inline-block;
 
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
+}
+
+.book-cart-btn img {
+  width: min(420px, 88vw);
+
+  height: auto;
   display: block;
 
   filter:
-    drop-shadow(0 14px 30px rgba(0,0,0,0.62));
-
-  transition:
-    transform .18s ease,
-    filter .18s ease;
+    drop-shadow(0 14px 28px rgba(0,0,0,0.65));
 }
 
-.book-btn:hover img {
-  transform: translateY(-2px);
+.book-cart-btn:hover {
+  transform: translateY(-3px) scale(1.015);
+}
 
+.book-cart-btn:hover img {
   filter:
-    drop-shadow(0 20px 42px rgba(0,0,0,0.76));
-}
-
-.book-btn:active img {
-  transform: translateY(0) scale(0.985);
+    drop-shadow(0 20px 38px rgba(0,0,0,0.78));
 }
 
 /* ==============================
@@ -430,7 +517,6 @@ a {
 
     background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat;
   }
 
   body::before {
@@ -469,11 +555,6 @@ a {
 
   .hero-logo img {
     width: 320px;
-    max-width: 88vw;
-  }
-
-  .book-btn img {
-    width: min(420px, 92vw);
   }
 
   .tagline {
@@ -491,5 +572,9 @@ a {
 
   p {
     font-size: 1.05rem;
+  }
+
+  .book-cart-btn img {
+    width: min(320px, 88vw);
   }
 }
