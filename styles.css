@@ -18,9 +18,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   color: var(--ink);
-  background:
-    radial-gradient(120% 90% at 50% 12%, rgba(255,255,255,.05), transparent 60%),
-    linear-gradient(180deg, #0b0e13, var(--bg));
+  background: radial-gradient(120% 90% at 50% 12%, rgba(255,255,255,.05), transparent 60%), linear-gradient(180deg, #0b0e13, var(--bg));
   font-family: ui-serif, Georgia, "Times New Roman", serif;
   line-height: 1.55;
 }
@@ -37,32 +35,64 @@ body::before {
 
 .page-bg { position: fixed; inset: 0; z-index: -4; background: url("assets/inside-web-bg.webp") center / cover no-repeat; filter: saturate(.78) contrast(1.05); transform: scale(1.03); }
 .cart-page .page-bg { background-image: url("assets/coffee-mobile-bg.png"); }
-.tavern-page .page-bg { background-image: url("assets/inside-web-bg.webp"); }
+.tavern-page .page-bg { background-image: url("assets/mobile-tavern-bg.webp"); }
 .veil { position: fixed; inset: 0; z-index: -3; background: linear-gradient(180deg, rgba(3,4,5,.56), rgba(5,6,8,.84) 78%, #07080b 100%); }
 .veil::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 15%, transparent 0 25%, rgba(0,0,0,.52) 80%); }
 
+/* Bright, layered airborne dust. The element remains visible even if motion is disabled. */
+.dust {
+  position: fixed;
+  inset: 0;
+  z-index: 8;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: .92;
+  mix-blend-mode: screen;
+}
+.dust::before,
+.dust::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background-repeat: repeat;
+  will-change: transform, opacity;
+}
+.dust::before {
+  background-image:
+    radial-gradient(circle at 8% 14%, rgba(255,236,198,.95) 0 1.3px, transparent 2.1px),
+    radial-gradient(circle at 26% 72%, rgba(255,222,166,.85) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 44% 31%, rgba(255,241,214,.92) 0 1.5px, transparent 2.4px),
+    radial-gradient(circle at 63% 84%, rgba(238,200,145,.82) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 79% 39%, rgba(255,233,191,.9) 0 1.4px, transparent 2.3px),
+    radial-gradient(circle at 94% 66%, rgba(255,244,219,.88) 0 1px, transparent 1.8px);
+  background-size: 210px 250px, 280px 230px, 245px 310px, 330px 270px, 265px 220px, 300px 340px;
+  filter: drop-shadow(0 0 3px rgba(255,210,145,.7));
+  animation: dust-drift-near 19s linear infinite, dust-glimmer 4.8s ease-in-out infinite alternate;
+}
+.dust::after {
+  background-image:
+    radial-gradient(circle at 16% 42%, rgba(255,246,225,.8) 0 .8px, transparent 1.7px),
+    radial-gradient(circle at 37% 12%, rgba(230,194,142,.72) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 58% 63%, rgba(255,231,190,.78) 0 .9px, transparent 1.7px),
+    radial-gradient(circle at 74% 24%, rgba(255,244,217,.76) 0 1.1px, transparent 2px),
+    radial-gradient(circle at 88% 78%, rgba(236,205,157,.72) 0 .8px, transparent 1.6px);
+  background-size: 150px 190px, 195px 165px, 180px 225px, 225px 175px, 205px 240px;
+  filter: blur(.15px) drop-shadow(0 0 2px rgba(255,225,180,.55));
+  animation: dust-drift-far 29s linear infinite reverse, dust-glimmer 6.5s ease-in-out infinite alternate-reverse;
+}
+@keyframes dust-drift-near {
+  from { transform: translate3d(-2%, 8%, 0) rotate(0deg); }
+  to { transform: translate3d(8%, -12%, 0) rotate(3deg); }
+}
+@keyframes dust-drift-far {
+  from { transform: translate3d(6%, 10%, 0) rotate(1deg); }
+  to { transform: translate3d(-7%, -10%, 0) rotate(-2deg); }
+}
+@keyframes dust-glimmer { from { opacity: .48; } to { opacity: 1; } }
+
 a { color: inherit; }
-.site-header, .hero, .intro, .visit-block, .events-block, .story-block, .service-grid, .service-section, .tavern-stage {
-  width: min(var(--max), calc(100% - 2rem));
-  margin-left: auto;
-  margin-right: auto;
-}
-.site-header {
-  position: sticky;
-  top: 12px;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 12px;
-  padding: 1rem 1.25rem;
-  border: 0;
-  border-radius: var(--radius);
-  background: rgba(5, 7, 9, .72);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 18px 60px rgba(0,0,0,.45);
-}
+.site-header, .hero, .intro, .visit-block, .events-block, .story-block, .service-grid, .service-section, .tavern-stage { width: min(var(--max), calc(100% - 2rem)); margin-left: auto; margin-right: auto; }
+.site-header { position: sticky; top: 12px; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; margin-top: 12px; padding: 1rem 1.25rem; border: 0; border-radius: var(--radius); background: rgba(5, 7, 9, .72); backdrop-filter: blur(12px); box-shadow: 0 18px 60px rgba(0,0,0,.45); }
 .brand { display: grid; text-decoration: none; text-transform: uppercase; letter-spacing: .14em; }
 .brand-name { color: var(--copper-light); font: 700 1rem/1.05 Cinzel, serif; }
 .brand-sub { color: var(--muted); font: .62rem/1.2 Cardo, serif; letter-spacing: .18em; }
@@ -81,7 +111,14 @@ h3 { color: var(--copper); font-size: 1.1rem; }
 .hero-lede { max-width: 620px; margin: 1.35rem auto 0; color: var(--ink); font-size: clamp(1.05rem, 1.7vw, 1.25rem); }
 .hero-mark { width: min(220px, 58vw); margin: 2rem auto 0; padding: .7rem; border: 0; border-radius: 50%; background: transparent; box-shadow: 0 15px 40px rgba(0,0,0,.5); }
 .hero-mark img { display: block; width: 100%; border-radius: 50%; }
-.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 1.7rem; }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .75rem; margin-top: 1.7rem; }
+
+/* Finished button artwork replaces the old CSS pills. */
+.image-button { display: inline-block; width: clamp(180px, 24vw, 250px); line-height: 0; text-decoration: none; filter: drop-shadow(0 9px 14px rgba(0,0,0,.5)); transition: transform .2s ease, filter .2s ease; }
+.image-button img { display: block; width: 100%; height: auto; }
+.image-button:hover, .image-button:focus-visible { transform: translateY(-3px) scale(1.015); filter: brightness(1.08) drop-shadow(0 12px 18px rgba(0,0,0,.58)); }
+.image-button-inline { margin-top: 1rem; }
+
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.8rem; padding: .7rem 1.1rem; border: 0; border-radius: 999px; font: 600 .76rem/1 Cinzel, serif; letter-spacing: .09em; text-decoration: none; text-transform: uppercase; transition: transform .2s ease, background .2s ease; }
 .button:hover, .button:focus-visible { transform: translateY(-2px); }
 .button-copper { color: #17100c; background: var(--copper); }
@@ -108,7 +145,6 @@ h3 { color: var(--copper); font-size: 1.1rem; }
 .event-option { padding: .9rem 0; }
 .event-option p { margin: .35rem 0 0; color: var(--muted); }
 .fine-print { color: #b6a89b !important; font-size: .86rem !important; }
-.events-copy .button { margin-top: 1rem; }
 .site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; width: min(var(--max), calc(100% - 2rem)); margin: 3.5rem auto 0; padding: 1.6rem 0 2rem; border-top: 0; color: var(--muted); font-size: .86rem; }
 .footer-brand { display: block; color: var(--copper-light); font: 600 .82rem Cinzel, serif; letter-spacing: .14em; }
 .footer-sub { display: block; margin-top: .2rem; }
@@ -143,7 +179,16 @@ h3 { color: var(--copper); font-size: 1.1rem; }
   .service-page .service-hero { text-align: center; }
   .service-page .service-hero-copy .hero-lede { margin-left: auto; }
   .service-page .hero-actions { justify-content: center; }
+  .image-button { width: min(235px, 78vw); }
 }
-@media (max-width: 700px) { .page-bg { background-image: url("assets/inside-mobile-bg.webp"); } .cart-page .page-bg { background-image: url("assets/coffee-mobile-bg.png"); } }
+@media (max-width: 700px) {
+  .page-bg { background-image: url("assets/inside-mobile-bg.webp"); }
+  .cart-page .page-bg { background-image: url("assets/coffee-mobile-bg.png"); }
+  .tavern-page .page-bg { background-image: url("assets/mobile-tavern-bg.webp"); }
+}
 @media (max-width: 540px) { h1 { font-size: clamp(2.55rem, 12vw, 4rem); } .site-footer { flex-direction: column; align-items: flex-start; } }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .button { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .button, .image-button { transition: none; }
+  .dust::before, .dust::after { animation: none; opacity: .72; }
+}
