@@ -39,56 +39,86 @@ body::before {
 .veil { position: fixed; inset: 0; z-index: -3; background: linear-gradient(180deg, rgba(3,4,5,.56), rgba(5,6,8,.84) 78%, #07080b 100%); }
 .veil::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 15%, transparent 0 25%, rgba(0,0,0,.52) 80%); }
 
-/* Bright, layered airborne dust. The element remains visible even if motion is disabled. */
+/* Twelve independent dust motes: visible, staggered and continuously recycled. */
 .dust {
   position: fixed;
   inset: 0;
   z-index: 8;
-  overflow: hidden;
   pointer-events: none;
-  opacity: .92;
-  mix-blend-mode: screen;
+  overflow: hidden;
 }
-.dust::before,
-.dust::after {
-  content: "";
+.dust span {
   position: absolute;
-  inset: -30%;
-  background-repeat: repeat;
-  will-change: transform, opacity;
+  border-radius: 50%;
+  opacity: 0;
+  animation: dustFloat 24s linear infinite, dustColor 6s ease-in-out infinite;
+  will-change: transform, opacity, background;
 }
-.dust::before {
-  background-image:
-    radial-gradient(circle at 8% 14%, rgba(255,236,198,.95) 0 1.3px, transparent 2.1px),
-    radial-gradient(circle at 26% 72%, rgba(255,222,166,.85) 0 1px, transparent 1.9px),
-    radial-gradient(circle at 44% 31%, rgba(255,241,214,.92) 0 1.5px, transparent 2.4px),
-    radial-gradient(circle at 63% 84%, rgba(238,200,145,.82) 0 1.2px, transparent 2px),
-    radial-gradient(circle at 79% 39%, rgba(255,233,191,.9) 0 1.4px, transparent 2.3px),
-    radial-gradient(circle at 94% 66%, rgba(255,244,219,.88) 0 1px, transparent 1.8px);
-  background-size: 210px 250px, 280px 230px, 245px 310px, 330px 270px, 265px 220px, 300px 340px;
-  filter: drop-shadow(0 0 3px rgba(255,210,145,.7));
-  animation: dust-drift-near 19s linear infinite, dust-glimmer 4.8s ease-in-out infinite alternate;
+
+.dust span:nth-child(1)  { top: 12%; left: 18%; --i: 1; }
+.dust span:nth-child(2)  { top: 28%; left: 72%; --i: 2; }
+.dust span:nth-child(3)  { top: 46%; left: 35%; --i: 3; }
+.dust span:nth-child(4)  { top: 60%; left: 10%; --i: 4; }
+.dust span:nth-child(5)  { top: 70%; left: 55%; --i: 5; }
+.dust span:nth-child(6)  { top: 18%; left: 50%; --i: 6; }
+.dust span:nth-child(7)  { top: 40%; left: 82%; --i: 7; }
+.dust span:nth-child(8)  { top: 78%; left: 28%; --i: 8; }
+.dust span:nth-child(9)  { top: 32%; left: 5%;  --i: 9; }
+.dust span:nth-child(10) { top: 84%; left: 68%; --i: 10; }
+.dust span:nth-child(11) { top: 8%;  left: 40%; --i: 11; }
+.dust span:nth-child(12) { top: 52%; left: 92%; --i: 12; }
+
+.dust span:nth-child(1),
+.dust span:nth-child(4),
+.dust span:nth-child(9) {
+  width: 2px;
+  height: 2px;
+  background: rgba(255,255,255,.6);
+  box-shadow: 0 0 4px rgba(255,255,255,.45);
+  filter: blur(.6px);
+  animation-duration: 28s, 8s;
+  animation-delay: calc(-1s * var(--i)), calc(-1s * var(--i));
 }
-.dust::after {
-  background-image:
-    radial-gradient(circle at 16% 42%, rgba(255,246,225,.8) 0 .8px, transparent 1.7px),
-    radial-gradient(circle at 37% 12%, rgba(230,194,142,.72) 0 1px, transparent 1.8px),
-    radial-gradient(circle at 58% 63%, rgba(255,231,190,.78) 0 .9px, transparent 1.7px),
-    radial-gradient(circle at 74% 24%, rgba(255,244,217,.76) 0 1.1px, transparent 2px),
-    radial-gradient(circle at 88% 78%, rgba(236,205,157,.72) 0 .8px, transparent 1.6px);
-  background-size: 150px 190px, 195px 165px, 180px 225px, 225px 175px, 205px 240px;
-  filter: blur(.15px) drop-shadow(0 0 2px rgba(255,225,180,.55));
-  animation: dust-drift-far 29s linear infinite reverse, dust-glimmer 6.5s ease-in-out infinite alternate-reverse;
+
+.dust span:nth-child(2),
+.dust span:nth-child(5),
+.dust span:nth-child(7),
+.dust span:nth-child(10) {
+  width: 3px;
+  height: 3px;
+  background: rgba(245,225,185,.8);
+  box-shadow: 0 0 6px rgba(245,225,185,.55);
+  animation-duration: 24s, 6s;
+  animation-delay: calc(-1.5s * var(--i)), calc(-1s * var(--i));
 }
-@keyframes dust-drift-near {
-  from { transform: translate3d(-2%, 8%, 0) rotate(0deg); }
-  to { transform: translate3d(8%, -12%, 0) rotate(3deg); }
+
+.dust span:nth-child(3),
+.dust span:nth-child(6),
+.dust span:nth-child(8),
+.dust span:nth-child(11),
+.dust span:nth-child(12) {
+  width: 5px;
+  height: 5px;
+  background: rgba(250,235,200,.9);
+  box-shadow: 0 0 10px rgba(250,235,200,.85), 0 0 18px rgba(0,0,0,.6);
+  filter: blur(0);
+  animation-duration: 20s, 6s;
+  animation-delay: calc(-2s * var(--i)), calc(-1s * var(--i));
 }
-@keyframes dust-drift-far {
-  from { transform: translate3d(6%, 10%, 0) rotate(1deg); }
-  to { transform: translate3d(-7%, -10%, 0) rotate(-2deg); }
+
+@keyframes dustFloat {
+  0% { transform: translate3d(0,0,0) scale(.8); opacity: 0; }
+  10% { opacity: 1; }
+  50% { opacity: .55; transform: translate3d(30px,-40px,0) scale(1); }
+  100% { transform: translate3d(90px,-140px,0) scale(1.1); opacity: 0; }
 }
-@keyframes dust-glimmer { from { opacity: .48; } to { opacity: 1; } }
+@keyframes dustColor {
+  0%   { background: rgba(255,255,255,.9); }
+  25%  { background: rgba(250,230,180,.9); }
+  50%  { background: rgba(255,255,255,.8); }
+  75%  { background: rgba(250,230,180,.9); }
+  100% { background: rgba(255,255,255,.9); }
+}
 
 a { color: inherit; }
 .site-header, .hero, .intro, .visit-block, .events-block, .story-block, .service-grid, .service-section, .tavern-stage { width: min(var(--max), calc(100% - 2rem)); margin-left: auto; margin-right: auto; }
@@ -190,5 +220,5 @@ h3 { color: var(--copper); font-size: 1.1rem; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .button, .image-button { transition: none; }
-  .dust::before, .dust::after { animation: none; opacity: .72; }
+  .dust span { animation: none; opacity: .78; }
 }
