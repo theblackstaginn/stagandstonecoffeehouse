@@ -199,7 +199,7 @@ h3 { color: var(--copper); font-size: 1.1rem; }
 
 :focus-visible { outline: 2px solid var(--copper-light); outline-offset: 4px; }
 @media (max-width: 800px) {
-  .site-header { position: relative; top: 0; display: block; text-align: center; }
+  .site-header { position: sticky; top: 12px; display: block; text-align: center; }
   .brand { justify-items: center; }
   .nav { justify-content: center; margin-top: .75rem; gap: .75rem; font-size: .85rem; }
   .hero, .service-hero, .tavern-stage { min-height: auto; padding: 3.7rem 1.2rem; }
