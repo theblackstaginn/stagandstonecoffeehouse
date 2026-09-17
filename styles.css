@@ -33,11 +33,11 @@ body::before {
   background: repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, rgba(0,0,0,.03) 1px 2px), repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 1px, rgba(0,0,0,.02) 1px 3px);
 }
 
-.page-bg { position: fixed; inset: 0; z-index: -4; background: url("assets/inside-web-bg.webp") center / cover no-repeat; filter: saturate(.78) contrast(1.05); transform: scale(1.03); }
+.page-bg { position: fixed; inset: 0; z-index: -4; background: url("assets/inside-web-bg.webp") center / cover no-repeat; filter: brightness(1.16) saturate(.92) contrast(1.02); transform: scale(1.03); }
 .cart-page .page-bg { background-image: url("assets/coffee-mobile-bg.png"); }
 .tavern-page .page-bg { background-image: url("assets/mobile-tavern-bg.webp"); }
-.veil { position: fixed; inset: 0; z-index: -3; background: linear-gradient(180deg, rgba(3,4,5,.56), rgba(5,6,8,.84) 78%, #07080b 100%); }
-.veil::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 15%, transparent 0 25%, rgba(0,0,0,.52) 80%); }
+.veil { position: fixed; inset: 0; z-index: -3; background: linear-gradient(180deg, rgba(3,4,5,.34), rgba(5,6,8,.62) 78%, rgba(7,8,11,.82) 100%); }
+.veil::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 15%, transparent 0 32%, rgba(0,0,0,.30) 84%); }
 
 /* Twelve independent dust motes: visible, staggered and continuously recycled. */
 .dust {
@@ -122,7 +122,7 @@ body::before {
 
 a { color: inherit; }
 .site-header, .hero, .intro, .visit-block, .events-block, .story-block, .service-grid, .service-section, .tavern-stage { width: min(var(--max), calc(100% - 2rem)); margin-left: auto; margin-right: auto; }
-.site-header { position: sticky; top: 12px; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; margin-top: 12px; padding: 1rem 1.25rem; border: 0; border-radius: var(--radius); background: rgba(5, 7, 9, .72); backdrop-filter: blur(12px); box-shadow: 0 18px 60px rgba(0,0,0,.45); }
+.site-header { position: sticky; top: 12px; z-index: 10; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; margin-top: 12px; padding: 1rem 1.25rem; border: 0; border-radius: var(--radius); background: rgba(9, 12, 13, .64); backdrop-filter: blur(12px); box-shadow: 0 18px 60px rgba(0,0,0,.45); }
 .brand { display: grid; text-decoration: none; text-transform: uppercase; letter-spacing: .14em; }
 .brand-name { color: var(--copper-light); font: 700 1rem/1.05 Cinzel, serif; }
 .brand-sub { color: var(--muted); font: .62rem/1.2 Cardo, serif; letter-spacing: .18em; }
@@ -144,9 +144,9 @@ h3 { color: var(--copper); font-size: 1.1rem; }
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .75rem; margin-top: 1.7rem; }
 
 /* Finished button artwork replaces the old CSS pills. */
-.image-button { display: inline-block; width: clamp(180px, 24vw, 250px); line-height: 0; text-decoration: none; filter: drop-shadow(0 9px 14px rgba(0,0,0,.5)); transition: transform .2s ease, filter .2s ease; }
+.image-button { display: inline-block; width: clamp(180px, 24vw, 250px); line-height: 0; text-decoration: none; filter: brightness(1.14) saturate(1.08) drop-shadow(0 9px 14px rgba(0,0,0,.46)); transition: transform .2s ease, filter .2s ease; }
 .image-button img { display: block; width: 100%; height: auto; }
-.image-button:hover, .image-button:focus-visible { transform: translateY(-3px) scale(1.015); filter: brightness(1.08) drop-shadow(0 12px 18px rgba(0,0,0,.58)); }
+.image-button:hover, .image-button:focus-visible { transform: translateY(-3px) scale(1.015); filter: brightness(1.24) saturate(1.12) drop-shadow(0 12px 18px rgba(0,0,0,.54)); }
 .image-button-inline { margin-top: 1rem; }
 
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.8rem; padding: .7rem 1.1rem; border: 0; border-radius: 999px; font: 600 .76rem/1 Cinzel, serif; letter-spacing: .09em; text-decoration: none; text-transform: uppercase; transition: transform .2s ease, background .2s ease; }
