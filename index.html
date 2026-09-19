@@ -392,7 +392,11 @@
 
         <div class="community-scrolls">
 
-          <div class="community-scroll">
+          <div
+            class="community-scroll"
+            data-mobile-poster="assets/mtg-night-mobile.webp"
+            data-poster-alt="Magic: The Gathering community night"
+          >
             <img
               src="assets/mtg-night.webp"
               alt="Magic: The Gathering — a weekly night for casual games, familiar faces, and new players around the table."
@@ -401,7 +405,11 @@
           </div>
 
 
-          <div class="community-scroll">
+          <div
+            class="community-scroll"
+            data-mobile-poster="assets/dnd-night-mobile.webp"
+            data-poster-alt="Dungeons and Dragons community night"
+          >
             <img
               src="assets/dnd-night.webp"
               alt="Dungeons and Dragons Night — a regular gathering for adventurers, storytellers, and anyone looking for a campaign to join."
@@ -410,7 +418,11 @@
           </div>
 
 
-          <div class="community-scroll">
+          <div
+            class="community-scroll"
+            data-mobile-poster="assets/book-club-mobile.webp"
+            data-poster-alt="Monthly Book Club hosted by Mrs. Jessica Farmer"
+          >
             <img
               src="assets/book-club.webp"
               alt="Monthly Book Club hosted by Mrs. Jessica Farmer — conversation, coffee, and a good reason to linger."
@@ -425,6 +437,56 @@
     </section>
 
   </main>
+
+
+  <!-- =====================================================
+       MOBILE COMMUNITY MODAL
+       ===================================================== -->
+
+  <div
+    class="community-modal"
+    id="community-modal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="community-modal-backdrop"
+      data-community-close
+    ></div>
+
+    <div
+      class="community-modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Community night details"
+    >
+
+      <button
+        class="community-modal-close"
+        type="button"
+        aria-label="Close community night details"
+      >
+        <img
+          src="assets/x-button.webp"
+          alt=""
+          aria-hidden="true"
+        />
+      </button>
+
+      <div class="community-modal-scroll">
+
+        <img
+          class="community-modal-poster"
+          id="community-modal-poster"
+          src=""
+          alt=""
+        />
+
+      </div>
+
+    </div>
+
+  </div>
 
 
   <!-- =====================================================
@@ -465,6 +527,157 @@
   <script>
     document.getElementById("year").textContent =
       new Date().getFullYear();
+
+
+    /* =====================================================
+       MOBILE COMMUNITY NIGHT MODAL
+       ===================================================== */
+
+    const communityModal =
+      document.getElementById("community-modal");
+
+    const communityModalPoster =
+      document.getElementById("community-modal-poster");
+
+    const communityModalClose =
+      document.querySelector(".community-modal-close");
+
+    const communityModalBackdrop =
+      document.querySelector(".community-modal-backdrop");
+
+    const communityScrolls =
+      document.querySelectorAll(".community-scroll");
+
+    const communityMobileQuery =
+      window.matchMedia("(max-width: 540px)");
+
+    let lastCommunityTrigger = null;
+
+
+    function openCommunityModal(scroll) {
+
+      if (!communityMobileQuery.matches) {
+        return;
+      }
+
+      const posterSource =
+        scroll.dataset.mobilePoster;
+
+      const posterAlt =
+        scroll.dataset.posterAlt ||
+        "Community night details";
+
+      if (!posterSource) {
+        return;
+      }
+
+      lastCommunityTrigger = scroll;
+
+      communityModalPoster.src =
+        posterSource;
+
+      communityModalPoster.alt =
+        posterAlt;
+
+      communityModal.classList.add("is-open");
+
+      communityModal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.classList.add(
+        "community-modal-open"
+      );
+
+      communityModalClose.focus();
+    }
+
+
+    function closeCommunityModal() {
+
+      if (
+        !communityModal.classList.contains("is-open")
+      ) {
+        return;
+      }
+
+      communityModal.classList.remove("is-open");
+
+      communityModal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.classList.remove(
+        "community-modal-open"
+      );
+
+      communityModalPoster.src = "";
+      communityModalPoster.alt = "";
+
+      if (
+        lastCommunityTrigger &&
+        communityMobileQuery.matches
+      ) {
+        lastCommunityTrigger = null;
+      }
+    }
+
+
+    communityScrolls.forEach((scroll) => {
+
+      scroll.addEventListener(
+        "click",
+        function () {
+          openCommunityModal(scroll);
+        }
+      );
+
+    });
+
+
+    communityModalClose.addEventListener(
+      "click",
+      closeCommunityModal
+    );
+
+
+    communityModalBackdrop.addEventListener(
+      "click",
+      closeCommunityModal
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (
+          event.key === "Escape" &&
+          communityModal.classList.contains("is-open")
+        ) {
+          closeCommunityModal();
+        }
+
+      }
+    );
+
+
+    communityMobileQuery.addEventListener(
+      "change",
+      function (event) {
+
+        if (
+          !event.matches &&
+          communityModal.classList.contains("is-open")
+        ) {
+          closeCommunityModal();
+        }
+
+      }
+    );
+
   </script>
 
 </body>
