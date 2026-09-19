@@ -923,6 +923,7 @@ h3 {
 
 /* =========================================================
    MENU CATEGORY NAVIGATION
+   Slimmer + lighter floating navigation
    ========================================================= */
 
 .menu-jump-wrap {
@@ -930,7 +931,7 @@ h3 {
   top: 102px;
   z-index: 9;
 
-  width: min(var(--max), calc(100% - 2rem));
+  width: min(900px, calc(100% - 3rem));
 
   margin:
     0
@@ -943,26 +944,26 @@ h3 {
   justify-content: center;
   align-items: center;
 
-  gap: .45rem 1.1rem;
+  gap: .35rem 1rem;
 
-  padding: .78rem 1.1rem;
+  padding: .58rem 1rem;
 
   overflow-x: auto;
 
   border:
     1px solid
-    rgba(221,203,168,.16);
+    rgba(221,203,168,.12);
 
   border-radius: 999px;
 
   background:
-    rgba(18,22,17,.75);
+    rgba(18,22,17,.58);
 
-  backdrop-filter: blur(13px);
-  -webkit-backdrop-filter: blur(13px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   box-shadow:
-    0 9px 26px rgba(36,28,17,.18);
+    0 6px 18px rgba(36,28,17,.14);
 
   scrollbar-width: none;
 }
@@ -974,11 +975,12 @@ h3 {
 .menu-jump a {
   flex: 0 0 auto;
 
-  color: #e9dfce;
+  color:
+    rgba(244,236,220,.88);
 
   font:
     600
-    .68rem/1
+    .64rem/1
     Cinzel,
     serif;
 
@@ -990,13 +992,20 @@ h3 {
 
   transition:
     color .2s ease,
-    transform .2s ease;
+    transform .2s ease,
+    text-shadow .2s ease;
 }
 
 .menu-jump a:hover,
 .menu-jump a:focus-visible {
-  color: #fff2d8;
-  transform: translateY(-1px);
+  color: #fff4dd;
+
+  transform:
+    translateY(-1px);
+
+  text-shadow:
+    0 0 8px
+    rgba(244,223,200,.24);
 }
 
 
@@ -1122,6 +1131,7 @@ h3 {
 
 /* =========================================================
    INDIVIDUAL FINISHED MENU GRAPHICS
+   Natural sizing retained intentionally
    ========================================================= */
 
 .menu-item-graphic {
@@ -1152,14 +1162,8 @@ h3 {
   object-fit: contain;
   object-position: center center;
 
-  /*
-    Slightly soften the image corners.
-  */
   border-radius: 14px;
 
-  /*
-    Outline follows the transparent image shape.
-  */
   filter:
     drop-shadow(
       1px 0 0
@@ -1449,11 +1453,6 @@ h3 {
       url("assets/mobile-tavern-bg.webp");
   }
 
-  /*
-    Keep the menu-specific background from being
-    overridden by the standard mobile background.
-  */
-
   .menu-page .page-bg {
     background-image:
       url("assets/menu-page-bg.webp");
@@ -1519,7 +1518,7 @@ h3 {
   /* MENU NAV */
 
   .menu-jump-wrap {
-    width: calc(100% - 1rem);
+    width: calc(100% - 1.5rem);
 
     top: 130px;
 
@@ -1529,17 +1528,20 @@ h3 {
   .menu-jump {
     justify-content: flex-start;
 
-    gap: .9rem;
+    gap: .85rem;
 
     padding:
-      .8rem
-      .9rem;
+      .62rem
+      .85rem;
 
-    border-radius: 14px;
+    border-radius: 12px;
+
+    background:
+      rgba(18,22,17,.60);
   }
 
   .menu-jump a {
-    font-size: .64rem;
+    font-size: .61rem;
   }
 
 
@@ -1575,11 +1577,7 @@ h3 {
   }
 
 
-  /*
-    One item per row on phones.
-    Explicit centering prevents different source
-    dimensions from shifting the graphics sideways.
-  */
+  /* One item per row on phones */
 
   .menu-art-grid,
   #breakfast .menu-art-grid,
@@ -1609,6 +1607,9 @@ h3 {
     -webkit-backdrop-filter:
       blur(4px);
   }
+
+
+  /* Center natural-size menu graphics */
 
   .menu-item-graphic {
     display: flex;
