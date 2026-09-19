@@ -320,6 +320,18 @@ a {
 
 
 /* =========================================================
+   BAKEHOUSE PAGE SHELL
+   Keeps Lynn's page content away from viewport edges
+   ========================================================= */
+
+.bakehouse-page .section-shell {
+  width: min(var(--max), calc(100% - 2rem));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================================
    HEADER
    ========================================================= */
 
@@ -1512,6 +1524,30 @@ h3 {
     width: min(310px, 84vw);
     margin-top: 2.25rem;
     padding: .25rem;
+  }
+
+
+  /* =====================================================
+     LYNN'S BAKEHOUSE MOBILE GUTTERS
+     ===================================================== */
+
+  .bakehouse-page .section-shell {
+    width: calc(100% - 2.7rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bakehouse-page .bakehouse-hero {
+    width: calc(100% - 2rem);
+  }
+
+  .bakehouse-page .bakes-showcase {
+    overflow: visible;
+  }
+
+  .bakehouse-page .bakes-track {
+    margin-right: -1.35rem;
+    padding-right: 14%;
   }
 
 
