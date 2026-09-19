@@ -170,70 +170,107 @@
     }
 
 
+    /* =====================================================
+       LYNN'S STICKER BUTTONS
+       ===================================================== */
+
     .bakehouse-hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .8rem;
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      align-items: center;
+
+      gap:
+        clamp(.75rem, 2vw, 1.25rem);
+
+      width: min(100%, 680px);
 
       margin-top: 1.8rem;
     }
 
 
-    .bakehouse-text-button {
-      display: inline-flex;
+    .bakehouse-sticker-button {
+      display: flex;
+
       align-items: center;
       justify-content: center;
 
-      min-height: 48px;
+      width: 100%;
 
-      padding:
-        .8rem
-        1.25rem;
+      padding: 0;
+      margin: 0;
 
-      border:
-        1px solid
-        rgba(231, 216, 183, .38);
+      border: 0;
+      border-radius: 0;
 
-      border-radius: 999px;
-
-      color: #f4ead5;
-
-      background:
-        rgba(29, 36, 26, .88);
-
-      font-family:
-        "Cinzel",
-        serif;
-
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .08em;
+      background: transparent;
+      box-shadow: none;
 
       text-decoration: none;
-      text-transform: uppercase;
+
+      -webkit-tap-highlight-color:
+        transparent;
 
       transition:
         transform .2s ease,
-        background .2s ease,
-        border-color .2s ease;
+        filter .2s ease;
     }
 
 
-    .bakehouse-text-button:hover {
+    .bakehouse-sticker-button img {
+      display: block;
+
+      width: 100%;
+      height: auto;
+
+      object-fit: contain;
+
+      filter:
+        drop-shadow(
+          0 10px 12px
+          rgba(0, 0, 0, .28)
+        );
+    }
+
+
+    .bakehouse-sticker-button:hover {
       transform:
-        translateY(-2px);
-
-      background:
-        rgba(46, 58, 40, .96);
-
-      border-color:
-        rgba(231, 216, 183, .62);
+        translateY(-3px)
+        rotate(-.4deg);
     }
 
 
-    .bakehouse-text-button.secondary {
-      background:
-        rgba(18, 17, 14, .78);
+    .bakehouse-sticker-button:nth-child(2):hover {
+      transform:
+        translateY(-3px)
+        rotate(.4deg);
+    }
+
+
+    .bakehouse-sticker-button:active {
+      transform:
+        translateY(0)
+        scale(.975);
+    }
+
+
+    .bakehouse-sticker-button:focus-visible {
+      outline:
+        2px solid
+        rgba(239, 220, 175, .9);
+
+      outline-offset: 6px;
+
+      border-radius: 12px;
+    }
+
+
+    .bakehouse-sticker-button-single {
+      width: min(100%, 390px);
+
+      margin-top: 1rem;
     }
 
 
@@ -276,8 +313,10 @@
 
     .bakes-heading {
       display: flex;
+
       align-items: end;
       justify-content: space-between;
+
       gap: 2rem;
 
       margin-bottom: 1.4rem;
@@ -301,6 +340,7 @@
         rgba(239, 228, 204, .68);
 
       font-size: .9rem;
+
       white-space: nowrap;
     }
 
@@ -330,6 +370,9 @@
 
       overscroll-behavior-inline:
         contain;
+
+      -webkit-overflow-scrolling:
+        touch;
     }
 
 
@@ -540,6 +583,13 @@
     }
 
 
+    .bakehouse-cta
+    .bakehouse-sticker-button-single {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
     /* =====================================================
        TABLET
        ===================================================== */
@@ -614,16 +664,33 @@
 
 
       .bakehouse-hero-actions {
-        flex-direction:
-          column;
+        grid-template-columns:
+          1fr;
 
-        align-items:
-          stretch;
+        width: 100%;
+
+        gap: .15rem;
+
+        margin-top: 1.25rem;
       }
 
 
-      .bakehouse-text-button {
+      .bakehouse-sticker-button {
+        width:
+          min(100%, 340px);
+
+        margin-inline: auto;
+      }
+
+
+      .bakehouse-sticker-button img {
         width: 100%;
+      }
+
+
+      .bakehouse-sticker-button-single {
+        width:
+          min(100%, 340px);
       }
 
 
@@ -633,21 +700,15 @@
 
 
       .swipe-hint {
-        margin-top:
-          .65rem;
+        margin-top: .65rem;
       }
 
 
       .bakes-track {
-        /*
-          About 1.15 cards visible.
-          Makes the swipe interaction obvious.
-        */
         grid-auto-columns:
           86%;
 
-        gap:
-          .8rem;
+        gap: .8rem;
 
         margin-right:
           calc(
@@ -655,14 +716,12 @@
             var(--page-pad, 1rem)
           );
 
-        padding-right:
-          14%;
+        padding-right: 14%;
       }
 
 
       .bake-card {
-        border-radius:
-          20px;
+        border-radius: 20px;
       }
 
 
@@ -675,14 +734,19 @@
 
 
       .order-card {
-        border-radius:
-          20px;
+        border-radius: 20px;
+      }
+
+
+      .order-card
+      .bakehouse-sticker-button-single {
+        margin-left: auto;
+        margin-right: auto;
       }
 
 
       .bakehouse-cta-inner {
-        border-radius:
-          22px;
+        border-radius: 22px;
       }
 
     }
@@ -698,7 +762,7 @@
     ) {
 
       .bake-card-image img,
-      .bakehouse-text-button {
+      .bakehouse-sticker-button {
         transition: none;
       }
 
@@ -841,17 +905,30 @@
         <div class="bakehouse-hero-actions">
 
           <a
-            class="bakehouse-text-button"
+            class="bakehouse-sticker-button"
             href="#custom-bakes"
+            aria-label="Explore custom bakes"
           >
-            Explore custom bakes
+
+            <img
+              src="stag-buttons/explore-bakes.webp"
+              alt="Explore custom bakes"
+            />
+
           </a>
 
+
           <a
-            class="bakehouse-text-button secondary"
+            class="bakehouse-sticker-button"
             href="#order"
+            aria-label="Request a custom bake"
           >
-            Request a custom bake
+
+            <img
+              src="stag-buttons/request-bake.webp"
+              alt="Request a custom bake"
+            />
+
           </a>
 
         </div>
@@ -1182,6 +1259,7 @@
         </h3>
 
         <ul>
+
           <li>
             Date needed
           </li>
@@ -1209,14 +1287,22 @@
           <li>
             Any dietary considerations
           </li>
+
         </ul>
 
 
         <a
-          class="bakehouse-text-button"
+          class="bakehouse-sticker-button bakehouse-sticker-button-single"
           href="mailto:theblackstaginn@gmail.com?subject=Lynn%27s%20Custom%20Bake%20Inquiry&amp;body=Hi%20Lynn%27s%20Bakehouse%2C%0A%0AI%27d%20like%20to%20ask%20about%20a%20custom%20bake.%0A%0ADate%20needed%3A%0AType%20of%20bake%3A%0AServing%20count%3A%0AFlavor%20ideas%3A%0AColors%20or%20theme%3A%0ADietary%20considerations%3A%0A%0AAnything%20else%3A"
+          aria-label="Request a custom bake"
         >
-          Start an inquiry
+
+          <img
+            src="stag-buttons/request-bake.webp"
+            alt="Request a custom bake"
+            loading="lazy"
+          />
+
         </a>
 
       </aside>
@@ -1250,10 +1336,17 @@
 
 
         <a
-          class="bakehouse-text-button"
+          class="bakehouse-sticker-button bakehouse-sticker-button-single"
           href="mailto:theblackstaginn@gmail.com?subject=Lynn%27s%20Custom%20Bake%20Inquiry"
+          aria-label="Request a custom bake"
         >
-          Request a custom bake
+
+          <img
+            src="stag-buttons/request-bake.webp"
+            alt="Request a custom bake"
+            loading="lazy"
+          />
+
         </a>
 
       </div>
