@@ -1143,12 +1143,21 @@ h3 {
 
 /* =========================================================
    INDIVIDUAL FINISHED MENU GRAPHICS
+   FORCE EVERY MENU IMAGE TO THE SAME DISPLAY SIZE
    ========================================================= */
 
 .menu-item-graphic {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 100%;
+
+  /*
+    Every menu item receives the exact same display area,
+    regardless of the source image's original dimensions.
+  */
+  height: 330px;
 
   min-width: 0;
 
@@ -1158,20 +1167,30 @@ h3 {
 .menu-item-graphic img {
   display: block;
 
+  /*
+    Every image now occupies the same-sized box.
+  */
   width: 100%;
-  height: auto;
-
-  max-width: 320px;
-
-  object-fit: contain;
+  height: 100%;
 
   /*
-    IMPORTANT:
-    drop-shadow follows the transparent alpha edge
-    of the image instead of creating a rectangular
-    frame around the file.
+    Preserve the entire finished menu graphic.
+    Nothing gets cropped.
   */
+  object-fit: contain;
+  object-position: center;
 
+  /*
+    Do NOT allow an image's native dimensions
+    to determine its displayed size.
+  */
+  max-width: none;
+  max-height: none;
+
+  /*
+    Outline follows transparency instead of
+    making a rectangular border.
+  */
   filter:
     drop-shadow(
       1px 0 0
