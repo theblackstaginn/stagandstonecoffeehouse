@@ -915,7 +915,6 @@ h3 {
 
 /* =========================================================
    MENU CATEGORY NAVIGATION
-   Slimmer + lighter floating navigation
    ========================================================= */
 
 .menu-jump-wrap {
@@ -1098,47 +1097,69 @@ h3 {
 
 
 /* =========================================================
-   MENU GRAPHIC GRID
+   MENU CAROUSELS
    ========================================================= */
 
-.menu-art-grid {
-  display: grid;
+.menu-carousel {
+  display: flex;
+  align-items: stretch;
 
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+  width: 100%;
 
-  gap:
-    clamp(1rem, 3vw, 2rem);
+  gap: clamp(.9rem, 2vw, 1.4rem);
 
-  align-items: center;
-  justify-items: center;
+  padding:
+    .65rem
+    .35rem
+    1.15rem;
+
+  overflow-x: auto;
+  overflow-y: visible;
+
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: .35rem;
+
+  overscroll-behavior-x: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
 }
 
-#breakfast .menu-art-grid,
-#lunch .menu-art-grid {
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+.menu-carousel::-webkit-scrollbar {
+  display: none;
 }
 
 
 /* =========================================================
-   INDIVIDUAL FINISHED MENU GRAPHICS
-   Natural sizing retained intentionally
+   MENU CAROUSEL CARDS
+   Desktop: approximately three visible
    ========================================================= */
 
 .menu-item-graphic {
+  flex:
+    0
+    0
+    calc((100% - 2.8rem) / 3);
+
+  min-width: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 100%;
-  min-width: 0;
+  padding: .3rem;
 
-  margin-left: auto;
-  margin-right: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 
-  padding: .35rem;
+  border-radius: 18px;
 }
+
+
+/* =========================================================
+   FINISHED MENU ARTWORK
+   ========================================================= */
 
 .menu-item-graphic img {
   display: block;
@@ -1146,13 +1167,10 @@ h3 {
   width: 100%;
   height: auto;
 
-  max-width: 100%;
-
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 
   object-fit: contain;
-  object-position: center center;
+  object-position: center;
 
   border-radius: 14px;
 
@@ -1409,17 +1427,23 @@ h3 {
     scroll-margin-top: 205px;
   }
 
-  .menu-art-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
 
-    justify-items: center;
+  /* Roughly 2.15 cards visible */
+
+  .menu-carousel {
+    gap: 1rem;
+
+    padding:
+      .55rem
+      .25rem
+      1rem;
   }
 
-  #breakfast .menu-art-grid,
-  #lunch .menu-art-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+  .menu-item-graphic {
+    flex:
+      0
+      0
+      calc((100% - 1rem) / 2.15);
   }
 }
 
@@ -1480,7 +1504,9 @@ h3 {
     flex-direction: column;
     align-items: flex-start;
   }
-    /* Larger S&S hero logo on phones */
+
+
+  /* Larger S&S hero logo on phones */
 
   .hero-mark {
     width: min(310px, 84vw);
@@ -1576,27 +1602,14 @@ h3 {
   }
 
 
-  /* One item per row on phones */
-
-  .menu-art-grid,
-  #breakfast .menu-art-grid,
-  #lunch .menu-art-grid {
-    grid-template-columns: 1fr;
-
-    justify-items: center;
-    align-items: center;
-
-    width: 100%;
-
-    gap: 1rem;
-  }
+  /* MENU PANEL */
 
   .menu-panel {
     width: 100%;
 
     padding:
-      1rem
-      .55rem;
+      .75rem
+      0;
 
     border-radius: 18px;
 
@@ -1608,39 +1621,38 @@ h3 {
   }
 
 
-  /* Center natural-size menu graphics */
+  /* MENU CAROUSEL
+     Approximately 1.15 cards visible */
 
-  .menu-item-graphic {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-
-    margin-left: auto;
-    margin-right: auto;
+  .menu-carousel {
+    gap: .8rem;
 
     padding:
-      .25rem
-      .15rem;
+      .5rem
+      .35rem
+      1rem;
+
+    scroll-padding-inline: .35rem;
+  }
+
+  .menu-item-graphic {
+    flex:
+      0
+      0
+      86%;
+
+    padding:
+      .2rem
+      .1rem;
   }
 
   .menu-item-graphic img {
-    display: block;
-
     width: 100%;
-    height: auto;
-
-    max-width: 380px;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    object-fit: contain;
-    object-position: center center;
+    max-width: none;
 
     border-radius: 14px;
   }
+
 
   .menu-availability {
     font-size: .84rem;
@@ -1660,6 +1672,10 @@ h3 {
 
   .menu-jump {
     gap: .75rem;
+  }
+
+  .menu-item-graphic {
+    flex-basis: 85%;
   }
 }
 
@@ -1690,6 +1706,7 @@ h3 {
     transform: none;
   }
 }
+
 
 /* =========================================================
    COMMUNITY NIGHT SCROLLS
@@ -1801,6 +1818,7 @@ h3 {
   }
 }
 
+
 /* =========================================================
    COMMUNITY NIGHT MOBILE MODAL
    ========================================================= */
@@ -1811,15 +1829,10 @@ h3 {
 
 
 /* =========================================================
-   PHONE ONLY
+   COMMUNITY MODAL — PHONE ONLY
    ========================================================= */
 
 @media (max-width: 540px) {
-
-  /*
-    The original horizontal scrolls stay visible.
-    On phones they become the tap targets.
-  */
 
   .community-scroll {
     cursor: pointer;
@@ -1827,19 +1840,9 @@ h3 {
     touch-action: manipulation;
   }
 
-
-  /*
-    Lock the page behind the open parchment.
-  */
-
   body.community-modal-open {
     overflow: hidden;
   }
-
-
-  /*
-    Full-screen modal container.
-  */
 
   .community-modal {
     position: fixed;
@@ -1871,11 +1874,6 @@ h3 {
     pointer-events: auto;
   }
 
-
-  /*
-    Dark blurred page behind the parchment.
-  */
-
   .community-modal-backdrop {
     position: absolute;
     inset: 0;
@@ -1886,11 +1884,6 @@ h3 {
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
   }
-
-
-  /*
-    The modal itself occupies most of the phone screen.
-  */
 
   .community-modal-dialog {
     position: relative;
@@ -1919,12 +1912,6 @@ h3 {
     opacity: 1;
   }
 
-
-  /*
-    This part scrolls if the vertical parchment
-    is taller than the phone.
-  */
-
   .community-modal-scroll {
     width: 100%;
     height: 100%;
@@ -1943,11 +1930,6 @@ h3 {
     display: none;
   }
 
-
-  /*
-    Full vertical parchment artwork.
-  */
-
   .community-modal-poster {
     display: block;
 
@@ -1964,13 +1946,6 @@ h3 {
         rgba(0,0,0,.62)
       );
   }
-
-
-  /*
-    Your signature X button stays fixed
-    over the upper-right corner while
-    the parchment itself scrolls.
-  */
 
   .community-modal-close {
     position: absolute;
@@ -2022,7 +1997,6 @@ h3 {
 
     outline-offset: 3px;
   }
-
 }
 
 
@@ -2046,7 +2020,6 @@ h3 {
     width: 52px;
     height: 52px;
   }
-
 }
 
 
@@ -2063,5 +2036,4 @@ h3 {
   .community-modal-close {
     transition: none;
   }
-
 }
