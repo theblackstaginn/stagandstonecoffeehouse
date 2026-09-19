@@ -1,0 +1,1317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+
+  <title>
+    Lynn's Custom Bakes | Stag &amp; Stone Coffee and Bakehouse
+  </title>
+
+  <meta
+    name="description"
+    content="Explore custom cakes, cupcakes, scones, muffins, and specialty bakes from Lynn's Bakehouse at Stag & Stone Coffee and Bakehouse in Clarkesville, Georgia."
+  />
+
+  <meta name="theme-color" content="#14120f" />
+
+  <link
+    rel="canonical"
+    href="https://stagandstonecoffee.com/bakehouse.html"
+  />
+
+  <link
+    rel="icon"
+    type="image/webp"
+    href="stag-thumbs/favicon.webp"
+  />
+
+  <link
+    rel="apple-touch-icon"
+    href="stag-thumbs/icon-192.webp"
+  />
+
+  <link
+    rel="manifest"
+    href="manifest.webmanifest"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cardo:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  />
+
+  <style>
+
+    /* =====================================================
+       LYNN'S CUSTOM BAKES
+       Page-specific styles
+       ===================================================== */
+
+    body.bakehouse-page {
+      background: #14120f;
+    }
+
+
+    /* =====================================================
+       BACKGROUND
+       ===================================================== */
+
+    .bakehouse-page .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+
+      background-image:
+        url("assets/bakehouse-web-bg.webp");
+
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+
+    .bakehouse-page .veil {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(10, 9, 7, .42) 0%,
+          rgba(10, 9, 7, .62) 38%,
+          rgba(10, 9, 7, .78) 100%
+        );
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .bakehouse-hero {
+      min-height: 78vh;
+
+      display: flex;
+      align-items: flex-end;
+
+      padding-top: 9rem;
+      padding-bottom: 5rem;
+    }
+
+
+    .bakehouse-hero-inner {
+      width: min(760px, 100%);
+
+      padding: clamp(1.5rem, 4vw, 3rem);
+
+      border: 1px solid rgba(235, 222, 193, .22);
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(21, 18, 14, .84),
+          rgba(21, 18, 14, .62)
+        );
+
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, .28);
+    }
+
+
+    .bakehouse-hero h1 {
+      margin:
+        .4rem 0
+        1.25rem;
+
+      max-width: 700px;
+    }
+
+
+    .bakehouse-hero h1 em {
+      display: block;
+    }
+
+
+    .bakehouse-hero-lede {
+      max-width: 620px;
+
+      margin: 0;
+
+      font-size:
+        clamp(1.08rem, 2vw, 1.28rem);
+
+      line-height: 1.65;
+    }
+
+
+    .bakehouse-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+
+      margin-top: 1.8rem;
+    }
+
+
+    .bakehouse-text-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+
+      padding:
+        .8rem
+        1.25rem;
+
+      border:
+        1px solid
+        rgba(231, 216, 183, .38);
+
+      border-radius: 999px;
+
+      color: #f4ead5;
+
+      background:
+        rgba(29, 36, 26, .88);
+
+      font-family:
+        "Cinzel",
+        serif;
+
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+
+      text-decoration: none;
+      text-transform: uppercase;
+
+      transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+    }
+
+
+    .bakehouse-text-button:hover {
+      transform:
+        translateY(-2px);
+
+      background:
+        rgba(46, 58, 40, .96);
+
+      border-color:
+        rgba(231, 216, 183, .62);
+    }
+
+
+    .bakehouse-text-button.secondary {
+      background:
+        rgba(18, 17, 14, .78);
+    }
+
+
+    /* =====================================================
+       INTRO
+       ===================================================== */
+
+    .custom-intro {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, .9fr)
+        minmax(0, 1.1fr);
+
+      gap:
+        clamp(2rem, 6vw, 6rem);
+
+      align-items: start;
+    }
+
+
+    .custom-intro-copy {
+      max-width: 680px;
+    }
+
+
+    .custom-intro-copy p:first-child {
+      margin-top: 0;
+    }
+
+
+    /* =====================================================
+       PORTFOLIO / CAROUSEL
+       ===================================================== */
+
+    .bakes-showcase {
+      overflow: hidden;
+    }
+
+
+    .bakes-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+
+      margin-bottom: 1.4rem;
+    }
+
+
+    .bakes-heading-copy {
+      max-width: 680px;
+    }
+
+
+    .bakes-heading-copy h2 {
+      margin-bottom: .7rem;
+    }
+
+
+    .swipe-hint {
+      margin: 0;
+
+      color:
+        rgba(239, 228, 204, .68);
+
+      font-size: .9rem;
+      white-space: nowrap;
+    }
+
+
+    .bakes-track {
+      display: grid;
+
+      grid-auto-flow: column;
+
+      grid-auto-columns:
+        minmax(290px, 31%);
+
+      gap: 1rem;
+
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      padding:
+        .25rem
+        .1rem
+        1.2rem;
+
+      scroll-snap-type:
+        x mandatory;
+
+      scrollbar-width: thin;
+
+      overscroll-behavior-inline:
+        contain;
+    }
+
+
+    .bakes-track::-webkit-scrollbar {
+      height: 7px;
+    }
+
+
+    .bakes-track::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+
+      background:
+        rgba(226, 210, 176, .28);
+    }
+
+
+    .bake-card {
+      scroll-snap-align: start;
+
+      overflow: hidden;
+
+      border:
+        1px solid
+        rgba(231, 216, 183, .18);
+
+      border-radius: 24px;
+
+      background:
+        rgba(20, 18, 15, .84);
+
+      box-shadow:
+        0 16px 44px
+        rgba(0, 0, 0, .22);
+    }
+
+
+    .bake-card-image {
+      position: relative;
+
+      aspect-ratio: 4 / 3;
+
+      overflow: hidden;
+    }
+
+
+    .bake-card-image img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform .45s ease;
+    }
+
+
+    .bake-card:hover
+    .bake-card-image img {
+      transform: scale(1.025);
+    }
+
+
+    .bake-card-copy {
+      padding:
+        1.25rem
+        1.3rem
+        1.45rem;
+    }
+
+
+    .bake-card-copy h3 {
+      margin:
+        0
+        0
+        .45rem;
+    }
+
+
+    .bake-card-copy p {
+      margin: 0;
+
+      color:
+        rgba(239, 228, 204, .72);
+
+      line-height: 1.55;
+    }
+
+
+    /* =====================================================
+       CUSTOM ORDER INFO
+       ===================================================== */
+
+    .custom-order {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(280px, .7fr);
+
+      gap:
+        clamp(2rem, 6vw, 6rem);
+
+      align-items: start;
+    }
+
+
+    .custom-order-copy {
+      max-width: 700px;
+    }
+
+
+    .custom-order-copy h2 {
+      margin-bottom: 1rem;
+    }
+
+
+    .order-card {
+      padding:
+        clamp(1.5rem, 3vw, 2.2rem);
+
+      border:
+        1px solid
+        rgba(231, 216, 183, .22);
+
+      border-radius: 24px;
+
+      background:
+        rgba(18, 17, 14, .82);
+
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+    }
+
+
+    .order-card h3 {
+      margin-top: 0;
+    }
+
+
+    .order-card ul {
+      margin:
+        1rem 0
+        1.5rem;
+
+      padding-left: 1.15rem;
+    }
+
+
+    .order-card li {
+      margin-bottom: .55rem;
+
+      color:
+        rgba(239, 228, 204, .78);
+
+      line-height: 1.45;
+    }
+
+
+    /* =====================================================
+       FINAL CTA
+       ===================================================== */
+
+    .bakehouse-cta {
+      text-align: center;
+    }
+
+
+    .bakehouse-cta-inner {
+      max-width: 780px;
+
+      margin-inline: auto;
+
+      padding:
+        clamp(2rem, 5vw, 4rem);
+
+      border:
+        1px solid
+        rgba(231, 216, 183, .22);
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(26, 31, 23, .9),
+          rgba(17, 16, 13, .88)
+        );
+
+      box-shadow:
+        0 24px 70px
+        rgba(0, 0, 0, .24);
+    }
+
+
+    .bakehouse-cta h2 {
+      margin-bottom: .9rem;
+    }
+
+
+    .bakehouse-cta p {
+      max-width: 600px;
+
+      margin:
+        0 auto
+        1.5rem;
+    }
+
+
+    /* =====================================================
+       TABLET
+       ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .custom-intro,
+      .custom-order {
+        grid-template-columns: 1fr;
+      }
+
+
+      .bakes-track {
+        grid-auto-columns:
+          minmax(280px, 46%);
+      }
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 540px) {
+
+      .bakehouse-page .page-bg {
+        background-image:
+          url("assets/bakehouse-mobile-bg.webp");
+
+        background-position:
+          center top;
+      }
+
+
+      .bakehouse-page .veil {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(10, 9, 7, .30) 0%,
+            rgba(10, 9, 7, .62) 34%,
+            rgba(10, 9, 7, .82) 100%
+          );
+      }
+
+
+      .bakehouse-hero {
+        min-height:
+          88svh;
+
+        align-items:
+          flex-end;
+
+        padding-top:
+          7rem;
+
+        padding-bottom:
+          2rem;
+      }
+
+
+      .bakehouse-hero-inner {
+        padding:
+          1.35rem;
+
+        border-radius:
+          22px;
+
+        background:
+          rgba(20, 18, 15, .74);
+      }
+
+
+      .bakehouse-hero-actions {
+        flex-direction:
+          column;
+
+        align-items:
+          stretch;
+      }
+
+
+      .bakehouse-text-button {
+        width: 100%;
+      }
+
+
+      .bakes-heading {
+        display: block;
+      }
+
+
+      .swipe-hint {
+        margin-top:
+          .65rem;
+      }
+
+
+      .bakes-track {
+        /*
+          About 1.15 cards visible.
+          Makes the swipe interaction obvious.
+        */
+        grid-auto-columns:
+          86%;
+
+        gap:
+          .8rem;
+
+        margin-right:
+          calc(
+            -1 *
+            var(--page-pad, 1rem)
+          );
+
+        padding-right:
+          14%;
+      }
+
+
+      .bake-card {
+        border-radius:
+          20px;
+      }
+
+
+      .bake-card-copy {
+        padding:
+          1.05rem
+          1.1rem
+          1.25rem;
+      }
+
+
+      .order-card {
+        border-radius:
+          20px;
+      }
+
+
+      .bakehouse-cta-inner {
+        border-radius:
+          22px;
+      }
+
+    }
+
+
+    /* =====================================================
+       REDUCED MOTION
+       ===================================================== */
+
+    @media (
+      prefers-reduced-motion:
+      reduce
+    ) {
+
+      .bake-card-image img,
+      .bakehouse-text-button {
+        transition: none;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body class="bakehouse-page">
+
+
+  <!-- Background -->
+
+  <div
+    class="page-bg"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="veil"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- Floating dust -->
+
+  <div
+    class="dust"
+    aria-hidden="true"
+  >
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </div>
+
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="site-header">
+
+    <a
+      class="brand"
+      href="index.html"
+      aria-label="Stag and Stone home"
+    >
+
+      <span class="brand-name">
+        Stag &amp; Stone
+      </span>
+
+      <span class="brand-sub">
+        Coffee and Bakehouse
+      </span>
+
+    </a>
+
+
+    <nav
+      class="nav"
+      aria-label="Primary navigation"
+    >
+
+      <a href="menu.html">
+        Menu
+      </a>
+
+      <a href="index.html#visit">
+        Visit
+      </a>
+
+      <a
+        href="bakehouse.html"
+        aria-current="page"
+      >
+        Bakehouse
+      </a>
+
+      <a href="coffee-cart.html">
+        Coffee cart
+      </a>
+
+      <a href="mobile-tavern.html">
+        Mobile tavern
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main id="top">
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section
+      class="section-shell bakehouse-hero"
+    >
+
+      <div class="bakehouse-hero-inner">
+
+        <p class="eyebrow">
+          Lynn's Bakehouse
+        </p>
+
+        <h1>
+          Baked for the
+          <em>occasion.</em>
+        </h1>
+
+        <p class="bakehouse-hero-lede">
+          Custom cakes, cupcakes, pastries, and
+          specialty bakes made for birthdays,
+          celebrations, gatherings, and everything
+          worth putting a little sugar around.
+        </p>
+
+
+        <div class="bakehouse-hero-actions">
+
+          <a
+            class="bakehouse-text-button"
+            href="#custom-bakes"
+          >
+            Explore custom bakes
+          </a>
+
+          <a
+            class="bakehouse-text-button secondary"
+            href="#order"
+          >
+            Request a custom bake
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO
+         ===================================================== -->
+
+    <section
+      class="section-shell custom-intro"
+    >
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          Made by Lynn
+        </p>
+
+        <h2>
+          A little more personal than the pastry case.
+        </h2>
+
+      </div>
+
+
+      <div class="custom-intro-copy">
+
+        <p>
+          Alongside the everyday bakehouse at
+          Stag &amp; Stone, Lynn creates custom
+          cakes, cupcakes, pastries, and specialty
+          bakes for celebrations and gatherings.
+        </p>
+
+        <p class="muted">
+          Every custom order begins with the occasion.
+          Flavors, colors, decoration, quantity, and
+          presentation can be discussed when you
+          inquire, so the finished bake fits the
+          people and the moment it is being made for.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CUSTOM BAKES SHOWCASE
+         ===================================================== -->
+
+    <section
+      class="section-shell bakes-showcase"
+      id="custom-bakes"
+    >
+
+      <div class="bakes-heading">
+
+        <div class="bakes-heading-copy">
+
+          <p class="eyebrow">
+            Custom bakes
+          </p>
+
+          <h2>
+            A few things from Lynn's kitchen.
+          </h2>
+
+          <p class="muted">
+            Past work and bakehouse favorites.
+            Custom designs and availability vary.
+          </p>
+
+        </div>
+
+
+        <p
+          class="swipe-hint"
+          aria-hidden="true"
+        >
+          Swipe to explore →
+        </p>
+
+      </div>
+
+
+      <div
+        class="bakes-track"
+        aria-label="Lynn's custom bakes"
+      >
+
+
+        <!-- Waterfall cake -->
+
+        <article class="bake-card">
+
+          <div class="bake-card-image">
+
+            <img
+              src="stag-food/waterfall-cake.webp"
+              alt="Custom waterfall celebration cake with matching cupcakes"
+              loading="lazy"
+            />
+
+          </div>
+
+          <div class="bake-card-copy">
+
+            <h3>
+              Celebration Cakes
+            </h3>
+
+            <p>
+              Custom centerpiece cakes built around
+              the occasion, theme, and people being
+              celebrated.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- Pink birthday cake -->
+
+        <article class="bake-card">
+
+          <div class="bake-card-image">
+
+            <img
+              src="stag-food/pink-cake.webp"
+              alt="Pink custom birthday cake with white chocolate strawberries"
+              loading="lazy"
+            />
+
+          </div>
+
+          <div class="bake-card-copy">
+
+            <h3>
+              Birthday &amp; Occasion Cakes
+            </h3>
+
+            <p>
+              From simple birthday cakes to
+              personalized celebration bakes with
+              colors and details made for the day.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- Ladybug cupcakes -->
+
+        <article class="bake-card">
+
+          <div class="bake-card-image">
+
+            <img
+              src="stag-food/ladybug-cc.webp"
+              alt="Custom red ladybug cupcakes"
+              loading="lazy"
+            />
+
+          </div>
+
+          <div class="bake-card-copy">
+
+            <h3>
+              Custom Cupcakes
+            </h3>
+
+            <p>
+              Playful, themed, and celebration-ready
+              cupcakes for parties, showers, birthdays,
+              and gatherings.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- Scones -->
+
+        <article class="bake-card">
+
+          <div class="bake-card-image">
+
+            <img
+              src="stag-food/Scones.webp"
+              alt="Rustic glazed scones"
+              loading="lazy"
+            />
+
+          </div>
+
+          <div class="bake-card-copy">
+
+            <h3>
+              Seasonal Scones
+            </h3>
+
+            <p>
+              Rustic hand-finished scones with
+              rotating flavors, glazes, fruits,
+              and seasonal combinations.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- Lemon berry -->
+
+        <article class="bake-card">
+
+          <div class="bake-card-image">
+
+            <img
+              src="stag-food/lemon-berry.webp"
+              alt="Glazed lemon berry scones"
+              loading="lazy"
+            />
+
+          </div>
+
+          <div class="bake-card-copy">
+
+            <h3>
+              Specialty Bakes
+            </h3>
+
+            <p>
+              Small-batch flavors and seasonal
+              creations that move beyond the
+              everyday pastry case.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- Blueberry muffins -->
+
+        <article class="bake-card">
+
+          <div class="bake-card-image">
+
+            <img
+              src="stag-food/bb-muffin.webp"
+              alt="Rustic blueberry muffins"
+              loading="lazy"
+            />
+
+          </div>
+
+          <div class="bake-card-copy">
+
+            <h3>
+              Bakery Muffins
+            </h3>
+
+            <p>
+              Generous bakery-style muffins for
+              gatherings, breakfast tables, and
+              special orders.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CUSTOM ORDER
+         ===================================================== -->
+
+    <section
+      class="section-shell custom-order"
+      id="order"
+    >
+
+      <div class="custom-order-copy">
+
+        <p class="eyebrow">
+          Custom orders
+        </p>
+
+        <h2>
+          Tell us what you're celebrating.
+        </h2>
+
+        <p>
+          Custom baking starts with a conversation.
+          Tell us what you need, when you need it,
+          and what you have in mind.
+        </p>
+
+        <p class="muted">
+          Because custom work varies in size,
+          ingredients, decoration, and labor,
+          pricing is quoted individually rather
+          than listed as a fixed menu price.
+        </p>
+
+      </div>
+
+
+      <aside class="order-card">
+
+        <h3>
+          Helpful details
+        </h3>
+
+        <ul>
+          <li>
+            Date needed
+          </li>
+
+          <li>
+            Type of cake or bake
+          </li>
+
+          <li>
+            Approximate serving count
+          </li>
+
+          <li>
+            Flavor ideas
+          </li>
+
+          <li>
+            Colors or theme
+          </li>
+
+          <li>
+            Inspiration or reference photos
+          </li>
+
+          <li>
+            Any dietary considerations
+          </li>
+        </ul>
+
+
+        <a
+          class="bakehouse-text-button"
+          href="mailto:theblackstaginn@gmail.com?subject=Lynn%27s%20Custom%20Bake%20Inquiry&amp;body=Hi%20Lynn%27s%20Bakehouse%2C%0A%0AI%27d%20like%20to%20ask%20about%20a%20custom%20bake.%0A%0ADate%20needed%3A%0AType%20of%20bake%3A%0AServing%20count%3A%0AFlavor%20ideas%3A%0AColors%20or%20theme%3A%0ADietary%20considerations%3A%0A%0AAnything%20else%3A"
+        >
+          Start an inquiry
+        </a>
+
+      </aside>
+
+    </section>
+
+
+    <!-- =====================================================
+         FINAL CTA
+         ===================================================== -->
+
+    <section
+      class="section-shell bakehouse-cta"
+    >
+
+      <div class="bakehouse-cta-inner">
+
+        <p class="eyebrow">
+          Lynn's Bakehouse
+        </p>
+
+        <h2>
+          Have something in mind?
+        </h2>
+
+        <p class="muted">
+          Send us the occasion, date, and a little
+          about what you're imagining. We'll take
+          it from there.
+        </p>
+
+
+        <a
+          class="bakehouse-text-button"
+          href="mailto:theblackstaginn@gmail.com?subject=Lynn%27s%20Custom%20Bake%20Inquiry"
+        >
+          Request a custom bake
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="site-footer">
+
+    <div>
+
+      <span class="footer-brand">
+        STAG &amp; STONE
+      </span>
+
+      <span class="footer-sub">
+        Coffee and Bakehouse - Clarkesville, Georgia
+      </span>
+
+    </div>
+
+
+    <a
+      href="mailto:theblackstaginn@gmail.com"
+    >
+      theblackstaginn@gmail.com
+    </a>
+
+
+    <span class="copyright">
+      Copyright
+      <span id="year"></span>
+      Stag &amp; Stone
+    </span>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JS
+       ===================================================== -->
+
+  <script>
+
+    document.getElementById(
+      "year"
+    ).textContent =
+      new Date().getFullYear();
+
+  </script>
+
+
+</body>
+</html>
