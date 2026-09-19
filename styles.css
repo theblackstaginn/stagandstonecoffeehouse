@@ -223,3 +223,476 @@ h3 { color: var(--copper); font-size: 1.1rem; }
   .button, .image-button { transition: none; }
   .dust span { animation: none; opacity: .78; }
 }
+
+/* =========================================================
+   STAG & STONE — MENU PAGE
+   ========================================================= */
+
+.menu-page {
+  --menu-ink: #25261c;
+  --menu-muted: #535544;
+  --menu-green: #3d4a2d;
+  --menu-green-dark: #27311f;
+  --menu-gold: #80663e;
+  --menu-line: rgba(50, 61, 38, .42);
+}
+
+/* Menu gets its own light apothecary background */
+.menu-page .page-bg {
+  background-image: url("assets/menu-page-bg.webp");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(1.03) saturate(.92) contrast(.98);
+  transform: scale(1.015);
+}
+
+/* Much lighter veil than the rest of the site */
+.menu-page .veil {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(245, 236, 214, .03),
+      rgba(236, 224, 198, .08)
+    );
+}
+
+.menu-page .veil::after {
+  background: none;
+}
+
+/* Don't lay the site's dark scanline texture over parchment */
+.menu-page::before {
+  opacity: .035;
+}
+
+/* Keep site navigation dark/readable */
+.menu-page .site-header {
+  background: rgba(16, 19, 15, .74);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ---------- MENU INTRO ---------- */
+
+.menu-hero {
+  width: min(var(--max), calc(100% - 2rem));
+  margin: 0 auto;
+  padding: clamp(4.5rem, 9vw, 7.5rem) 1.5rem 2.5rem;
+  text-align: center;
+  color: var(--menu-ink);
+}
+
+.menu-hero .eyebrow {
+  color: var(--menu-green);
+}
+
+.menu-hero h1 {
+  color: var(--menu-green-dark);
+  font-size: clamp(3rem, 8vw, 5.8rem);
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.4),
+    0 5px 18px rgba(70, 55, 30, .12);
+}
+
+.menu-hero p {
+  width: min(620px, 100%);
+  margin: 1rem auto 0;
+  color: var(--menu-muted);
+  font-family: Cardo, Georgia, serif;
+  font-size: 1.08rem;
+}
+
+/* ---------- CATEGORY NAV ---------- */
+
+.menu-jump-wrap {
+  position: sticky;
+  top: 102px;
+  z-index: 9;
+  width: min(var(--max), calc(100% - 2rem));
+  margin: 0 auto 1.5rem;
+}
+
+.menu-jump {
+  display: flex;
+  justify-content: center;
+  gap: .45rem 1.1rem;
+  padding: .72rem 1rem;
+  overflow-x: auto;
+
+  border: 1px solid rgba(221, 203, 168, .16);
+  border-radius: 999px;
+
+  background: rgba(19, 23, 17, .72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  scrollbar-width: none;
+}
+
+.menu-jump::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-jump a {
+  flex: 0 0 auto;
+  color: #e9dfce;
+  font: 600 .68rem/1 Cinzel, serif;
+  letter-spacing: .1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.menu-jump a:hover,
+.menu-jump a:focus-visible {
+  color: #fff2d8;
+}
+
+/* ---------- MENU GRID ---------- */
+
+.menu-shell {
+  width: min(var(--max), calc(100% - 2rem));
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  align-items: start;
+}
+
+/*
+  The panel itself has NO colored fill.
+  Backdrop blur is the only treatment behind it.
+*/
+.menu-panel {
+  position: relative;
+  overflow: hidden;
+
+  padding: clamp(1.35rem, 3vw, 2rem);
+
+  color: var(--menu-ink);
+
+  background: transparent;
+
+  border: 1px solid var(--menu-line);
+  border-radius: 20px;
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  box-shadow:
+    0 12px 32px rgba(64, 49, 25, .09),
+    inset 0 0 0 1px rgba(255,255,255,.16);
+}
+
+/* Tiny apothecary corner marks */
+.menu-panel::before,
+.menu-panel::after {
+  content: "✦";
+  position: absolute;
+  color: rgba(61, 74, 45, .48);
+  font-size: .72rem;
+}
+
+.menu-panel::before {
+  top: .7rem;
+  left: .8rem;
+}
+
+.menu-panel::after {
+  right: .8rem;
+  bottom: .7rem;
+}
+
+.menu-panel-heading {
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.menu-panel-heading .eyebrow {
+  margin-bottom: .45rem;
+  color: var(--menu-gold);
+}
+
+.menu-panel h2 {
+  color: var(--menu-green-dark);
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  text-shadow: none;
+}
+
+.menu-panel-note {
+  margin: .4rem auto 0;
+  color: var(--menu-muted);
+  font-size: .88rem;
+  font-style: italic;
+}
+
+/* ---------- INDIVIDUAL ITEMS ---------- */
+
+.menu-items {
+  display: grid;
+  gap: .4rem;
+}
+
+.menu-item {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+
+  padding: .85rem 0;
+}
+
+.menu-item + .menu-item {
+  border-top: 1px solid rgba(54, 64, 42, .16);
+}
+
+.menu-item.no-image {
+  grid-template-columns: 1fr;
+}
+
+.menu-item-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.menu-item-image {
+  display: block;
+  width: 100%;
+  max-width: 92px;
+  max-height: 105px;
+  object-fit: contain;
+
+  /*
+    These shadows follow transparency, creating the
+    subtle green outline around the FOOD/DRINK itself.
+  */
+  filter:
+    drop-shadow(1px 0 0 rgba(54, 67, 39, .68))
+    drop-shadow(-1px 0 0 rgba(54, 67, 39, .68))
+    drop-shadow(0 1px 0 rgba(54, 67, 39, .68))
+    drop-shadow(0 -1px 0 rgba(54, 67, 39, .68))
+    drop-shadow(0 5px 7px rgba(41, 31, 18, .20));
+
+  transition:
+    transform .22s ease,
+    filter .22s ease;
+}
+
+.menu-item:hover .menu-item-image {
+  transform: translateY(-2px) scale(1.025);
+
+  filter:
+    drop-shadow(1px 0 0 rgba(47, 62, 34, .78))
+    drop-shadow(-1px 0 0 rgba(47, 62, 34, .78))
+    drop-shadow(0 1px 0 rgba(47, 62, 34, .78))
+    drop-shadow(0 -1px 0 rgba(47, 62, 34, .78))
+    drop-shadow(0 7px 9px rgba(41, 31, 18, .24));
+}
+
+.menu-item-copy {
+  min-width: 0;
+}
+
+.menu-item-top {
+  display: flex;
+  align-items: baseline;
+  gap: .65rem;
+}
+
+.menu-item-name {
+  color: var(--menu-green-dark);
+  font: 700 1.06rem/1.2 Cardo, Georgia, serif;
+}
+
+.menu-item-dots {
+  flex: 1;
+  min-width: 12px;
+  border-bottom: 1px dotted rgba(53, 60, 43, .36);
+  transform: translateY(-3px);
+}
+
+.menu-item-price {
+  flex: 0 0 auto;
+  color: var(--menu-green-dark);
+  font: 700 .94rem/1 Cardo, Georgia, serif;
+  white-space: nowrap;
+}
+
+.menu-item-description {
+  margin: .28rem 0 0;
+  color: var(--menu-muted);
+  font-size: .87rem;
+  line-height: 1.4;
+}
+
+/* ---------- APOTHECARY SECTION ---------- */
+
+.menu-panel.apothecary {
+  border-color: rgba(52, 71, 40, .55);
+}
+
+.menu-panel.apothecary h2 {
+  color: #314128;
+}
+
+.apothecary-mark {
+  display: block;
+  margin-bottom: .3rem;
+  color: rgba(49, 65, 40, .72);
+  font-size: 1rem;
+  letter-spacing: .3em;
+}
+
+/* ---------- FEATURED / WIDER SECTIONS ---------- */
+
+.menu-panel.menu-wide {
+  grid-column: 1 / -1;
+}
+
+.menu-wide .menu-items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2rem;
+}
+
+/* ---------- AVAILABILITY NOTE ---------- */
+
+.menu-availability {
+  width: min(720px, calc(100% - 2rem));
+  margin: 2rem auto 0;
+  padding: 1rem 1.25rem;
+
+  color: var(--menu-muted);
+  text-align: center;
+  font-size: .88rem;
+
+  border-top: 1px solid rgba(57, 68, 44, .28);
+  border-bottom: 1px solid rgba(57, 68, 44, .28);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Menu footer sits on light artwork, so give it readable ink */
+.menu-page .site-footer {
+  color: rgba(37, 38, 28, .72);
+}
+
+.menu-page .footer-brand,
+.menu-page .site-footer a {
+  color: var(--menu-green-dark);
+}
+
+.menu-page .copyright {
+  color: rgba(37, 38, 28, .55);
+}
+
+/* ---------- TABLET / MOBILE ---------- */
+
+@media (max-width: 800px) {
+
+  .menu-hero {
+    padding-top: 3.4rem;
+  }
+
+  /*
+    Mobile header is taller because nav wraps beneath logo.
+    Keep jump navigation below it.
+  */
+  .menu-jump-wrap {
+    top: 126px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-panel.menu-wide {
+    grid-column: auto;
+  }
+
+  .menu-wide .menu-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+
+  /*
+    Override the site's normal mobile background.
+    Otherwise inside-mobile-bg.webp would win.
+  */
+  .menu-page .page-bg {
+    background-image: url("assets/menu-page-bg.webp");
+    background-position: center top;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 540px) {
+
+  .menu-hero {
+    padding-left: .6rem;
+    padding-right: .6rem;
+  }
+
+  .menu-hero h1 {
+    font-size: clamp(2.65rem, 13vw, 4rem);
+  }
+
+  .menu-jump-wrap {
+    width: calc(100% - 1rem);
+    top: 130px;
+  }
+
+  .menu-jump {
+    justify-content: flex-start;
+    border-radius: 14px;
+  }
+
+  .menu-shell {
+    width: calc(100% - 1rem);
+  }
+
+  .menu-panel {
+    padding: 1.15rem;
+    border-radius: 16px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .menu-item {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: .8rem;
+  }
+
+  .menu-item-image {
+    max-width: 76px;
+    max-height: 88px;
+  }
+
+  .menu-item-name {
+    font-size: 1rem;
+  }
+
+  .menu-item-description {
+    font-size: .82rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-item-image {
+    transition: none;
+  }
+
+  .menu-item:hover .menu-item-image {
+    transform: none;
+  }
+}
