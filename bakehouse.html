@@ -178,17 +178,16 @@
       display: grid;
 
       grid-template-columns:
-        repeat(2, minmax(0, 300px));
+        repeat(2, minmax(0, 1fr));
 
       align-items: center;
-      justify-content: start;
 
       gap:
-        clamp(.5rem, 1.5vw, 1rem);
+        clamp(.75rem, 2vw, 1.25rem);
 
-      width: 100%;
+      width: min(100%, 680px);
 
-      margin-top: 1.6rem;
+      margin-top: 1.8rem;
     }
 
 
@@ -199,7 +198,6 @@
       justify-content: center;
 
       width: 100%;
-      max-width: 300px;
 
       padding: 0;
       margin: 0;
@@ -270,8 +268,7 @@
 
 
     .bakehouse-sticker-button-single {
-      width: min(100%, 300px);
-      max-width: 300px;
+      width: min(100%, 390px);
 
       margin-top: 1rem;
     }
@@ -467,7 +464,7 @@
 
 
     /* =====================================================
-       CUSTOM ORDER INFO
+       CUSTOM ORDER
        ===================================================== */
 
     .custom-order {
@@ -537,63 +534,6 @@
 
 
     /* =====================================================
-       FINAL CTA
-       ===================================================== */
-
-    .bakehouse-cta {
-      text-align: center;
-    }
-
-
-    .bakehouse-cta-inner {
-      max-width: 780px;
-
-      margin-inline: auto;
-
-      padding:
-        clamp(2rem, 5vw, 4rem);
-
-      border:
-        1px solid
-        rgba(231, 216, 183, .22);
-
-      border-radius: 30px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(26, 31, 23, .9),
-          rgba(17, 16, 13, .88)
-        );
-
-      box-shadow:
-        0 24px 70px
-        rgba(0, 0, 0, .24);
-    }
-
-
-    .bakehouse-cta h2 {
-      margin-bottom: .9rem;
-    }
-
-
-    .bakehouse-cta p {
-      max-width: 600px;
-
-      margin:
-        0 auto
-        1.5rem;
-    }
-
-
-    .bakehouse-cta
-    .bakehouse-sticker-button-single {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-
-    /* =====================================================
        TABLET
        ===================================================== */
 
@@ -639,6 +579,20 @@
       }
 
 
+      /*
+        Give Lynn's page a little more breathing room
+        on narrow screens.
+      */
+
+      .bakehouse-page .section-shell {
+        width:
+          calc(100% - 2.5rem);
+
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+
       .bakehouse-hero {
         min-height:
           88svh;
@@ -670,21 +624,17 @@
         grid-template-columns:
           1fr;
 
-        justify-items: center;
-
         width: 100%;
 
-        gap: 0;
+        gap: .15rem;
 
-        margin-top: 1.15rem;
+        margin-top: 1.25rem;
       }
 
 
       .bakehouse-sticker-button {
         width:
-          min(100%, 295px);
-
-        max-width: 295px;
+          min(100%, 300px);
 
         margin-inline: auto;
       }
@@ -697,9 +647,15 @@
 
       .bakehouse-sticker-button-single {
         width:
-          min(100%, 295px);
+          min(100%, 300px);
+      }
 
-        max-width: 295px;
+
+      .custom-intro,
+      .custom-order,
+      .bakes-showcase {
+        padding-left: .35rem;
+        padding-right: .35rem;
       }
 
 
@@ -751,11 +707,6 @@
       .bakehouse-sticker-button-single {
         margin-left: auto;
         margin-right: auto;
-      }
-
-
-      .bakehouse-cta-inner {
-        border-radius: 22px;
       }
 
     }
@@ -1247,15 +1198,16 @@
 
         <p>
           Custom baking starts with a conversation.
-          Tell us what you need, when you need it,
-          and what you have in mind.
+          Send us the occasion, the date you need it,
+          and a little about what you're imagining.
         </p>
 
         <p class="muted">
-          Because custom work varies in size,
-          ingredients, decoration, and labor,
-          pricing is quoted individually rather
-          than listed as a fixed menu price.
+          Because every custom bake varies in size,
+          ingredients, decoration, and labor, pricing
+          is quoted individually. The more detail you
+          can give us, the better we can bring your
+          idea to life.
         </p>
 
       </div>
@@ -1315,50 +1267,6 @@
         </a>
 
       </aside>
-
-    </section>
-
-
-    <!-- =====================================================
-         FINAL CTA
-         ===================================================== -->
-
-    <section
-      class="section-shell bakehouse-cta"
-    >
-
-      <div class="bakehouse-cta-inner">
-
-        <p class="eyebrow">
-          Lynn's Bakehouse
-        </p>
-
-        <h2>
-          Have something in mind?
-        </h2>
-
-        <p class="muted">
-          Send us the occasion, date, and a little
-          about what you're imagining. We'll take
-          it from there.
-        </p>
-
-
-        <a
-          class="bakehouse-sticker-button bakehouse-sticker-button-single"
-          href="mailto:theblackstaginn@gmail.com?subject=Lynn%27s%20Custom%20Bake%20Inquiry"
-          aria-label="Request a custom bake"
-        >
-
-          <img
-            src="stag-buttons/request-bake.webp"
-            alt="Request a custom bake"
-            loading="lazy"
-          />
-
-        </a>
-
-      </div>
 
     </section>
 
