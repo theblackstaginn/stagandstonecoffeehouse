@@ -1801,3 +1801,268 @@ h3 {
     max-width: 100%;
   }
 }
+
+/* =========================================================
+   COMMUNITY NIGHT MOBILE MODAL
+   ========================================================= */
+
+.community-modal {
+  display: none;
+}
+
+
+/* =========================================================
+   PHONE ONLY
+   ========================================================= */
+
+@media (max-width: 540px) {
+
+  /*
+    The original horizontal scrolls stay visible.
+    On phones they become the tap targets.
+  */
+
+  .community-scroll {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+
+  /*
+    Lock the page behind the open parchment.
+  */
+
+  body.community-modal-open {
+    overflow: hidden;
+  }
+
+
+  /*
+    Full-screen modal container.
+  */
+
+  .community-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+      max(.75rem, env(safe-area-inset-top))
+      .65rem
+      max(.75rem, env(safe-area-inset-bottom));
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+      opacity .22s ease,
+      visibility .22s ease;
+  }
+
+  .community-modal.is-open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+
+  /*
+    Dark blurred page behind the parchment.
+  */
+
+  .community-modal-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background:
+      rgba(3, 4, 3, .86);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+  }
+
+
+  /*
+    The modal itself occupies most of the phone screen.
+  */
+
+  .community-modal-dialog {
+    position: relative;
+    z-index: 1;
+
+    width: min(96vw, 520px);
+    height: min(94dvh, 900px);
+
+    transform:
+      translateY(10px)
+      scale(.985);
+
+    opacity: 0;
+
+    transition:
+      transform .24s ease,
+      opacity .24s ease;
+  }
+
+  .community-modal.is-open
+  .community-modal-dialog {
+    transform:
+      translateY(0)
+      scale(1);
+
+    opacity: 1;
+  }
+
+
+  /*
+    This part scrolls if the vertical parchment
+    is taller than the phone.
+  */
+
+  .community-modal-scroll {
+    width: 100%;
+    height: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    overscroll-behavior: contain;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+  }
+
+  .community-modal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /*
+    Full vertical parchment artwork.
+  */
+
+  .community-modal-poster {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    filter:
+      drop-shadow(
+        0 18px 30px
+        rgba(0,0,0,.62)
+      );
+  }
+
+
+  /*
+    Your signature X button stays fixed
+    over the upper-right corner while
+    the parchment itself scrolls.
+  */
+
+  .community-modal-close {
+    position: absolute;
+
+    top: .35rem;
+    right: .35rem;
+
+    z-index: 5;
+
+    width: 58px;
+    height: 58px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    filter:
+      drop-shadow(
+        0 5px 8px
+        rgba(0,0,0,.48)
+      );
+  }
+
+  .community-modal-close img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+  }
+
+  .community-modal-close:active {
+    transform: scale(.93);
+  }
+
+  .community-modal-close:focus-visible {
+    outline:
+      2px solid
+      rgba(244,223,200,.92);
+
+    outline-offset: 3px;
+  }
+
+}
+
+
+/* =========================================================
+   COMMUNITY MODAL — VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .community-modal {
+    padding-left: .4rem;
+    padding-right: .4rem;
+  }
+
+  .community-modal-dialog {
+    width: 98vw;
+    height: 94dvh;
+  }
+
+  .community-modal-close {
+    width: 52px;
+    height: 52px;
+  }
+
+}
+
+
+/* =========================================================
+   COMMUNITY MODAL — REDUCED MOTION
+   ========================================================= */
+
+@media
+(max-width: 540px) and
+(prefers-reduced-motion: reduce) {
+
+  .community-modal,
+  .community-modal-dialog,
+  .community-modal-close {
+    transition: none;
+  }
+
+}
