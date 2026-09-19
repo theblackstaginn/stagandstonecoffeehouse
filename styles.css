@@ -1691,3 +1691,113 @@ h3 {
     transform: none;
   }
 }
+
+/* =========================================================
+   COMMUNITY NIGHT SCROLLS
+   ========================================================= */
+
+.community-block {
+  overflow: hidden;
+}
+
+.community-copy {
+  width: 100%;
+}
+
+.community-scrolls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  margin-top: 2rem;
+
+  gap: .65rem;
+}
+
+.community-scroll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  margin: 0 auto;
+}
+
+.community-scroll img {
+  display: block;
+
+  width: min(82%, 850px);
+  max-width: 100%;
+  height: auto;
+
+  margin: 0 auto;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 10px 14px
+      rgba(0,0,0,.42)
+    );
+
+  transition:
+    transform .25s ease,
+    filter .25s ease;
+}
+
+.community-scroll img:hover {
+  transform:
+    translateY(-3px)
+    scale(1.01);
+
+  filter:
+    drop-shadow(
+      0 14px 18px
+      rgba(0,0,0,.50)
+    );
+}
+
+
+/* =========================================================
+   COMMUNITY SCROLLS — TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .community-scrolls {
+    margin-top: 1.6rem;
+    gap: .55rem;
+  }
+
+  .community-scroll img {
+    width: min(92%, 760px);
+  }
+}
+
+
+/* =========================================================
+   COMMUNITY SCROLLS — PHONE
+   ========================================================= */
+
+@media (max-width: 540px) {
+
+  .community-scrolls {
+    width: 100%;
+
+    margin-top: 1.4rem;
+
+    gap: .35rem;
+  }
+
+  .community-scroll {
+    width: 100%;
+  }
+
+  .community-scroll img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
