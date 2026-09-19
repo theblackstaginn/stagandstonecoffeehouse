@@ -178,16 +178,17 @@
       display: grid;
 
       grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(2, minmax(0, 300px));
 
       align-items: center;
+      justify-content: start;
 
       gap:
-        clamp(.75rem, 2vw, 1.25rem);
+        clamp(.5rem, 1.5vw, 1rem);
 
-      width: min(100%, 680px);
+      width: 100%;
 
-      margin-top: 1.8rem;
+      margin-top: 1.6rem;
     }
 
 
@@ -198,6 +199,7 @@
       justify-content: center;
 
       width: 100%;
+      max-width: 300px;
 
       padding: 0;
       margin: 0;
@@ -268,7 +270,8 @@
 
 
     .bakehouse-sticker-button-single {
-      width: min(100%, 390px);
+      width: min(100%, 300px);
+      max-width: 300px;
 
       margin-top: 1rem;
     }
@@ -667,17 +670,21 @@
         grid-template-columns:
           1fr;
 
+        justify-items: center;
+
         width: 100%;
 
-        gap: .15rem;
+        gap: 0;
 
-        margin-top: 1.25rem;
+        margin-top: 1.15rem;
       }
 
 
       .bakehouse-sticker-button {
         width:
-          min(100%, 340px);
+          min(100%, 295px);
+
+        max-width: 295px;
 
         margin-inline: auto;
       }
@@ -690,7 +697,9 @@
 
       .bakehouse-sticker-button-single {
         width:
-          min(100%, 340px);
+          min(100%, 295px);
+
+        max-width: 295px;
       }
 
 
