@@ -321,13 +321,50 @@ a {
 
 /* =========================================================
    BAKEHOUSE PAGE SHELL
-   Keeps Lynn's page content away from viewport edges
    ========================================================= */
 
 .bakehouse-page .section-shell {
   width: min(var(--max), calc(100% - 2rem));
   margin-left: auto;
   margin-right: auto;
+}
+
+
+/* =========================================================
+   BAKEHOUSE — OPEN / PANEL-FREE LAYOUT
+
+   bakehouse.html contains older page-specific panel styles.
+   These rules intentionally override them so the page
+   content sits directly over the Bakehouse background.
+   Individual bake carousel cards remain intact.
+   ========================================================= */
+
+.bakehouse-page .bakehouse-hero-inner {
+  padding: 0;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  box-shadow: none;
+}
+
+.bakehouse-page .order-card {
+  padding: 0;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  box-shadow: none;
 }
 
 
@@ -1528,7 +1565,7 @@ h3 {
 
 
   /* =====================================================
-     LYNN'S BAKEHOUSE MOBILE GUTTERS
+     LYNN'S BAKEHOUSE MOBILE
      ===================================================== */
 
   .bakehouse-page .section-shell {
@@ -1539,6 +1576,44 @@ h3 {
 
   .bakehouse-page .bakehouse-hero {
     width: calc(100% - 2rem);
+  }
+
+  /*
+    Keep the Bakehouse hero open on mobile.
+    This overrides the page-level mobile panel styling
+    inside bakehouse.html.
+  */
+
+  .bakehouse-page .bakehouse-hero-inner {
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    box-shadow: none;
+  }
+
+  /*
+    Helpful Details also stays panel-free.
+  */
+
+  .bakehouse-page .order-card {
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    box-shadow: none;
   }
 
   .bakehouse-page .bakes-showcase {
