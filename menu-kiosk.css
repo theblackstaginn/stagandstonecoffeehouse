@@ -1393,3 +1393,58 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     -webkit-backdrop-filter:none;
   }
 }
+
+
+/* =========================================================
+   App handoff CTA
+   ========================================================= */
+.stage-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.download-app-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 13px;
+  border:1px solid rgba(225,177,127,.34);
+  border-radius:999px;
+  background-image:url("assets/menu-charcoal-texture.webp");
+  background-size:460px auto;
+  background-repeat:repeat;
+  background-position:center;
+  color:var(--ink);
+  text-decoration:none;
+  font-family:Cinzel,serif;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  font-size:.61rem;
+  box-shadow:0 4px 14px rgba(0,0,0,.16);
+}
+
+.download-app-link:hover,
+.download-app-link:focus-visible{
+  border-color:rgba(225,177,127,.62);
+  color:#fff3e6;
+}
+
+@media(max-width:960px){
+  .stage-actions{
+    justify-content:flex-start;
+    width:100%;
+  }
+
+  .stage-actions .availability-note{
+    display:none;
+  }
+
+  .download-app-link{
+    min-height:40px;
+    padding:9px 14px;
+  }
+}
