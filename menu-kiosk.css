@@ -1319,12 +1319,10 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
 .order-pill,
 .pull-refresh{
   background-color:#101112;
-  background-image:
-    linear-gradient(rgba(7,8,9,.78),rgba(5,6,7,.88)),
-    url("assets/menu-charcoal-texture.webp");
-  background-size:auto,520px auto;
-  background-repeat:no-repeat,repeat;
-  background-position:center,center;
+  background-image:url("assets/menu-charcoal-texture.webp");
+  background-size:520px auto;
+  background-repeat:repeat;
+  background-position:center;
 }
 
 .review-card{
@@ -1338,9 +1336,9 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
   .fulfillment,
   .order-pill,
   .pull-refresh{
-    background-image:
-      linear-gradient(rgba(7,8,9,.76),rgba(5,6,7,.87)),
-      url("assets/menu-charcoal-texture.webp");
-    background-size:auto,460px auto;
+    background-image:url("assets/menu-charcoal-texture.webp");
+    background-size:460px auto;
+    background-repeat:repeat;
+    background-position:center;
   }
 }
