@@ -26,6 +26,10 @@
       "--active-copper-texture",
       `url("${bustUrl("https://raw.githubusercontent.com/theblackstaginn/Stag-menu/main/Assets/stag-menu-copper-texture.webp")}")`
     );
+    document.documentElement.style.setProperty(
+      "--menu-charcoal-texture",
+      `url("${bustUrl("assets/menu-charcoal-texture.webp")}")`
+    );
   }
 
   const $ = selector => document.querySelector(selector);
@@ -293,7 +297,7 @@
 
   function initPullToRefresh() {
     const indicator = $("#pullRefresh");
-    if (!indicator || !window.matchMedia("(max-width: 780px)").matches) return;
+    if (!indicator || !window.matchMedia("(max-width: 960px)").matches) return;
 
     const label = indicator.querySelector(".pull-refresh-label");
     const threshold = 82;
