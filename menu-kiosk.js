@@ -278,10 +278,10 @@
   els.reviewBtn.addEventListener("click", openReview);
   els.orderPill.addEventListener("click", openReview);
   $("#homeBtn").addEventListener("click", () => {
-    window.location.href = "index.html";
+    window.location.href = "https://stagandstonecoffee.com/";
   });
   $("#sourceBtn").addEventListener("click", () => {
-    window.location.href = "index.html";
+    window.location.href = "https://stagandstonecoffee.com/";
   });
   $("#checkoutBtn").addEventListener("click", () => {
     $("#checkoutBtn").textContent = "Square connection comes next";
