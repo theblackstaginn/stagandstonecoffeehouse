@@ -1259,3 +1259,16 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     left:0;
   }
 }
+
+
+/* Desktop-only artwork width pass:
+   keep the top edge anchored below the sticky header,
+   scale proportionally to fill the menu section width. */
+@media(min-width:961px){
+  .ambient{
+    background:
+      linear-gradient(rgba(12,9,7,.14),rgba(12,9,7,.25)),
+      url("assets/menu-page-bg.webp") center top / 100% auto no-repeat;
+    background-color:#141516;
+  }
+}
