@@ -1396,55 +1396,130 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
 
 
 /* =========================================================
-   App handoff CTA
+   Website-only Stag web app handoff
    ========================================================= */
-.stage-actions{
-  display:flex;
+.webapp-promo{
+  position:relative;
+  isolation:isolate;
+  width:min(760px,100%);
+  margin:2px auto 30px;
+  padding:22px 24px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
   align-items:center;
-  justify-content:flex-end;
-  gap:12px;
-  flex-wrap:wrap;
+  gap:24px;
+  overflow:hidden;
+  border:1px solid rgba(225,177,127,.28);
+  border-radius:22px;
+  background-color:#101112;
+  background-image:
+    var(--menu-charcoal-texture,url("assets/menu-charcoal-texture.webp"));
+  background-size:520px auto;
+  background-repeat:repeat;
+  background-position:center;
+  box-shadow:
+    0 16px 36px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.025);
 }
 
-.download-app-link{
+.webapp-promo::before,
+.webapp-promo::after{
+  content:"❦";
+  position:absolute;
+  z-index:-1;
+  color:rgba(200,139,89,.13);
+  font-size:5rem;
+  line-height:1;
+  pointer-events:none;
+}
+
+.webapp-promo::before{
+  left:-14px;
+  bottom:-20px;
+  transform:rotate(-14deg);
+}
+
+.webapp-promo::after{
+  right:-10px;
+  top:-24px;
+  transform:rotate(166deg);
+}
+
+.webapp-promo-copy{
+  min-width:0;
+}
+
+.webapp-promo-copy h2{
+  margin:4px 0 7px;
+  font-family:Cinzel,serif;
+  font-size:clamp(1.15rem,2vw,1.55rem);
+  line-height:1.2;
+  text-transform:uppercase;
+  letter-spacing:.045em;
+  color:var(--ink);
+}
+
+.webapp-promo-copy > p:last-child{
+  max-width:54ch;
+  margin:0;
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.5;
+}
+
+.webapp-promo-button{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-height:38px;
-  padding:8px 13px;
-  border:1px solid rgba(225,177,127,.34);
-  border-radius:999px;
-  background-image:url("assets/menu-charcoal-texture.webp");
-  background-size:460px auto;
-  background-repeat:repeat;
-  background-position:center;
-  color:var(--ink);
+  min-width:170px;
+  min-height:48px;
+  padding:12px 18px;
+  border:1px solid rgba(255,220,185,.22);
+  border-radius:15px;
+  background:
+    linear-gradient(rgba(52,22,9,.08),rgba(24,10,4,.18)),
+    var(--active-copper-texture,url("https://raw.githubusercontent.com/theblackstaginn/Stag-menu/main/Assets/stag-menu-copper-texture.webp")) center / cover no-repeat;
+  color:#fff3e6;
   text-decoration:none;
   font-family:Cinzel,serif;
+  font-size:.68rem;
+  font-weight:700;
   text-transform:uppercase;
-  letter-spacing:.07em;
-  font-size:.61rem;
-  box-shadow:0 4px 14px rgba(0,0,0,.16);
+  letter-spacing:.08em;
+  text-shadow:0 1px 2px rgba(0,0,0,.58);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 -2px 0 rgba(0,0,0,.30),
+    0 8px 22px rgba(0,0,0,.24);
 }
 
-.download-app-link:hover,
-.download-app-link:focus-visible{
-  border-color:rgba(225,177,127,.62);
-  color:#fff3e6;
+.webapp-promo-button:hover,
+.webapp-promo-button:focus-visible{
+  border-color:rgba(255,220,185,.45);
+  transform:translateY(-1px);
 }
 
 @media(max-width:960px){
-  .stage-actions{
-    justify-content:flex-start;
+  .webapp-promo{
+    width:calc(100% - 4px);
+    margin:0 auto 24px;
+    padding:20px 18px;
+    grid-template-columns:1fr;
+    gap:16px;
+    border-radius:20px;
+    background-size:460px auto;
+  }
+
+  .webapp-promo-copy h2{
+    font-size:1.18rem;
+  }
+
+  .webapp-promo-copy > p:last-child{
+    font-size:.86rem;
+  }
+
+  .webapp-promo-button{
     width:100%;
-  }
-
-  .stage-actions .availability-note{
-    display:none;
-  }
-
-  .download-app-link{
-    min-height:40px;
-    padding:9px 14px;
+    min-height:50px;
   }
 }
