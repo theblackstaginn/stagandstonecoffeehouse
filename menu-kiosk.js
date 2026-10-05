@@ -20,7 +20,7 @@
   if (CACHE_BUST) {
     document.documentElement.style.setProperty(
       "--menu-bg-texture",
-      `url("${bustUrl("assets/menu-page-bg.webp")}")`
+      `url("${bustUrl("https://stagandstonecoffee.com/assets/menu-page-bg.webp")}")`
     );
     document.documentElement.style.setProperty(
       "--active-copper-texture",
@@ -28,7 +28,7 @@
     );
     document.documentElement.style.setProperty(
       "--menu-charcoal-texture",
-      `url("${bustUrl("assets/menu-charcoal-texture.webp")}")`
+      `url("${bustUrl("https://stagandstonecoffee.com/assets/menu-charcoal-texture.webp")}")`
     );
   }
 
