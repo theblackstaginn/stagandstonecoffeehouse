@@ -1369,3 +1369,27 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     bottom:6px;
   }
 }
+
+
+/* =========================================================
+   Mobile PTR/CB + raw charcoal texture assurance
+   ========================================================= */
+.topbar,
+.order-panel,
+.pull-refresh{
+  background-image:var(--menu-charcoal-texture,url("assets/menu-charcoal-texture.webp"));
+}
+
+@media(max-width:960px){
+  .topbar,
+  .order-panel,
+  .pull-refresh{
+    background-color:#101112;
+    background-image:var(--menu-charcoal-texture,url("assets/menu-charcoal-texture.webp"));
+    background-size:460px auto;
+    background-repeat:repeat;
+    background-position:center;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+  }
+}
