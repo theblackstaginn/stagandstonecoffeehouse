@@ -1342,3 +1342,30 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     background-position:center;
   }
 }
+
+
+/* =========================================================
+   Mobile header lock + slight Review Order lift
+   ========================================================= */
+@media(max-width:960px){
+  .topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    width:100%;
+    z-index:80;
+  }
+
+  .workspace{
+    padding-top:118px;
+  }
+
+  .category-rail{
+    top:118px;
+  }
+
+  .order-panel{
+    bottom:6px;
+  }
+}
