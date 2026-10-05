@@ -47,6 +47,31 @@
 
   const STORAGE_KEY = "stag-stone-kiosk-order-v2";
   const MODE_KEY = "stag-stone-kiosk-mode-v2";
+  const WEBAPP_PROMO_KEY = "stag-stone-webapp-promo-seen-v1";
+
+  const webappPromo = $(".webapp-promo");
+  const webappPromoLink = $(".webapp-promo-button");
+
+  const hideWebappPromo = () => {
+    if (!webappPromo) return;
+    webappPromo.hidden = true;
+    webappPromo.style.display = "none";
+  };
+
+  try {
+    if (localStorage.getItem(WEBAPP_PROMO_KEY) === "1") {
+      hideWebappPromo();
+    }
+  } catch {}
+
+  if (webappPromoLink) {
+    webappPromoLink.addEventListener("click", () => {
+      try {
+        localStorage.setItem(WEBAPP_PROMO_KEY, "1");
+      } catch {}
+      hideWebappPromo();
+    });
+  }
 
   const safeRead = (key, fallback) => {
     try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
