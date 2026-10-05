@@ -1230,3 +1230,32 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
       inset 0 1px rgba(255,255,255,.025);
   }
 }
+
+
+/* =========================================================
+   Sticky header + artwork begins below it
+   ========================================================= */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:60;
+}
+
+/* Desktop header is 92px tall. Start the artwork immediately beneath it. */
+.ambient{
+  top:92px;
+  right:0;
+  bottom:0;
+  left:0;
+}
+
+/* Mobile header is intentionally taller to hold the order-mode switch. */
+@media(max-width:960px){
+  .ambient{
+    top:118px;
+    right:0;
+    bottom:0;
+    left:0;
+  }
+}
