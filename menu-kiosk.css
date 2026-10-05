@@ -1272,3 +1272,33 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     background-color:#141516;
   }
 }
+
+
+/* =========================================================
+   Desktop artwork framing pass
+   Fit the menu art to the visible center stage so its full
+   upper-left and upper-right edges remain visible.
+   Mobile is intentionally unchanged.
+   ========================================================= */
+@media(min-width:961px){
+  /* The page-level layer becomes the textured charcoal surround. */
+  .ambient{
+    background:
+      radial-gradient(circle at 50% 0%,rgba(255,255,255,.022),transparent 48%),
+      repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,.012) 0 2px,
+        rgba(0,0,0,.018) 2px 4px
+      );
+    background-color:#141516;
+  }
+
+  /* The artwork now belongs to the actual visible menu section.
+     100% auto preserves aspect ratio and keeps both side edges in frame. */
+  .menu-stage{
+    background:
+      linear-gradient(rgba(12,9,7,.10),rgba(12,9,7,.18)),
+      url("assets/menu-page-bg.webp") center top / 100% auto no-repeat;
+    background-color:#141516;
+  }
+}
