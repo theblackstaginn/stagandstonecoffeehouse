@@ -1048,24 +1048,185 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
   }
 }
 
+/* =========================================================
+   stagandstonecoffee.com final menu material pass
+   Full menu artwork on every viewport + textured charcoal UI
+   ========================================================= */
 
-/* stagandstonecoffee.com integration: preserve the existing menu-page artwork */
 .ambient{
   background:
-    linear-gradient(rgba(12,9,7,.38),rgba(12,9,7,.62)),
-    url("assets/menu-page-bg.webp") center top / cover no-repeat;
-  background-color:#15110d;
+    linear-gradient(rgba(12,9,7,.16),rgba(12,9,7,.28)),
+    url("assets/menu-page-bg.webp") center top / contain no-repeat;
+  background-color:#141516;
 }
+
+/* Texture the charcoal that remains around the fully visible artwork. */
+.ambient::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  left:0;
+  top:0;
+  width:auto;
+  height:auto;
+  transform:none;
+  transform-origin:center;
+  pointer-events:none;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 0 54%,
+      rgba(8,9,10,.10) 70%,
+      rgba(8,9,10,.34) 88%,
+      rgba(7,8,9,.54) 100%
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,.018) 0 2px,
+      rgba(0,0,0,.022) 2px 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,.010) 0 1px,
+      rgba(0,0,0,.014) 1px 3px
+    );
+  opacity:.92;
+  mix-blend-mode:multiply;
+}
+
+.ambient-grain{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(115deg,rgba(255,173,105,.025),transparent 30%,rgba(0,0,0,.12)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.012) 0 1px,
+      rgba(0,0,0,.014) 1px 3px
+    );
+  opacity:.72;
+  mix-blend-mode:soft-light;
+}
+
+/* Keep the menu stage transparent enough for the artwork to stay visually dominant. */
 .menu-stage{
-  background:linear-gradient(rgba(12,9,7,.08),rgba(12,9,7,.20));
+  background:linear-gradient(rgba(10,11,12,.035),rgba(10,11,12,.10));
 }
-@media(max-width:960px){
+
+/* Charcoal edge material: dark, tactile, and still neutral enough to frame the art. */
+.topbar,
+.category-rail,
+.order-panel,
+.item-sheet,
+.review-sheet,
+.review-card,
+.fulfillment,
+.order-pill,
+.pull-refresh{
+  background-color:#151618;
+  background-image:
+    linear-gradient(rgba(12,13,15,.88),rgba(10,11,13,.94)),
+    url("https://raw.githubusercontent.com/theblackstaginn/Stag-menu/main/Assets/leather-ui.webp");
+  background-size:auto,640px 360px;
+  background-repeat:no-repeat,repeat;
+  background-position:center,center;
+}
+
+.topbar{
+  border-bottom-color:rgba(255,255,255,.08);
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.20),
+    inset 0 -1px rgba(255,255,255,.025);
+}
+
+.category-rail{
+  border-right-color:rgba(255,255,255,.08);
+  box-shadow:
+    inset -1px 0 rgba(255,255,255,.025),
+    inset 0 0 34px rgba(0,0,0,.24);
+}
+
+.order-panel{
+  border-left-color:rgba(255,255,255,.08);
+  box-shadow:
+    inset 1px 0 rgba(255,255,255,.025),
+    inset 0 0 34px rgba(0,0,0,.24);
+}
+
+.fulfillment,
+.order-pill{
+  border-color:rgba(225,177,127,.22);
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.035),
+    0 4px 14px rgba(0,0,0,.16);
+}
+
+.item-sheet,
+.review-sheet{
+  border-color:rgba(225,177,127,.24);
+}
+
+.review-card{
+  background-color:transparent;
+}
+
+/* Full artwork on desktop. */
+@media(min-width:961px){
   .ambient{
     background:
-      linear-gradient(rgba(12,9,7,.34),rgba(12,9,7,.58)),
-      url("assets/menu-page-bg.webp") center top / cover no-repeat;
+      linear-gradient(rgba(12,9,7,.14),rgba(12,9,7,.25)),
+      url("assets/menu-page-bg.webp") center top / contain no-repeat;
+    background-color:#141516;
   }
+
   .menu-stage{
-    background:linear-gradient(rgba(12,9,7,.06),rgba(12,9,7,.18));
+    background:linear-gradient(rgba(10,11,12,.025),rgba(10,11,12,.08));
+  }
+}
+
+/* Full artwork on mobile too — no crop, no rotation. */
+@media(max-width:960px){
+  .ambient{
+    overflow:hidden;
+    background:
+      linear-gradient(rgba(12,9,7,.12),rgba(12,9,7,.24)),
+      url("assets/menu-page-bg.webp") center top / contain no-repeat;
+    background-color:#141516;
+  }
+
+  .ambient::before{
+    inset:0;
+    left:0;
+    top:0;
+    width:auto;
+    height:auto;
+    transform:none;
+  }
+
+  .menu-stage{
+    background:linear-gradient(rgba(10,11,12,.02),rgba(10,11,12,.07));
+  }
+
+  .topbar,
+  .category-rail,
+  .order-panel,
+  .fulfillment,
+  .order-pill,
+  .pull-refresh{
+    background-image:
+      linear-gradient(rgba(12,13,15,.86),rgba(10,11,13,.93)),
+      url("https://raw.githubusercontent.com/theblackstaginn/Stag-menu/main/Assets/leather-ui.webp");
+    background-size:auto,560px 315px;
+  }
+
+  .category-rail{
+    border-bottom-color:rgba(255,255,255,.08);
+  }
+
+  .order-panel{
+    border-top-color:rgba(255,255,255,.08);
+    box-shadow:
+      0 -10px 28px rgba(0,0,0,.24),
+      inset 0 1px rgba(255,255,255,.025);
   }
 }
