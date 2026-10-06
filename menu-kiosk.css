@@ -1605,6 +1605,8 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
 .stage-heading{
   position:relative;
   display:grid;
+  grid-template-columns:minmax(0,1fr);
+  width:100%;
   justify-items:center;
   align-items:start;
   gap:10px;
@@ -1614,6 +1616,9 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
 
 .stage-heading > div:first-child{
   width:min(720px,100%);
+  max-width:100%;
+  box-sizing:border-box;
+  justify-self:center;
   padding:14px 20px 15px;
   display:grid;
   justify-items:center;
