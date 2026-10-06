@@ -79,6 +79,80 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
 .modifier-host{display:grid;gap:14px;margin-bottom:auto}
 .modifier-placeholder{border:1px dashed rgba(225,177,127,.24);border-radius:14px;padding:15px;color:var(--muted);font-size:.9rem;line-height:1.4}
 .modifier-placeholder strong{display:block;color:var(--ink);margin-bottom:4px}
+
+.modifier-group{
+  margin:0;
+  padding:14px;
+  border:1px solid rgba(225,177,127,.18);
+  border-radius:16px;
+  background:rgba(255,255,255,.025);
+  display:grid;
+  gap:8px;
+}
+.modifier-group legend{
+  padding:0 6px;
+  color:var(--ink);
+  font-family:Cinzel,serif;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-size:.74rem;
+}
+.modifier-group-note{
+  margin:0 0 5px;
+  color:var(--muted);
+  font-size:.83rem;
+  line-height:1.4;
+}
+.modifier-option{
+  min-height:48px;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:11px;
+  padding:10px 11px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;
+  background:rgba(0,0,0,.12);
+  cursor:pointer;
+}
+.modifier-option:has(input:checked){
+  border-color:rgba(225,177,127,.42);
+  background:rgba(200,139,89,.10);
+}
+.modifier-option input{
+  width:18px;
+  height:18px;
+  margin:0;
+  accent-color:#b66b45;
+}
+.modifier-option-copy{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.modifier-option-copy strong{
+  color:var(--ink);
+  font-size:.9rem;
+  font-weight:600;
+}
+.modifier-option-copy small{
+  flex:0 0 auto;
+  padding:3px 6px;
+  border:1px solid rgba(225,177,127,.24);
+  border-radius:999px;
+  color:var(--copper-bright);
+  font-family:Cinzel,serif;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-size:.48rem;
+}
+.modifier-option-price{
+  color:var(--copper-bright);
+  font-family:Cinzel,serif;
+  font-size:.76rem;
+  white-space:nowrap;
+}
 .quantity-row{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding:18px 0}
 .stepper{display:flex;align-items:center;gap:13px}
 .stepper button{width:43px;height:43px;border-radius:12px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);font-size:1.35rem;cursor:pointer}
