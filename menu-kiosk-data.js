@@ -41,6 +41,7 @@
 
   const commonHouse = [
     { id:"hot-chocolate", categoryId:"house-apothecary", name:"Hot Chocolate", image:image("hot-chocolate.webp") },
+    { id:"matcha-latte", categoryId:"house-apothecary", name:"Matcha Latte", image:image("matcha-latte.webp") },
     { id:"loose-leaf-tea", categoryId:"house-apothecary", name:"Loose Leaf Tea", image:image("loose-leaf-tea.webp") }
   ];
 
@@ -48,10 +49,21 @@
     { id:"stone-house-breakfast", categoryId:"breakfast-bakehouse", name:"Stone House Breakfast", image:image("stone-house-brekkie.webp") }
   ];
 
+  const commonLunch = [
+    { id:"stag-melt", categoryId:"lunch", name:"Stag Melt", image:image("stag-melt.webp") },
+    { id:"wildwood-melt", categoryId:"lunch", name:"Wildwood Melt", image:image("wildwood-melt.webp") },
+    { id:"orchard-turkey", categoryId:"lunch", name:"Orchard Turkey", image:image("orchard-turkey.webp") },
+    { id:"tavern-ham-cheese", categoryId:"lunch", name:"Tavern Ham & Cheese", image:image("tavern-ham-cheese.webp") }
+  ];
+
   const commonSides = [
+    { id:"kettle-chips", categoryId:"sides-addons", name:"Kettle Chips", image:image("kettle-chips.webp") },
+    { id:"rosemary-roasted-potatoes", categoryId:"sides-addons", name:"Rosemary Roasted Potatoes", image:image("rstd-rosemary-potatoes.webp") },
     { id:"city-butcher-bacon", categoryId:"sides-addons", name:"City Butcher Bacon", image:image("butcher-bacon.webp") },
     { id:"city-butcher-sausage", categoryId:"sides-addons", name:"City Butcher Sausage", image:image("butcher-sausage.webp") },
-    { id:"sausage-pepper-gravy", categoryId:"sides-addons", name:"Sausage & Pepper Gravy", image:image("sausage-pepper-gravy.webp") }
+    { id:"sausage-pepper-gravy", categoryId:"sides-addons", name:"Sausage & Pepper Gravy", image:image("sausage-pepper-gravy.webp") },
+    { id:"horseradish-mustard", categoryId:"sides-addons", name:"Horseradish Mustard", image:image("horseradish-mustard.webp") },
+    { id:"smoky-onion-sauce", categoryId:"sides-addons", name:"Smoky Onion Sauce", image:image("smoky-onion.webp") }
   ];
 
   const SEASONS = {
@@ -62,7 +74,6 @@
         { id:"spiced-chai-latte", categoryId:"coffee", name:"Spiced Chai Latte", image:image("chai-latte.webp"), seasonal:true }
       ],
       house:[
-        { id:"matcha-latte", categoryId:"house-apothecary", name:"Matcha Latte", image:image("matcha-latte.webp") },
         { id:"hot-spiced-apple-cider", categoryId:"house-apothecary", name:"Hot Spiced Apple Cider", image:image("hot-spiced-cider.webp"), seasonal:true },
         { id:"cranberry-hibiscus-refresher", categoryId:"house-apothecary", name:"Cranberry Hibiscus Refresher", image:image("cran-hib-refresher.webp"), seasonal:true }
       ],
@@ -74,22 +85,14 @@
         { id:"molasses-oat-cookie", categoryId:"breakfast-bakehouse", name:"Molasses Oat Cookie", image:image("molasses-oat.webp"), seasonal:true }
       ],
       lunch:[
-        { id:"stag-melt", categoryId:"lunch", name:"Stag Melt", image:image("stag-melt.webp"), seasonal:true },
-        { id:"wildwood-melt", categoryId:"lunch", name:"Wildwood Melt", image:image("wildwood-melt.webp"), seasonal:true },
-        { id:"orchard-turkey", categoryId:"lunch", name:"Orchard Turkey", image:image("orchard-turkey.webp"), seasonal:true },
-        { id:"tavern-ham-cheese", categoryId:"lunch", name:"Tavern Ham & Cheese", image:image("tavern-ham-cheese.webp"), seasonal:true },
         { id:"orchard-smoke-burnt-ends", categoryId:"lunch", name:"Orchard Smoke Burnt Ends", image:image("orchard-smoke-burnt-ends.webp"), seasonal:true }
       ],
       sides:[
-        { id:"kettle-chips", categoryId:"sides-addons", name:"Kettle Chips", image:image("kettle-chips.webp"), seasonal:true },
         { id:"apple-cabbage-slaw", categoryId:"sides-addons", name:"Apple-Cabbage Slaw", image:image("apple-cabbage-slaw.webp"), seasonal:true },
-        { id:"rosemary-roasted-potatoes", categoryId:"sides-addons", name:"Rosemary Roasted Potatoes", image:image("rstd-rosemary-potatoes.webp"), seasonal:true },
         { id:"roasted-squash-sage", categoryId:"sides-addons", name:"Roasted Squash & Sage", image:image("rstd-squash-sage.webp"), seasonal:true },
         { id:"roasted-squash-soup", categoryId:"sides-addons", name:"Roasted Squash Soup", image:image("rstd-squash-soup.webp"), seasonal:true },
         { id:"spiced-apple-butter", categoryId:"sides-addons", name:"Spiced Apple Butter", image:image("apple-butter.webp"), seasonal:true },
-        { id:"cranberry-preserves", categoryId:"sides-addons", name:"Cranberry Preserves", image:image("cranberry-citrus-preserves.webp"), seasonal:true },
-        { id:"horseradish-mustard", categoryId:"sides-addons", name:"Horseradish Mustard", image:image("horseradish-mustard.webp"), seasonal:true },
-        { id:"smoky-onion-sauce", categoryId:"sides-addons", name:"Smoky Onion Sauce", image:image("smoky-onion.webp"), seasonal:true }
+        { id:"cranberry-preserves", categoryId:"sides-addons", name:"Cranberry Preserves", image:image("cranberry-citrus-preserves.webp"), seasonal:true }
       ],
       crafting:[
         { id:"autumn-fried-meat", name:"Chicken-Fried Steak", price:5.50, seasonal:true },
@@ -188,9 +191,10 @@
       ...commonBreakfast,
       ...season.breakfast,
       craftingTable,
+      ...commonLunch,
       ...season.lunch,
-      ...season.sides,
-      ...commonSides
+      ...commonSides,
+      ...season.sides
     ].map(item => ({
       squareCatalogId: null,
       available: true,
