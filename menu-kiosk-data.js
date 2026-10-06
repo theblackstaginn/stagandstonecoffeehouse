@@ -33,8 +33,31 @@ window.STAG_STONE_CATALOG = {
 
     { id:"stone-house-breakfast", categoryId:"breakfast-bakehouse", name:"Stone House Breakfast", image:"https://stagandstonecoffee.com/stag-food/stone-house-breakfast.webp" },
     { id:"bramble-french-toast", categoryId:"breakfast-bakehouse", name:"Bramble French Toast", image:"https://stagandstonecoffee.com/stag-food/bramble-french-toast.webp" },
-    { id:"hearth-biscuit", categoryId:"breakfast-bakehouse", name:"Hearth Biscuit", image:"https://stagandstonecoffee.com/stag-food/hearth-biscuit.webp" },
-    { id:"house-biscuit", categoryId:"breakfast-bakehouse", name:"House Biscuit", image:"https://stagandstonecoffee.com/stag-food/house-biscuit.webp" },
+    {
+      id:"crafting-table",
+      categoryId:"breakfast-bakehouse",
+      name:"The Crafting Table",
+      image:"https://stagandstonecoffee.com/stag-food/house-biscuit.webp",
+      price:3.50,
+      modifierGroups:[
+        {
+          id:"crafting-table-addons",
+          name:"Build Your Biscuit",
+          note:"Start with a house buttermilk biscuit. Add whatever sounds good.",
+          maxSelections:8,
+          options:[
+            { id:"egg", name:"Egg", price:1.25 },
+            { id:"cheddar", name:"Cheddar", price:0.75 },
+            { id:"bacon", name:"City Butcher Bacon", price:2.75 },
+            { id:"sausage", name:"City Butcher Sausage", price:2.50 },
+            { id:"sausage-gravy", name:"Sausage & Pepper Gravy", price:2.25 },
+            { id:"autumn-fried-meat", name:"Chicken-Fried Steak", price:5.50, seasonal:true },
+            { id:"seasonal-preserve", name:"Spiced Apple Butter", price:1.00, seasonal:true },
+            { id:"extra-biscuit", name:"Extra Biscuit", price:2.75 }
+          ]
+        }
+      ]
+    },
     { id:"elderberry-cream-cheese-loaf", categoryId:"breakfast-bakehouse", name:"Elderberry Cream Cheese Loaf", image:"https://stagandstonecoffee.com/stag-food/eb-cream-chz-loaf.webp" },
     { id:"lemon-blueberry-scone", categoryId:"breakfast-bakehouse", name:"Lemon Blueberry Scone", image:"https://stagandstonecoffee.com/stag-food/lem-bb-scone.webp" },
     { id:"seasonal-cookie", categoryId:"breakfast-bakehouse", name:"Seasonal Cookie", image:"https://stagandstonecoffee.com/stag-food/seasonal-cookie.webp", seasonal:true },
