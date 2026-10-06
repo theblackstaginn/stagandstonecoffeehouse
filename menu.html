@@ -95,15 +95,6 @@
           <div class="availability-note">Seasonal offerings may vary.</div>
         </div>
 
-        <aside class="webapp-promo" aria-label="Get the Stag and Stone web app">
-          <div class="webapp-promo-copy">
-            <p class="eyebrow">Keep Stag &amp; Stone close</p>
-            <h2>The menu, ready when you are.</h2>
-            <p>Open the dedicated web app for the same Stag &amp; Stone menu in an installable, phone-first home-screen experience.</p>
-          </div>
-          <a class="webapp-promo-button" href="https://theblackstaginn.github.io/Stag-menu/install/?from=menu" aria-label="Get the Stag and Stone web app">Get the Web App</a>
-        </aside>
-
         <div class="product-grid" id="productGrid"></div>
       </section>
 
@@ -130,6 +121,18 @@
         </div>
       </aside>
     </main>
+  </div>
+
+  <div class="webapp-promo-overlay" id="webappPromoOverlay" hidden>
+    <aside class="webapp-promo" role="dialog" aria-modal="true" aria-labelledby="webappPromoTitle">
+      <button class="webapp-promo-close" id="webappPromoClose" type="button" aria-label="Close web app suggestion">×</button>
+      <div class="webapp-promo-copy">
+        <p class="eyebrow">Keep Stag &amp; Stone close</p>
+        <h2 id="webappPromoTitle">The menu, ready when you are.</h2>
+        <p>Add the dedicated Stag Menu web app to your phone for a quick, home-screen menu experience.</p>
+      </div>
+      <a class="webapp-promo-button" href="https://theblackstaginn.github.io/Stag-menu/install/?from=menu" aria-label="Get the Stag and Stone web app">Get the Web App</a>
+    </aside>
   </div>
 
   <dialog class="item-sheet" id="itemSheet" aria-labelledby="itemName">
