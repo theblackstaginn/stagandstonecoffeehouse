@@ -17,6 +17,10 @@ window.STAG_STONE_CATALOG = {
     { id: "sides-addons", name: "Sides & Add-Ons", shortName: "Sides", eyebrow: "A little something extra", note: "Sides • sauces • jams • extras", accent: "pantry" }
   ],
   items: [
+    { id:"house-dark-roast", categoryId:"coffee", name:"House Dark Roast", image:"https://stagandstonecoffee.com/autumn-menu/dark-roast.webp" },
+    { id:"cold-brew", categoryId:"coffee", name:"Cold Brew", image:"https://stagandstonecoffee.com/autumn-menu/cold-brew.webp" },
+    { id:"espresso-single", categoryId:"coffee", name:"Espresso Shot", image:"https://stagandstonecoffee.com/autumn-menu/espresso-single.webp" },
+    { id:"espresso-double", categoryId:"coffee", name:"Espresso Double Shot", image:"https://stagandstonecoffee.com/autumn-menu/espresso-double.webp" },
     { id:"hot-chocolate", categoryId:"coffee", name:"Hot Chocolate", image:"https://stagandstonecoffee.com/autumn-menu/hot-chocolate.webp" },
 
     { id:"maple-sage-latte", categoryId:"coffee", name:"Maple Sage Latte", image:"https://stagandstonecoffee.com/autumn-menu/maple-sage-latte.webp", seasonal:true },
