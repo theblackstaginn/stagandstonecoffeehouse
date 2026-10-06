@@ -184,28 +184,79 @@
     item.modifierGroups.forEach(group => {
       const block = document.createElement("fieldset");
       block.className = "modifier-group";
-      block.innerHTML = `<legend>${group.name}</legend>`;
+      block.innerHTML = `
+        <legend>${group.name}</legend>
+        ${group.note ? `<p class="modifier-group-note">${group.note}</p>` : ""}
+      `;
+
       group.options.forEach(option => {
         const label = document.createElement("label");
-        label.innerHTML = `<input type="${group.maxSelections === 1 ? "radio" : "checkbox"}" name="${group.id}" value="${option.id}"><span>${option.name}</span>`;
+        label.className = "modifier-option";
+        label.innerHTML = `
+          <input
+            type="${group.maxSelections === 1 ? "radio" : "checkbox"}"
+            name="${group.id}"
+            value="${option.id}"
+            data-group-id="${group.id}"
+          >
+          <span class="modifier-option-copy">
+            <strong>${option.name}</strong>
+            ${option.seasonal ? '<small>Seasonal</small>' : ""}
+          </span>
+          <span class="modifier-option-price">${option.price ? "+" + formatMoney(option.price) : ""}</span>
+        `;
         block.appendChild(label);
       });
+
       els.modifierHost.appendChild(block);
     });
+  }
+
+  function readSelectedModifiers(item) {
+    const selected = [];
+    const groups = new Map(item.modifierGroups.map(group => [group.id, group]));
+
+    els.modifierHost.querySelectorAll("input:checked").forEach(input => {
+      const group = groups.get(input.dataset.groupId);
+      const option = group?.options.find(candidate => candidate.id === input.value);
+      if (!group || !option) return;
+
+      selected.push({
+        groupId: group.id,
+        optionId: option.id,
+        name: option.name,
+        price: option.price || 0
+      });
+    });
+
+    return selected;
+  }
+
+  function modifierSignature(modifiers = []) {
+    return modifiers
+      .map(modifier => modifier.optionId)
+      .sort()
+      .join("|");
   }
 
   function addSelectedItem() {
     const item = getItem(state.selectedItemId);
     if (!item) return;
 
-    const existing = state.order.find(line => line.itemId === item.id);
+    const modifiers = readSelectedModifiers(item);
+    const signature = modifierSignature(modifiers);
+    const existing = state.order.find(line =>
+      line.itemId === item.id &&
+      modifierSignature(line.modifiers) === signature
+    );
+
     if (existing) existing.quantity += state.quantity;
     else state.order.push({
       lineId: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36),
       itemId: item.id,
       quantity: state.quantity,
       variationId: null,
-      modifiers: []
+      modifiers
     });
 
     saveOrder();
@@ -223,7 +274,9 @@
       if (!item) return;
       const row = document.createElement("div");
       row.className = "order-line";
-      row.innerHTML = `<strong>${line.quantity} × ${item.name}</strong><small>${getCategory(item.categoryId)?.shortName || ""}</small><button type="button" aria-label="Remove ${item.name}">×</button>`;
+      const modifierText = (line.modifiers || []).map(modifier => modifier.name).join(", ");
+      const details = [getCategory(item.categoryId)?.shortName || "", modifierText].filter(Boolean).join(" • ");
+      row.innerHTML = `<strong>${line.quantity} × ${item.name}</strong><small>${details}</small><button type="button" aria-label="Remove ${item.name}">×</button>`;
       row.querySelector("button").addEventListener("click", () => removeLine(line.lineId));
       els.orderLines.appendChild(row);
     });
@@ -262,10 +315,11 @@
 
       const row = document.createElement("div");
       row.className = "review-item";
+      const modifierText = (line.modifiers || []).map(modifier => modifier.name).join(", ");
       row.innerHTML = `
         <div class="review-item-copy">
           <strong>${item.name}</strong>
-          <span>× ${line.quantity}</span>
+          <span>× ${line.quantity}${modifierText ? " • " + modifierText : ""}</span>
         </div>
         <button class="review-remove" type="button" aria-label="Remove ${item.name} from order">Remove</button>
       `;
