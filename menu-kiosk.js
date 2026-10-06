@@ -47,29 +47,68 @@
 
   const STORAGE_KEY = "stag-stone-kiosk-order-v2";
   const MODE_KEY = "stag-stone-kiosk-mode-v2";
-  const WEBAPP_PROMO_KEY = "stag-stone-webapp-promo-seen-v1";
+  const WEBAPP_PROMO_KEY = "stag-stone-webapp-promo-dismissed-at";
+  const WEBAPP_PROMO_SNOOZE_MS = 2 * 24 * 60 * 60 * 1000;
 
+  const webappPromoOverlay = $("#webappPromoOverlay");
   const webappPromo = $(".webapp-promo");
   const webappPromoLink = $(".webapp-promo-button");
+  const webappPromoClose = $("#webappPromoClose");
 
-  const hideWebappPromo = () => {
-    if (!webappPromo) return;
-    webappPromo.hidden = true;
-    webappPromo.style.display = "none";
+  const promoWasRecentlyDismissed = () => {
+    try {
+      const dismissedAt = Number(localStorage.getItem(WEBAPP_PROMO_KEY));
+      return dismissedAt > 0 && Date.now() - dismissedAt < WEBAPP_PROMO_SNOOZE_MS;
+    } catch {
+      return false;
+    }
   };
 
-  try {
-    if (localStorage.getItem(WEBAPP_PROMO_KEY) === "1") {
-      hideWebappPromo();
+  const rememberPromoDismissal = () => {
+    try {
+      localStorage.setItem(WEBAPP_PROMO_KEY, String(Date.now()));
+    } catch {}
+  };
+
+  const hideWebappPromo = (remember = false) => {
+    if (!webappPromoOverlay) return;
+    if (remember) rememberPromoDismissal();
+    webappPromoOverlay.classList.remove("is-visible");
+    window.setTimeout(() => {
+      if (!webappPromoOverlay.classList.contains("is-visible")) {
+        webappPromoOverlay.hidden = true;
+      }
+    }, 180);
+  };
+
+  const showWebappPromo = () => {
+    if (!webappPromoOverlay || promoWasRecentlyDismissed()) return;
+    webappPromoOverlay.hidden = false;
+    window.requestAnimationFrame(() => {
+      webappPromoOverlay.classList.add("is-visible");
+      webappPromoClose?.focus({ preventScroll: true });
+    });
+  };
+
+  if (webappPromoOverlay && !promoWasRecentlyDismissed()) {
+    window.setTimeout(showWebappPromo, 1200);
+  }
+
+  webappPromoClose?.addEventListener("click", () => hideWebappPromo(true));
+
+  webappPromoOverlay?.addEventListener("click", event => {
+    if (event.target === webappPromoOverlay) hideWebappPromo(true);
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && webappPromoOverlay?.classList.contains("is-visible")) {
+      hideWebappPromo(true);
     }
-  } catch {}
+  });
 
   if (webappPromoLink) {
     webappPromoLink.addEventListener("click", () => {
-      try {
-        localStorage.setItem(WEBAPP_PROMO_KEY, "1");
-      } catch {}
-      hideWebappPromo();
+      rememberPromoDismissal();
     });
   }
 
