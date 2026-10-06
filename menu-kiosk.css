@@ -1866,3 +1866,31 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     gap:5px;
   }
 }
+
+
+/* Show the full menu artwork inside item modals. */
+.sheet-image-frame{
+  background:#101112;
+}
+.sheet-image-wrap img{
+  object-fit:contain;
+  object-position:center;
+}
+@media(max-width:960px){
+  .sheet-image-wrap{
+    height:34dvh;
+    min-height:220px;
+    max-height:340px;
+  }
+  .sheet-image-frame{
+    width:100%;
+    height:100%;
+    aspect-ratio:auto;
+  }
+  .sheet-image-wrap img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+  }
+}
