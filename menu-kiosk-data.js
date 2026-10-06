@@ -21,7 +21,7 @@ window.STAG_STONE_CATALOG = {
     { id:"cold-brew", categoryId:"coffee", name:"Cold Brew", image:"https://stagandstonecoffee.com/autumn-menu/cold-brew.webp", price:4.95 },
     { id:"espresso-single", categoryId:"coffee", name:"Espresso Shot", image:"https://stagandstonecoffee.com/autumn-menu/espresso-single.webp", price:3.25 },
     { id:"espresso-double", categoryId:"coffee", name:"Espresso Double Shot", image:"https://stagandstonecoffee.com/autumn-menu/espresso-double.webp", price:4.25 },
-    { id:"hot-chocolate", categoryId:"coffee", name:"Hot Chocolate", image:"https://stagandstonecoffee.com/autumn-menu/hot-chocolate.webp" },
+    { id:"hot-chocolate", categoryId:"house-apothecary", name:"Hot Chocolate", image:"https://stagandstonecoffee.com/autumn-menu/hot-chocolate.webp" },
 
     { id:"maple-sage-latte", categoryId:"coffee", name:"Maple Sage Latte", image:"https://stagandstonecoffee.com/autumn-menu/maple-sage-latte.webp", seasonal:true },
     { id:"spiced-chai-latte", categoryId:"coffee", name:"Spiced Chai Latte", image:"https://stagandstonecoffee.com/autumn-menu/chai-latte.webp", seasonal:true },
