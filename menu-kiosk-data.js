@@ -19,8 +19,8 @@ window.STAG_STONE_CATALOG = {
   items: [
     { id:"hot-chocolate", categoryId:"coffee", name:"Hot Chocolate", image:"https://stagandstonecoffee.com/autumn-menu/hot-chocolate.webp" },
 
-    { id:"maple-sage-latte", categoryId:"house-apothecary", name:"Maple Sage Latte", image:"https://stagandstonecoffee.com/autumn-menu/maple-sage-latte.webp", seasonal:true },
-    { id:"spiced-chai-latte", categoryId:"house-apothecary", name:"Spiced Chai Latte", image:"https://stagandstonecoffee.com/autumn-menu/chai-latte.webp", seasonal:true },
+    { id:"maple-sage-latte", categoryId:"coffee", name:"Maple Sage Latte", image:"https://stagandstonecoffee.com/autumn-menu/maple-sage-latte.webp", seasonal:true },
+    { id:"spiced-chai-latte", categoryId:"coffee", name:"Spiced Chai Latte", image:"https://stagandstonecoffee.com/autumn-menu/chai-latte.webp", seasonal:true },
     { id:"matcha-latte", categoryId:"house-apothecary", name:"Matcha Latte", image:"https://stagandstonecoffee.com/autumn-menu/matcha-latte.webp" },
     { id:"hot-spiced-apple-cider", categoryId:"house-apothecary", name:"Hot Spiced Apple Cider", image:"https://stagandstonecoffee.com/autumn-menu/hot-spiced-cider.webp", seasonal:true },
     { id:"cranberry-hibiscus-refresher", categoryId:"house-apothecary", name:"Cranberry Hibiscus Refresher", image:"https://stagandstonecoffee.com/autumn-menu/cran-hib-refresher.webp", seasonal:true },
