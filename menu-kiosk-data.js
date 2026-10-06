@@ -21,7 +21,7 @@ window.STAG_STONE_CATALOG = {
     { id:"honey-oat-latte", categoryId:"coffee", name:"Honey Oat Latte", image:"https://stagandstonecoffee.com/stag-drinks/honey-oat-latte.webp" },
     { id:"cold-brew", categoryId:"coffee", name:"Cold Brew", image:"https://stagandstonecoffee.com/stag-drinks/cold-brew.webp" },
     { id:"stone-frappe", categoryId:"coffee", name:"Stone Frappe", image:"https://stagandstonecoffee.com/stag-drinks/stone-frappe.webp" },
-    { id:"hot-chocolate", categoryId:"coffee", name:"Hot Chocolate", image:"https://stagandstonecoffee.com/stag-drinks/hot-chocolate.webp" },
+    { id:"hot-chocolate", categoryId:"coffee", name:"Hot Chocolate", image:"https://stagandstonecoffee.com/autumn-menu/hot-chocolate.webp" },
 
     { id:"maple-sage-latte", categoryId:"house-apothecary", name:"Maple Sage Latte", image:"https://stagandstonecoffee.com/autumn-menu/maple-sage-latte.webp", seasonal:true },
     { id:"spiced-chai-latte", categoryId:"house-apothecary", name:"Spiced Chai Latte", image:"https://stagandstonecoffee.com/autumn-menu/chai-latte.webp", seasonal:true },
