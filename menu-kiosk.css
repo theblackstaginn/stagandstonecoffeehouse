@@ -1597,3 +1597,191 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     min-height:50px;
   }
 }
+
+
+/* =========================================================
+   Centered, readable category heading over menu artwork
+   ========================================================= */
+.stage-heading{
+  position:relative;
+  display:grid;
+  justify-items:center;
+  align-items:start;
+  gap:10px;
+  text-align:center;
+  margin-bottom:26px;
+}
+
+.stage-heading > div:first-child{
+  width:min(720px,100%);
+  padding:14px 20px 15px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:18px;
+  background:
+    linear-gradient(rgba(12,13,15,.76),rgba(12,13,15,.62)),
+    var(--menu-charcoal-texture,url("assets/menu-charcoal-texture.webp")) center / 460px auto repeat;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.18),
+    inset 0 1px rgba(255,255,255,.025);
+}
+
+.stage-heading .eyebrow{
+  color:#d9b18b;
+  text-shadow:0 2px 8px rgba(0,0,0,.9);
+}
+
+.stage-heading h1{
+  color:#fff3e6;
+  text-shadow:
+    0 2px 4px rgba(0,0,0,.9),
+    0 0 18px rgba(0,0,0,.55);
+}
+
+.stage-note{
+  color:#ddd2c5;
+  text-shadow:0 2px 7px rgba(0,0,0,.9);
+}
+
+.availability-note{
+  width:100%;
+  text-align:center;
+  color:#c8beb2;
+  text-shadow:0 2px 7px rgba(0,0,0,.9);
+}
+
+@media(max-width:960px){
+  .stage-heading{
+    margin-bottom:18px;
+  }
+
+  .stage-heading > div:first-child{
+    width:100%;
+    padding:13px 14px 14px;
+    border-radius:16px;
+    background:
+      linear-gradient(rgba(12,13,15,.80),rgba(12,13,15,.68)),
+      var(--menu-charcoal-texture,url("assets/menu-charcoal-texture.webp")) center / 420px auto repeat;
+  }
+
+  .availability-note{
+    display:block;
+    font-size:.76rem;
+  }
+}
+
+
+/* =========================================================
+   Website-only web app popup, Clearview-style behavior
+   ========================================================= */
+.webapp-promo-overlay[hidden]{
+  display:none!important;
+}
+
+.webapp-promo-overlay{
+  position:fixed;
+  z-index:5000;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:
+    max(20px,env(safe-area-inset-top))
+    18px
+    max(20px,env(safe-area-inset-bottom));
+  background:rgba(5,6,7,.52);
+  opacity:0;
+  transition:opacity .18s ease;
+}
+
+.webapp-promo-overlay.is-visible{
+  opacity:1;
+}
+
+.webapp-promo-overlay .webapp-promo{
+  position:relative;
+  width:min(560px,100%);
+  margin:0;
+  padding:28px 28px 24px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+  overflow:hidden;
+  border:1px solid rgba(225,177,127,.34);
+  border-radius:24px;
+  background-color:#101112;
+  background-image:
+    linear-gradient(rgba(13,14,16,.64),rgba(10,11,13,.76)),
+    var(--menu-charcoal-texture,url("assets/menu-charcoal-texture.webp"));
+  background-size:auto,520px auto;
+  background-repeat:no-repeat,repeat;
+  background-position:center;
+  box-shadow:
+    0 26px 72px rgba(0,0,0,.48),
+    inset 0 1px rgba(255,255,255,.035);
+  transform:translateY(10px) scale(.985);
+  transition:transform .18s ease;
+}
+
+.webapp-promo-overlay.is-visible .webapp-promo{
+  transform:translateY(0) scale(1);
+}
+
+.webapp-promo-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:2;
+  width:40px;
+  height:40px;
+  border:1px solid rgba(225,177,127,.24);
+  border-radius:50%;
+  background:#151618;
+  color:#eee3d4;
+  font-size:1.35rem;
+  line-height:1;
+  cursor:pointer;
+}
+
+.webapp-promo-overlay .webapp-promo-copy{
+  padding-right:34px;
+}
+
+.webapp-promo-overlay .webapp-promo-copy h2{
+  margin:5px 0 9px;
+  color:#fff3e6;
+  text-shadow:0 2px 8px rgba(0,0,0,.75);
+}
+
+.webapp-promo-overlay .webapp-promo-copy > p:last-child{
+  color:#cfc5b9;
+}
+
+.webapp-promo-overlay .webapp-promo-button{
+  width:100%;
+  min-height:52px;
+}
+
+@media(max-width:600px){
+  .webapp-promo-overlay{
+    align-items:end;
+    padding-left:12px;
+    padding-right:12px;
+    padding-bottom:max(18px,env(safe-area-inset-bottom));
+  }
+
+  .webapp-promo-overlay .webapp-promo{
+    width:100%;
+    padding:24px 18px 18px;
+    border-radius:22px;
+  }
+
+  .webapp-promo-overlay .webapp-promo-copy{
+    padding-right:28px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .webapp-promo-overlay,
+  .webapp-promo-overlay .webapp-promo{
+    transition:none;
+  }
+}
