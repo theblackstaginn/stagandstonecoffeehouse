@@ -1615,14 +1615,17 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
 .stage-heading > div:first-child{
   width:min(720px,100%);
   padding:14px 20px 15px;
-  border:1px solid rgba(255,255,255,.07);
+  display:grid;
+  justify-items:center;
+  text-align:center!important;
+  border:1px solid rgba(225,177,127,.14);
   border-radius:18px;
-  background:
-    linear-gradient(rgba(12,13,15,.76),rgba(12,13,15,.62)),
-    var(--menu-charcoal-texture,url("assets/menu-charcoal-texture.webp")) center / 460px auto repeat;
+  background:rgba(22,18,16,.38);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
   box-shadow:
-    0 12px 28px rgba(0,0,0,.18),
-    inset 0 1px rgba(255,255,255,.025);
+    0 12px 28px rgba(0,0,0,.14),
+    inset 0 1px rgba(255,255,255,.035);
 }
 
 .stage-heading .eyebrow{
@@ -1658,9 +1661,9 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     width:100%;
     padding:13px 14px 14px;
     border-radius:16px;
-    background:
-      linear-gradient(rgba(12,13,15,.80),rgba(12,13,15,.68)),
-      var(--menu-charcoal-texture,url("assets/menu-charcoal-texture.webp")) center / 420px auto repeat;
+    background:rgba(20,17,15,.42);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
   }
 
   .availability-note{
@@ -1784,4 +1787,13 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
   .webapp-promo-overlay .webapp-promo{
     transition:none;
   }
+}
+
+
+/* Keep all category-heading copy optically centered over the artwork. */
+.stage-heading > div:first-child > *{
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center!important;
 }
