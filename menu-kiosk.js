@@ -177,7 +177,7 @@
       .forEach(item => {
         const button = document.createElement("button");
         button.type = "button";
-        button.className = "product-card";
+        button.className = "product-card" + (item.hero ? " product-card--hero" : "");
         button.setAttribute("aria-label", "Choose " + item.name);
         button.innerHTML = `
           <span class="product-image">

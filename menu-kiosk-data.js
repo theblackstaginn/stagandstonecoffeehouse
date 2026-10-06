@@ -38,6 +38,7 @@ window.STAG_STONE_CATALOG = {
       categoryId:"breakfast-bakehouse",
       name:"The Crafting Table",
       image:"https://stagandstonecoffee.com/autumn-menu/crafting-table.webp",
+      hero:true,
       price:3.50,
       modifierGroups:[
         {
