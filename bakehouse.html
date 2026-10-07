@@ -74,6 +74,64 @@
 
 
     /* =====================================================
+       DESKTOP HEADER — SPLIT PANELS
+       ===================================================== */
+
+    @media (min-width: 801px) {
+
+      .bakehouse-page .site-header {
+        padding: 0;
+
+        background: transparent;
+
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+
+        box-shadow: none;
+      }
+
+
+      .bakehouse-page .site-header .brand,
+      .bakehouse-page .site-header .nav {
+        min-height: 100%;
+
+        padding:
+          1rem
+          1.25rem;
+
+        border-radius:
+          var(--radius);
+
+        background:
+          rgba(9, 12, 13, .64);
+
+        backdrop-filter:
+          blur(12px);
+
+        -webkit-backdrop-filter:
+          blur(12px);
+
+        box-shadow:
+          0 18px 60px
+          rgba(0, 0, 0, .45);
+      }
+
+
+      .bakehouse-page .site-header .brand {
+        flex: 0 0 auto;
+      }
+
+
+      .bakehouse-page .site-header .nav {
+        align-items: center;
+
+        margin-left: auto;
+      }
+
+    }
+
+
+    /* =====================================================
        BACKGROUND
        ===================================================== */
 
