@@ -1431,12 +1431,17 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     z-index:80;
   }
 
-  .workspace{
-    padding-top:118px;
+  .category-rail{
+    position:fixed;
+    top:118px;
+    left:0;
+    right:0;
+    width:100%;
+    z-index:70;
   }
 
-  .category-rail{
-    top:118px;
+  .workspace{
+    padding-top:174px;
   }
 
   .order-panel{
