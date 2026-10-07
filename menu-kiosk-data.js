@@ -41,30 +41,30 @@
   ];
 
   const commonHouse = [
-    { id:"hot-chocolate", categoryId:"house-apothecary", name:"Hot Chocolate", description:"Classic hot chocolate.", image:image("hot-chocolate.webp") price:4.25 },
-    { id:"matcha-latte", categoryId:"house-apothecary", name:"Matcha Latte", description:"Matcha and milk.", image:image("matcha-latte.webp") price:5.75 },
-    { id:"loose-leaf-tea", categoryId:"house-apothecary", name:"Loose Leaf Tea", description:"Rotating hot or iced tea.", image:image("loose-leaf-tea.webp") price:4.25 }
+    { id:"hot-chocolate", categoryId:"house-apothecary", name:"Hot Chocolate", description:"Classic hot chocolate.", image:image("hot-chocolate.webp"), price:4.25 },
+    { id:"matcha-latte", categoryId:"house-apothecary", name:"Matcha Latte", description:"Matcha and milk.", image:image("matcha-latte.webp"), price:5.75 },
+    { id:"loose-leaf-tea", categoryId:"house-apothecary", name:"Loose Leaf Tea", description:"Rotating hot or iced tea.", image:image("loose-leaf-tea.webp"), price:4.25 }
   ];
 
   const commonBreakfast = [
-    { id:"stone-house-breakfast", categoryId:"breakfast-bakehouse", name:"Stone House Breakfast", description:"Two eggs, bacon or sausage, rosemary potatoes, and a house biscuit.", image:image("stone-house-brekkie.webp") price:12.95 }
+    { id:"stone-house-breakfast", categoryId:"breakfast-bakehouse", name:"Stone House Breakfast", description:"Two eggs, bacon or sausage, rosemary potatoes, and a house biscuit.", image:image("stone-house-brekkie.webp"), price:12.95 }
   ];
 
   const commonLunch = [
-    { id:"stag-melt", categoryId:"lunch", name:"Stag Melt", description:"Roast beef, sharp cheddar, caramelized onion, horseradish mustard, and house sourdough.", image:image("stag-melt.webp") price:14.50 },
-    { id:"wildwood-melt", categoryId:"lunch", name:"Wildwood Melt", description:"Roasted mushrooms, white cheddar, caramelized onion, herb aioli, and house sourdough.", image:image("wildwood-melt.webp") price:12.50 },
-    { id:"orchard-turkey", categoryId:"lunch", name:"Orchard Turkey", description:"Turkey, sliced apple, Brie, cranberry preserves, and house bread.", image:image("orchard-turkey.webp") price:13.95 },
-    { id:"tavern-ham-cheese", categoryId:"lunch", name:"Tavern Ham & Cheese", description:"Smoked ham, sharp cheddar, apple butter, whole-grain mustard, and house bread.", image:image("tavern-ham-cheese.webp") price:12.95 }
+    { id:"stag-melt", categoryId:"lunch", name:"Stag Melt", description:"Roast beef, sharp cheddar, caramelized onion, horseradish mustard, and house sourdough.", image:image("stag-melt.webp"), price:14.50 },
+    { id:"wildwood-melt", categoryId:"lunch", name:"Wildwood Melt", description:"Roasted mushrooms, white cheddar, caramelized onion, herb aioli, and house sourdough.", image:image("wildwood-melt.webp"), price:12.50 },
+    { id:"orchard-turkey", categoryId:"lunch", name:"Orchard Turkey", description:"Turkey, sliced apple, Brie, cranberry preserves, and house bread.", image:image("orchard-turkey.webp"), price:13.95 },
+    { id:"tavern-ham-cheese", categoryId:"lunch", name:"Tavern Ham & Cheese", description:"Smoked ham, sharp cheddar, apple butter, whole-grain mustard, and house bread.", image:image("tavern-ham-cheese.webp"), price:12.95 }
   ];
 
   const commonSides = [
-    { id:"kettle-chips", categoryId:"sides-addons", name:"Kettle Chips", description:"Sea salt kettle chips.", image:image("kettle-chips.webp") price:2.75 },
-    { id:"rosemary-roasted-potatoes", categoryId:"sides-addons", name:"Rosemary Roasted Potatoes", description:"Crispy potatoes with garlic and rosemary.", image:image("rstd-rosemary-potatoes.webp") price:3.75 },
-    { id:"city-butcher-bacon", categoryId:"sides-addons", name:"City Butcher Bacon", description:"City Butcher bacon.", image:image("butcher-bacon.webp") price:4.25 },
-    { id:"city-butcher-sausage", categoryId:"sides-addons", name:"City Butcher Sausage", description:"City Butcher sausage.", image:image("butcher-sausage.webp") price:3.75 },
-    { id:"sausage-pepper-gravy", categoryId:"sides-addons", name:"Sausage & Pepper Gravy", description:"City Butcher sausage in black pepper cream gravy.", image:image("sausage-pepper-gravy.webp") price:2.75 },
-    { id:"horseradish-mustard", categoryId:"sides-addons", name:"Horseradish Mustard", description:"House horseradish mustard.", image:image("horseradish-mustard.webp") price:0.75 },
-    { id:"smoky-onion-sauce", categoryId:"sides-addons", name:"Smoky Onion Sauce", description:"House smoky onion sauce.", image:image("smoky-onion.webp") price:0.75 }
+    { id:"kettle-chips", categoryId:"sides-addons", name:"Kettle Chips", description:"Sea salt kettle chips.", image:image("kettle-chips.webp"), price:2.75 },
+    { id:"rosemary-roasted-potatoes", categoryId:"sides-addons", name:"Rosemary Roasted Potatoes", description:"Crispy potatoes with garlic and rosemary.", image:image("rstd-rosemary-potatoes.webp"), price:3.75 },
+    { id:"city-butcher-bacon", categoryId:"sides-addons", name:"City Butcher Bacon", description:"City Butcher bacon.", image:image("butcher-bacon.webp"), price:4.25 },
+    { id:"city-butcher-sausage", categoryId:"sides-addons", name:"City Butcher Sausage", description:"City Butcher sausage.", image:image("butcher-sausage.webp"), price:3.75 },
+    { id:"sausage-pepper-gravy", categoryId:"sides-addons", name:"Sausage & Pepper Gravy", description:"City Butcher sausage in black pepper cream gravy.", image:image("sausage-pepper-gravy.webp"), price:2.75 },
+    { id:"horseradish-mustard", categoryId:"sides-addons", name:"Horseradish Mustard", description:"House horseradish mustard.", image:image("horseradish-mustard.webp"), price:0.75 },
+    { id:"smoky-onion-sauce", categoryId:"sides-addons", name:"Smoky Onion Sauce", description:"House smoky onion sauce.", image:image("smoky-onion.webp"), price:0.75 }
   ];
 
   const SEASONS = {
