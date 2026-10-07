@@ -344,6 +344,10 @@
       white-space: nowrap;
     }
 
+    .mobile-hint {
+      display: none;
+    }
+
 
     .bakes-track {
       display: grid;
@@ -668,6 +672,14 @@
         margin-top: .65rem;
       }
 
+      .desktop-hint {
+        display: none;
+      }
+
+      .mobile-hint {
+        display: inline;
+      }
+
 
       .bakes-track {
         grid-auto-columns:
@@ -974,7 +986,8 @@
           class="swipe-hint"
           aria-hidden="true"
         >
-          Swipe to explore →
+          <span class="desktop-hint">Scroll to explore →</span>
+          <span class="mobile-hint">Swipe to explore →</span>
         </p>
 
       </div>
