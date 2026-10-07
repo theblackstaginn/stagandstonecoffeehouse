@@ -177,7 +177,7 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
  .order-panel-head,.order-lines,.order-empty,.order-status{display:none}.order-panel-foot{border:0;padding:0}.primary-action{min-height:52px}
  .sheet-layout{grid-template-columns:1fr;display:block}.item-sheet{width:min(620px,calc(100% - 14px));max-height:94dvh}.sheet-image-wrap{height:36dvh;border:0;border-bottom:1px solid var(--line);padding:10px}.sheet-content{padding:24px 18px}.sheet-content h2{font-size:1.35rem;padding-right:38px}.sheet-source{margin-bottom:14px}.review-card{padding:28px 18px}
 }
-@media(max-width:430px){.product-grid{grid-template-columns:1fr 1fr}.product-name{font-size:.61rem}.product-hint{display:none}}
+@media(max-width:430px){.product-grid{grid-template-columns:1fr 1fr}.product-name{font-size:.61rem}.product-hint{display:block}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 
 /* Item sheet visual cleanup */
