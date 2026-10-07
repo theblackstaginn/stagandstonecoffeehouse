@@ -41,59 +41,79 @@
   ];
 
   const commonHouse = [
-    { id:"hot-chocolate", categoryId:"house-apothecary", name:"Hot Chocolate", description:"Classic hot chocolate.", image:image("hot-chocolate.webp") },
-    { id:"matcha-latte", categoryId:"house-apothecary", name:"Matcha Latte", description:"Matcha and milk.", image:image("matcha-latte.webp") },
-    { id:"loose-leaf-tea", categoryId:"house-apothecary", name:"Loose Leaf Tea", description:"Rotating hot or iced tea.", image:image("loose-leaf-tea.webp") }
+    { id:"hot-chocolate", categoryId:"house-apothecary", name:"Hot Chocolate", description:"Classic hot chocolate.", image:image("hot-chocolate.webp") price:4.25 },
+    { id:"matcha-latte", categoryId:"house-apothecary", name:"Matcha Latte", description:"Matcha and milk.", image:image("matcha-latte.webp") price:5.75 },
+    { id:"loose-leaf-tea", categoryId:"house-apothecary", name:"Loose Leaf Tea", description:"Rotating hot or iced tea.", image:image("loose-leaf-tea.webp") price:4.25 }
   ];
 
   const commonBreakfast = [
-    { id:"stone-house-breakfast", categoryId:"breakfast-bakehouse", name:"Stone House Breakfast", description:"Two eggs, bacon or sausage, rosemary potatoes, and a house biscuit.", image:image("stone-house-brekkie.webp") }
+    { id:"stone-house-breakfast", categoryId:"breakfast-bakehouse", name:"Stone House Breakfast", description:"Two eggs, bacon or sausage, rosemary potatoes, and a house biscuit.", image:image("stone-house-brekkie.webp") price:12.95 }
   ];
 
   const commonLunch = [
-    { id:"stag-melt", categoryId:"lunch", name:"Stag Melt", description:"Roast beef, sharp cheddar, caramelized onion, horseradish mustard, and house sourdough.", image:image("stag-melt.webp") },
-    { id:"wildwood-melt", categoryId:"lunch", name:"Wildwood Melt", description:"Roasted mushrooms, white cheddar, caramelized onion, herb aioli, and house sourdough.", image:image("wildwood-melt.webp") },
-    { id:"orchard-turkey", categoryId:"lunch", name:"Orchard Turkey", description:"Turkey, sliced apple, Brie, cranberry preserves, and house bread.", image:image("orchard-turkey.webp") },
-    { id:"tavern-ham-cheese", categoryId:"lunch", name:"Tavern Ham & Cheese", description:"Smoked ham, sharp cheddar, apple butter, whole-grain mustard, and house bread.", image:image("tavern-ham-cheese.webp") }
+    { id:"stag-melt", categoryId:"lunch", name:"Stag Melt", description:"Roast beef, sharp cheddar, caramelized onion, horseradish mustard, and house sourdough.", image:image("stag-melt.webp") price:14.50 },
+    { id:"wildwood-melt", categoryId:"lunch", name:"Wildwood Melt", description:"Roasted mushrooms, white cheddar, caramelized onion, herb aioli, and house sourdough.", image:image("wildwood-melt.webp") price:12.50 },
+    { id:"orchard-turkey", categoryId:"lunch", name:"Orchard Turkey", description:"Turkey, sliced apple, Brie, cranberry preserves, and house bread.", image:image("orchard-turkey.webp") price:13.95 },
+    { id:"tavern-ham-cheese", categoryId:"lunch", name:"Tavern Ham & Cheese", description:"Smoked ham, sharp cheddar, apple butter, whole-grain mustard, and house bread.", image:image("tavern-ham-cheese.webp") price:12.95 }
   ];
 
   const commonSides = [
-    { id:"kettle-chips", categoryId:"sides-addons", name:"Kettle Chips", description:"Sea salt kettle chips.", image:image("kettle-chips.webp") },
-    { id:"rosemary-roasted-potatoes", categoryId:"sides-addons", name:"Rosemary Roasted Potatoes", description:"Crispy potatoes with garlic and rosemary.", image:image("rstd-rosemary-potatoes.webp") },
-    { id:"city-butcher-bacon", categoryId:"sides-addons", name:"City Butcher Bacon", description:"City Butcher bacon.", image:image("butcher-bacon.webp") },
-    { id:"city-butcher-sausage", categoryId:"sides-addons", name:"City Butcher Sausage", description:"City Butcher sausage.", image:image("butcher-sausage.webp") },
-    { id:"sausage-pepper-gravy", categoryId:"sides-addons", name:"Sausage & Pepper Gravy", description:"City Butcher sausage in black pepper cream gravy.", image:image("sausage-pepper-gravy.webp") },
-    { id:"horseradish-mustard", categoryId:"sides-addons", name:"Horseradish Mustard", description:"House horseradish mustard.", image:image("horseradish-mustard.webp") },
-    { id:"smoky-onion-sauce", categoryId:"sides-addons", name:"Smoky Onion Sauce", description:"House smoky onion sauce.", image:image("smoky-onion.webp") }
+    { id:"kettle-chips", categoryId:"sides-addons", name:"Kettle Chips", description:"Sea salt kettle chips.", image:image("kettle-chips.webp") price:2.75 },
+    { id:"rosemary-roasted-potatoes", categoryId:"sides-addons", name:"Rosemary Roasted Potatoes", description:"Crispy potatoes with garlic and rosemary.", image:image("rstd-rosemary-potatoes.webp") price:3.75 },
+    { id:"city-butcher-bacon", categoryId:"sides-addons", name:"City Butcher Bacon", description:"City Butcher bacon.", image:image("butcher-bacon.webp") price:4.25 },
+    { id:"city-butcher-sausage", categoryId:"sides-addons", name:"City Butcher Sausage", description:"City Butcher sausage.", image:image("butcher-sausage.webp") price:3.75 },
+    { id:"sausage-pepper-gravy", categoryId:"sides-addons", name:"Sausage & Pepper Gravy", description:"City Butcher sausage in black pepper cream gravy.", image:image("sausage-pepper-gravy.webp") price:2.75 },
+    { id:"horseradish-mustard", categoryId:"sides-addons", name:"Horseradish Mustard", description:"House horseradish mustard.", image:image("horseradish-mustard.webp") price:0.75 },
+    { id:"smoky-onion-sauce", categoryId:"sides-addons", name:"Smoky Onion Sauce", description:"House smoky onion sauce.", image:image("smoky-onion.webp") price:0.75 }
   ];
 
   const SEASONS = {
     autumn: {
       label:"Autumn",
       coffee:[
-        { id:"maple-sage-latte", categoryId:"coffee", name:"Maple Sage Latte", description:"Espresso, maple, and sage.", image:image("maple-sage-latte.webp"), seasonal:true },
-        { id:"spiced-chai-latte", categoryId:"coffee", name:"Spiced Chai Latte", description:"Black tea, warming spice, and milk.", image:image("chai-latte.webp"), seasonal:true }
+        { id:"maple-sage-latte", categoryId:"coffee", name:"Maple Sage Latte", description:"Espresso, maple, and sage.", image:image("maple-sage-latte.webp"), price:6.00, seasonal:true },
+        { id:"spiced-chai-latte", categoryId:"coffee", name:"Spiced Chai Latte", description:"Black tea, warming spice, and milk.", image:image("chai-latte.webp"), price:5.50, seasonal:true }
       ],
       house:[
-        { id:"hot-spiced-apple-cider", categoryId:"house-apothecary", name:"Hot Spiced Apple Cider", description:"Apple cider with cinnamon, clove, and citrus.", image:image("hot-spiced-cider.webp"), seasonal:true },
-        { id:"cranberry-hibiscus-refresher", categoryId:"house-apothecary", name:"Cranberry Hibiscus Refresher", description:"Hibiscus, cranberry, and citrus.", image:image("cran-hib-refresher.webp"), seasonal:true }
+        { id:"hot-spiced-apple-cider", categoryId:"house-apothecary", name:"Hot Spiced Apple Cider", description:"Apple cider with cinnamon, clove, and citrus.", image:image("hot-spiced-cider.webp"), price:4.75, seasonal:true },
+        { id:"cranberry-hibiscus-refresher", categoryId:"house-apothecary", name:"Cranberry Hibiscus Refresher", description:"Hibiscus, cranberry, and citrus.", image:image("cran-hib-refresher.webp"), price:4.95, seasonal:true }
       ],
       breakfast:[
-        { id:"apple-butter-french-toast", categoryId:"breakfast-bakehouse", name:"Apple Butter French Toast", description:"House brioche, apple butter, maple, and whipped butter.", image:image("apple-butter-french-tst.webp"), seasonal:true },
-        { id:"pumpkin-cream-cheese-loaf", categoryId:"breakfast-bakehouse", name:"Pumpkin Cream Cheese Loaf", description:"Moist pumpkin loaf with a cream cheese swirl.", image:image("pumpkin-cream-chz.webp"), seasonal:true },
-        { id:"brown-butter-pear-scone", categoryId:"breakfast-bakehouse", name:"Brown Butter Pear Scone", description:"Brown-butter scone with real pear pieces.", image:image("bb-pear-scone.webp"), seasonal:true },
-        { id:"apple-cider-muffin", categoryId:"breakfast-bakehouse", name:"Apple Cider Muffin", description:"Apple-cider muffin with a light cinnamon-sugar finish.", image:image("apple-cider-muffin.webp"), seasonal:true },
-        { id:"molasses-oat-cookie", categoryId:"breakfast-bakehouse", name:"Molasses Oat Cookie", description:"Chewy molasses oat cookie with crisp edges and rolled oats.", image:image("molasses-oat.webp"), seasonal:true }
+        { id:"apple-butter-french-toast", categoryId:"breakfast-bakehouse", name:"Apple Butter French Toast", description:"House brioche, apple butter, maple, and whipped butter.", image:image("apple-butter-french-tst.webp"), price:10.95, seasonal:true },
+        { id:"pumpkin-cream-cheese-loaf", categoryId:"breakfast-bakehouse", name:"Pumpkin Cream Cheese Loaf", description:"Moist pumpkin loaf with a cream cheese swirl.", image:image("pumpkin-cream-chz.webp"), price:4.75, seasonal:true },
+        { id:"brown-butter-pear-scone", categoryId:"breakfast-bakehouse", name:"Brown Butter Pear Scone", description:"Brown-butter scone with real pear pieces.", image:image("bb-pear-scone.webp"), price:4.50, seasonal:true },
+        { id:"apple-cider-muffin", categoryId:"breakfast-bakehouse", name:"Apple Cider Muffin", description:"Apple-cider muffin with a light cinnamon-sugar finish.", image:image("apple-cider-muffin.webp"), price:4.25, seasonal:true },
+        { id:"molasses-oat-cookie", categoryId:"breakfast-bakehouse", name:"Molasses Oat Cookie", description:"Chewy molasses oat cookie with crisp edges and rolled oats.", image:image("molasses-oat.webp"), price:3.50, seasonal:true }
       ],
       lunch:[
-        { id:"orchard-smoke-burnt-ends", categoryId:"lunch", name:"Orchard Smoke Burnt Ends", description:"Slow-cooked pork belly burnt ends with a dark apple-cider glaze, black pepper, garlic, and restrained warm spice, served with a chunk of white cheddar and two rolls.", image:image("orchard-smoke-burnt-ends.webp"), seasonal:true }
+        { id:"orchard-smoke-burnt-ends", categoryId:"lunch", name:"Orchard Smoke Burnt Ends", description:"Slow-cooked pork belly burnt ends with a dark apple-cider glaze, black pepper, garlic, and restrained warm spice, served with a chunk of white cheddar and two rolls.", image:image("orchard-smoke-burnt-ends.webp"), price:15.95, seasonal:true }
       ],
       sides:[
-        { id:"apple-cabbage-slaw", categoryId:"sides-addons", name:"Apple-Cabbage Slaw", description:"Cabbage, apple, and cider dressing.", image:image("apple-cabbage-slaw.webp"), seasonal:true },
-        { id:"roasted-squash-sage", categoryId:"sides-addons", name:"Roasted Squash & Sage", description:"Seasonal squash with browned butter and sage.", image:image("rstd-squash-sage.webp"), seasonal:true },
-        { id:"roasted-squash-soup", categoryId:"sides-addons", name:"Roasted Squash Soup", description:"Roasted seasonal squash soup.", image:image("rstd-squash-soup.webp"), seasonal:true },
-        { id:"spiced-apple-butter", categoryId:"sides-addons", name:"Spiced Apple Butter", description:"Spiced apple butter.", image:image("apple-butter.webp"), seasonal:true },
-        { id:"cranberry-preserves", categoryId:"sides-addons", name:"Cranberry Preserves", description:"Cranberry preserves.", image:image("cranberry-citrus-preserves.webp"), seasonal:true }
+        { id:"apple-cabbage-slaw", categoryId:"sides-addons", name:"Apple-Cabbage Slaw", description:"Cabbage, apple, and cider dressing.", image:image("apple-cabbage-slaw.webp"), price:3.50, seasonal:true },
+        { id:"roasted-squash-sage", categoryId:"sides-addons", name:"Roasted Squash & Sage", description:"Seasonal squash with browned butter and sage.", image:image("rstd-squash-sage.webp"), price:4.25, seasonal:true },
+        {
+          id:"roasted-squash-soup",
+          categoryId:"sides-addons",
+          name:"Roasted Squash Soup",
+          description:"Roasted seasonal squash soup.",
+          image:image("rstd-squash-soup.webp"),
+          price:4.75,
+          seasonal:true,
+          modifierGroups:[
+            {
+              id:"roasted-squash-soup-size",
+              name:"Size",
+              note:"Cup $4.75 • Bowl $7.25",
+              maxSelections:1,
+              options:[
+                { id:"cup", name:"Cup", price:0 },
+                { id:"bowl", name:"Bowl", price:2.50 }
+              ]
+            }
+          ]
+        },
+        { id:"spiced-apple-butter", categoryId:"sides-addons", name:"Spiced Apple Butter", description:"Spiced apple butter.", image:image("apple-butter.webp"), price:1.25, seasonal:true },
+        { id:"cranberry-preserves", categoryId:"sides-addons", name:"Cranberry Preserves", description:"Cranberry preserves.", image:image("cranberry-citrus-preserves.webp"), price:1.25, seasonal:true }
       ],
       crafting:[
         { id:"autumn-fried-meat", name:"Chicken-Fried Steak", price:5.50, seasonal:true },
