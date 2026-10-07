@@ -35,6 +35,18 @@
   const applyCacheBust = () => {
     if (!CACHE_BUST) return;
 
+    document.querySelectorAll('link[rel~="stylesheet"]').forEach(link => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+
+      try {
+        const resolved = new URL(href, window.location.href);
+        if (resolved.origin === window.location.origin) {
+          link.href = bustUrl(href);
+        }
+      } catch {}
+    });
+
     document.querySelectorAll("img[src]").forEach(image => {
       image.src = bustUrl(image.getAttribute("src"));
     });
