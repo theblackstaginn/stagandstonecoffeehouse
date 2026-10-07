@@ -40,7 +40,7 @@
     orderLines: $("#orderLines"), orderEmpty: $("#orderEmpty"), reviewBtn: $("#reviewBtn"),
     clearBtn: $("#clearOrderBtn"), orderPill: $("#orderPill"),
     itemSheet: $("#itemSheet"), itemImage: $("#itemImage"), itemCategory: $("#itemCategory"),
-    itemName: $("#itemName"), modifierHost: $("#modifierHost"), qty: $("#qtyValue"),
+    itemName: $("#itemName"), itemDescription: $("#itemDescription"), modifierHost: $("#modifierHost"), qty: $("#qtyValue"),
     addBtn: $("#addToOrderBtn"), reviewSheet: $("#reviewSheet"), reviewList: $("#reviewList"),
     reviewMode: $("#reviewMode")
   };
@@ -205,6 +205,7 @@
     els.itemImage.alt = item.name;
     els.itemCategory.textContent = category?.name || "";
     els.itemName.textContent = item.name;
+    els.itemDescription.textContent = item.description || "From the Stag & Stone menu";
     renderModifiers(item);
     els.itemSheet.showModal();
   }
