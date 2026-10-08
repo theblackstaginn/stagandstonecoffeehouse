@@ -21,7 +21,7 @@
 
       const link = document.createElement("link");
       link.rel = "stylesheet";
-      link.href = "menu-kiosk.css?v=17" + (cacheBust ? "&_cb=" + encodeURIComponent(cacheBust) : "");
+      link.href = "menu-kiosk.css?v=18" + (cacheBust ? "&_cb=" + encodeURIComponent(cacheBust) : "");
       document.head.appendChild(link);
     })();
   </script>
@@ -152,6 +152,11 @@
 
         <div class="modifier-host" id="modifierHost"></div>
 
+        <div class="special-request-field">
+          <label for="specialRequest">Special Requests <span>(optional)</span></label>
+          <textarea id="specialRequest" name="specialRequest" rows="3" maxlength="240" placeholder="e.g. No onions, sauce on the side, light ice..."></textarea>
+          <p class="special-request-hint">Substitutions may require staff confirmation or an extra charge.</p>
+        </div>
         <div class="quantity-row">
           <span>Quantity</span>
           <div class="stepper">
@@ -190,7 +195,7 @@
       menuData.src = "menu-kiosk-data.js?v=15" + suffix;
       menuData.onload = () => {
         const app = document.createElement("script");
-        app.src = "menu-kiosk.js?v=7" + suffix;
+        app.src = "menu-kiosk.js?v=8" + suffix;
         document.body.appendChild(app);
       };
       document.body.appendChild(menuData);
