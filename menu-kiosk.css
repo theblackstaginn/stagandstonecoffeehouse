@@ -1899,3 +1899,66 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     object-position:center;
   }
 }
+
+
+/* Optional per-item requests (food and drinks) */
+ .special-request-field{
+   display:grid;
+   gap:9px;
+   margin:0 0 18px;
+ }
+ .special-request-field label{
+   font-family:Cinzel,serif;
+   font-size:.7rem;
+   font-weight:600;
+   text-transform:uppercase;
+   letter-spacing:.055em;
+   color:#eee3d4;
+ }
+ .special-request-field label span{
+   font-family:Cardo,serif;
+   font-size:.85rem;
+   text-transform:none;
+   font-weight:400;
+   letter-spacing:0;
+   color:#aaa49d;
+ }
+ .special-request-field textarea{
+   box-sizing:border-box;
+   display:block;
+   width:100%;
+   min-height:88px;
+   padding:13px 15px;
+   border-radius:14px;
+   border:1px solid rgba(225,177,127,.28);
+   background:#1c1d20;
+   color:#f5ebdc;
+   font-family:Cardo,serif;
+   font-size:16px;
+   line-height:1.5;
+   resize:vertical;
+ }
+ .special-request-field textarea::placeholder{color:#a6a09a;opacity:1}
+ .special-request-field textarea:focus-visible{
+   outline:none;
+   border-color:#c99160;
+   box-shadow:0 0 0 2px rgba(201,145,96,.24);
+ }
+ .special-request-hint{
+   margin:0;
+   color:#aaa49d;
+   font-size:.78rem;
+   line-height:1.4;
+ }
+ .order-line-details,.review-item-description{
+   display:grid;
+   min-width:0;
+   gap:4px;
+ }
+ .order-line-note,.review-item-note{
+   color:#d9b18b;
+   font-size:.81rem;
+   line-height:1.4;
+   white-space:pre-wrap;
+   overflow-wrap:anywhere;
+ }
