@@ -40,7 +40,8 @@
     orderLines: $("#orderLines"), orderEmpty: $("#orderEmpty"), reviewBtn: $("#reviewBtn"),
     clearBtn: $("#clearOrderBtn"), orderPill: $("#orderPill"),
     itemSheet: $("#itemSheet"), itemImage: $("#itemImage"), itemCategory: $("#itemCategory"),
-    itemName: $("#itemName"), itemDescription: $("#itemDescription"), modifierHost: $("#modifierHost"), qty: $("#qtyValue"),
+    itemName: $("#itemName"), itemDescription: $("#itemDescription"), modifierHost: $("#modifierHost"),
+    specialRequest: $("#specialRequest"), qty: $("#qtyValue"),
     addBtn: $("#addToOrderBtn"), reviewSheet: $("#reviewSheet"), reviewList: $("#reviewList"),
     reviewMode: $("#reviewMode")
   };
@@ -206,6 +207,7 @@
     els.itemCategory.textContent = category?.name || "";
     els.itemName.textContent = item.name;
     els.itemDescription.textContent = item.description || "From the Stag & Stone menu";
+    els.specialRequest.value = "";
     renderModifiers(item);
     els.itemSheet.showModal();
   }
@@ -284,10 +286,12 @@
     if (!item) return;
 
     const modifiers = readSelectedModifiers(item);
+    const specialRequest = els.specialRequest.value.trim().slice(0, 240);
     const signature = modifierSignature(modifiers);
     const existing = state.order.find(line =>
       line.itemId === item.id &&
-      modifierSignature(line.modifiers) === signature
+      modifierSignature(line.modifiers) === signature &&
+      (line.specialRequest || "") === specialRequest
     );
 
     if (existing) existing.quantity += state.quantity;
@@ -296,7 +300,8 @@
       itemId: item.id,
       quantity: state.quantity,
       variationId: null,
-      modifiers
+      modifiers,
+      specialRequest
     });
 
     saveOrder();
@@ -316,7 +321,13 @@
       row.className = "order-line";
       const modifierText = (line.modifiers || []).map(modifier => modifier.name).join(", ");
       const details = [getCategory(item.categoryId)?.shortName || "", modifierText].filter(Boolean).join(" • ");
-      row.innerHTML = `<strong>${line.quantity} × ${item.name}</strong><small>${details}</small><button type="button" aria-label="Remove ${item.name}">×</button>`;
+      row.innerHTML = `<div class="order-line-details"><strong>${line.quantity} × ${item.name}</strong><small>${details}</small></div><button type="button" aria-label="Remove ${item.name}">×</button>`;
+      if (line.specialRequest) {
+        const note = document.createElement("small");
+        note.className = "order-line-note";
+        note.textContent = "Request: " + line.specialRequest;
+        row.querySelector(".order-line-details").appendChild(note);
+      }
       row.querySelector("button").addEventListener("click", () => removeLine(line.lineId));
       els.orderLines.appendChild(row);
     });
@@ -358,11 +369,17 @@
       const modifierText = (line.modifiers || []).map(modifier => modifier.name).join(", ");
       row.innerHTML = `
         <div class="review-item-copy">
-          <strong>${item.name}</strong>
+          <div class="review-item-description"><strong>${item.name}</strong></div>
           <span>× ${line.quantity}${modifierText ? " • " + modifierText : ""}</span>
         </div>
         <button class="review-remove" type="button" aria-label="Remove ${item.name} from order">Remove</button>
       `;
+      if (line.specialRequest) {
+        const note = document.createElement("small");
+        note.className = "review-item-note";
+        note.textContent = "Request: " + line.specialRequest;
+        row.querySelector(".review-item-description").appendChild(note);
+      }
 
       row.querySelector(".review-remove").addEventListener("click", () => removeLine(line.lineId));
       els.reviewList.appendChild(row);
