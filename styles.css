@@ -79,7 +79,19 @@ body::before {
 }
 
 .cart-page .page-bg {
-  background-image: url("assets/coffee-mobile-bg.png");
+  background-image: none;
+  background-color: #141412;
+  overflow: hidden;
+}
+.cart-page .cart-background-picture,
+.cart-page .cart-background-picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cart-page .cart-background-picture img {
+  object-fit: cover;
+  object-position: center;
 }
 
 .tavern-page .page-bg {
@@ -1549,9 +1561,9 @@ h3 {
       url("assets/inside-mobile-bg.webp");
   }
 
+  /* Coffee Cart now selects its optimized mobile backdrop through <picture>. */
   .cart-page .page-bg {
-    background-image:
-      url("assets/coffee-mobile-bg.png");
+    background-image: none;
   }
 
   .tavern-page .page-bg {

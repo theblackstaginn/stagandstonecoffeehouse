@@ -10,13 +10,39 @@
   <link rel="icon" type="image/webp" href="stag-thumbs/favicon.webp" />
   <link rel="apple-touch-icon" href="stag-thumbs/icon-192.webp" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=9" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cardo:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body class="service-page cart-page">
-  <div class="page-bg" aria-hidden="true"></div>
+  <!-- Responsive, on-demand WebP: preserve original PNGs as browser fallbacks. -->
+  <div class="page-bg" aria-hidden="true">
+    <picture class="cart-background-picture">
+      <source
+        media="(max-width: 700px)"
+        srcset="https://wsrv.nl/?url=stagandstonecoffee.com%2Fassets%2Fcoffee-mobile-bg.png&amp;w=1200&amp;output=webp&amp;q=78&amp;we&amp;default=1"
+        type="image/webp"
+      />
+      <img
+        src="https://wsrv.nl/?url=stagandstonecoffee.com%2Fassets%2Fcoffee-bg.png&amp;w=1800&amp;output=webp&amp;q=78&amp;we&amp;default=1"
+        alt=""
+        decoding="async"
+        fetchpriority="high"
+        referrerpolicy="no-referrer"
+        onerror="this.onerror=null; this.parentElement.querySelectorAll('source').forEach(source => source.remove()); this.src=window.matchMedia('(max-width: 700px)').matches ? 'assets/coffee-mobile-bg.png' : 'assets/coffee-bg.png';"
+      />
+    </picture>
+  </div>
+  <noscript>
+    <style>
+      .cart-page .page-bg .cart-background-picture { display: none; }
+      .cart-page .page-bg { background-image: url("assets/coffee-bg.png") !important; }
+      @media (max-width: 700px) {
+        .cart-page .page-bg { background-image: url("assets/coffee-mobile-bg.png") !important; }
+      }
+    </style>
+  </noscript>
   <div class="veil" aria-hidden="true"></div>
   <div class="dust" aria-hidden="true">
     <span></span><span></span><span></span><span></span>
