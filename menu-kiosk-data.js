@@ -46,6 +46,38 @@
     { id:"loose-leaf-tea", categoryId:"house-apothecary", name:"Loose Leaf Tea", description:"Rotating hot or iced tea.", image:image("loose-leaf-tea.webp"), price:4.25 }
   ];
 
+
+  // Planned glass-bottle lineup; confirm distributor stock and prices before opening.
+  const commonSoda = [
+    {
+      id:"glass-bottle-soda",
+      categoryId:"soda",
+      name:"Choose Your Soda",
+      description:"Our planned glass-bottle soda lineup. Select your favorite below. Brands and availability are subject to supplier confirmation before opening.",
+      image:ASSET_BASE + "/assets/glass-bottles.webp",
+      hero:true,
+      cardVariant:"soda",
+      cardHint:"Tap to choose from five sodas",
+      requiredAction:"Choose a Soda",
+      modifierGroups:[
+        {
+          id:"soda-choice",
+          name:"Choose Your Bottle",
+          note:"Select one soda. Pricing and availability will be confirmed before opening.",
+          maxSelections:1,
+          required:true,
+          options:[
+            { id:"mexican-coke", name:"Mexican Coca-Cola", price:0 },
+            { id:"sprite", name:"Sprite", price:0 },
+            { id:"fanta-naranja", name:"Fanta Naranja", price:0 },
+            { id:"dr-pepper", name:"Dr Pepper", price:0 },
+            { id:"coke-zero", name:"Coke Zero", price:0 }
+          ]
+        }
+      ]
+    }
+  ];
+
   const commonBreakfast = [
     { id:"stone-house-breakfast", categoryId:"breakfast-bakehouse", name:"Stone House Breakfast", description:"Two eggs, bacon or sausage, rosemary potatoes, and a house biscuit.", image:image("stone-house-brekkie.webp"), price:12.95 }
   ];
@@ -204,6 +236,7 @@
     categories: [
       { id: "coffee", name: "Coffee & Espresso", shortName: "Coffee", eyebrow: "The morning ritual", note: "Roasted • pulled • poured", accent: "coffee" },
       { id: "house-apothecary", name: "House Drinks & Apothecary", shortName: "Apothecary", eyebrow: "House favorites • herbs • fruit • flowers • spice", note: "Familiar favorites and botanical drinks gathered for the season", accent: "botanical" },
+      { id: "soda", name: "Soda", shortName: "Soda", eyebrow: "Chilled glass-bottle favorites", note: "Choose a bottle from our planned soda lineup", accent: "soda", countLabel: "5 choices" },
       { id: "breakfast-bakehouse", name: "Breakfast & Bakehouse", shortName: "Breakfast", eyebrow: "From the hearth • Lynn's bakehouse", note: "Warm breakfast • daily staples • rotating bakes", accent: "hearth" },
       { id: "lunch", name: "Lunch", shortName: "Lunch", eyebrow: "Midday at the bakehouse", note: "Toasted • stacked • made to order", accent: "lunch" },
       { id: "sides-addons", name: "Sides & Add-Ons", shortName: "Sides", eyebrow: "A little something extra", note: "Sides • sauces • jams • extras", accent: "pantry" }
@@ -213,6 +246,7 @@
       ...season.coffee,
       ...commonHouse,
       ...season.house,
+      ...commonSoda,
       ...commonBreakfast,
       ...season.breakfast,
       craftingTable,

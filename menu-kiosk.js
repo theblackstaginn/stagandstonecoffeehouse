@@ -153,7 +153,7 @@
       const button = document.createElement("button");
       button.type = "button";
       button.className = "category-btn" + (category.id === state.categoryId ? " active" : "");
-      button.innerHTML = `<span>${category.shortName}</span><small>${count} offerings</small>`;
+      button.innerHTML = `<span>${category.shortName}</span><small>${category.countLabel || count + " offerings"}</small>`;
       button.addEventListener("click", () => {
         state.categoryId = category.id;
         renderCategories();
@@ -178,7 +178,7 @@
       .forEach(item => {
         const button = document.createElement("button");
         button.type = "button";
-        button.className = "product-card" + (item.hero ? " product-card--hero" : "");
+        button.className = "product-card" + (item.hero ? " product-card--hero" : "") + (item.cardVariant === "soda" ? " product-card--soda" : "");
         button.setAttribute("aria-label", "Choose " + item.name);
         button.innerHTML = `
           <span class="product-image">
@@ -187,7 +187,7 @@
           </span>
           <span class="product-meta">
             <strong class="product-name">${item.name}</strong>
-            <span class="product-hint">${item.price == null ? "Tap to customize" : formatMoney(item.price)}</span>
+            <span class="product-hint">${item.cardHint || (item.price == null ? "Tap to customize" : formatMoney(item.price))}</span>
           </span>`;
         button.addEventListener("click", () => openItem(item.id));
         els.grid.appendChild(button);
@@ -214,6 +214,9 @@
 
   function renderModifiers(item) {
     els.modifierHost.innerHTML = "";
+    els.modifierHost.onchange = null;
+    els.addBtn.disabled = false;
+    els.addBtn.textContent = "Add to Order";
 
     if (!item.variations.length && !item.modifierGroups.length) {
       const placeholder = document.createElement("div");
@@ -252,6 +255,20 @@
 
       els.modifierHost.appendChild(block);
     });
+
+    const requiredGroups = item.modifierGroups.filter(group => group.required);
+    if (requiredGroups.length) {
+      const updateRequiredSelections = () => {
+        const selected = Array.from(els.modifierHost.querySelectorAll("input:checked"));
+        const complete = requiredGroups.every(group =>
+          selected.some(input => input.dataset.groupId === group.id)
+        );
+        els.addBtn.disabled = !complete;
+        els.addBtn.textContent = complete ? "Add to Order" : (item.requiredAction || "Choose an Option");
+      };
+      els.modifierHost.onchange = updateRequiredSelections;
+      updateRequiredSelections();
+    }
   }
 
   function readSelectedModifiers(item) {
@@ -286,6 +303,7 @@
     if (!item) return;
 
     const modifiers = readSelectedModifiers(item);
+    if (item.modifierGroups.some(group => group.required && !modifiers.some(modifier => modifier.groupId === group.id))) return;
     const specialRequest = els.specialRequest.value.trim().slice(0, 240);
     const signature = modifierSignature(modifiers);
     const existing = state.order.find(line =>

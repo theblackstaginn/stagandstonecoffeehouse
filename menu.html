@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Menu | Stag &amp; Stone Coffee and Bakehouse | Clarkesville, Georgia</title>
-  <meta name="description" content="Explore the Stag & Stone Coffee and Bakehouse menu featuring coffee, espresso, breakfast, lunch, bakehouse offerings, sides, sauces, jams, and add-ons in Clarkesville, Georgia." />
+  <meta name="description" content="Explore the Stag & Stone Coffee and Bakehouse menu featuring coffee, espresso, glass-bottle sodas, breakfast, lunch, bakehouse offerings, sides, sauces, jams, and add-ons in Clarkesville, Georgia." />
   <link rel="canonical" href="https://stagandstonecoffee.com/menu.html" />
   <meta name="theme-color" content="#16110d" />
   <link rel="icon" type="image/webp" href="stag-thumbs/favicon.webp" />
@@ -21,7 +21,7 @@
 
       const link = document.createElement("link");
       link.rel = "stylesheet";
-      link.href = "menu-kiosk.css?v=18" + (cacheBust ? "&_cb=" + encodeURIComponent(cacheBust) : "");
+      link.href = "menu-kiosk.css?v=19" + (cacheBust ? "&_cb=" + encodeURIComponent(cacheBust) : "");
       document.head.appendChild(link);
     })();
   </script>
@@ -192,10 +192,10 @@
       const suffix = cacheBust ? "&_cb=" + encodeURIComponent(cacheBust) : "";
 
       const menuData = document.createElement("script");
-      menuData.src = "menu-kiosk-data.js?v=15" + suffix;
+      menuData.src = "menu-kiosk-data.js?v=16" + suffix;
       menuData.onload = () => {
         const app = document.createElement("script");
-        app.src = "menu-kiosk.js?v=8" + suffix;
+        app.src = "menu-kiosk.js?v=9" + suffix;
         document.body.appendChild(app);
       };
       document.body.appendChild(menuData);

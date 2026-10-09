@@ -1962,3 +1962,26 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
    white-space:pre-wrap;
    overflow-wrap:anywhere;
  }
+
+/* Soda gallery card: keep the complete 4:5 artwork visible at every screen size. */
+.product-card--soda{
+  justify-self:center;
+  width:min(100%,440px);
+}
+.product-card--soda .product-image{
+  display:block;
+  aspect-ratio:4 / 5;
+}
+.product-card--soda .product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.product-card--soda .product-meta{
+  grid-template-columns:1fr;
+  gap:6px;
+}
+.product-card--soda .product-hint{
+  white-space:normal;
+}
