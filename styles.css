@@ -2328,3 +2328,149 @@ h3 {
     outline-offset: 1px;
   }
 }
+
+
+/* HOMEPAGE — FOOD & DRINKS PREVIEW
+   Image-led menu highlights without covering the atmospheric background. */
+.home-offerings {
+  width: min(var(--max), calc(100% - 2rem));
+  margin: 2.5rem auto 1.4rem;
+}
+.home-offerings-heading {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.home-offerings-heading h2 {
+  max-width: 790px;
+  margin: 0 auto;
+  font-size: clamp(1.7rem, 3.4vw, 2.75rem);
+}
+.home-offerings-heading > .muted {
+  margin: .9rem auto 0;
+  max-width: 650px;
+  font-size: 1rem;
+}
+.home-offerings-swipe { display: none; }
+.home-offerings .home-offerings-cards {
+  margin-top: 1.75rem;
+  gap: 1rem;
+  overflow: visible;
+}
+.home-offerings .home-offering {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  background: rgba(10, 12, 12, .73);
+  border: 1px solid rgba(214, 154, 109, .29);
+  border-radius: 20px;
+  box-shadow: 0 16px 39px rgba(0, 0, 0, .27);
+}
+.home-offering-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: var(--ink);
+  text-decoration: none;
+}
+.home-offering-photo {
+  position: relative;
+  display: block;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  background: rgba(8, 10, 10, .7);
+}
+.home-offering-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .3s ease;
+}
+.home-offering-link:hover .home-offering-photo img,
+.home-offering-link:focus-visible .home-offering-photo img {
+  transform: scale(1.035);
+}
+.home-offering-link:hover,
+.home-offering-link:focus-visible {
+  background: rgba(29, 32, 27, .6);
+}
+.home-offering-link:focus-visible {
+  outline: 3px solid var(--copper-light);
+  outline-offset: -4px;
+}
+.home-offering-copy {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: .55rem;
+  padding: 1.1rem 1.15rem 1.2rem;
+}
+.home-offering-title {
+  color: var(--copper-light);
+  font: 700 1.26rem/1.25 Cardo, Georgia, serif;
+}
+.home-offering-description {
+  color: var(--ink);
+  font-size: .99rem;
+  line-height: 1.45;
+}
+.home-offering-cta {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: .8rem;
+  color: #e6b688;
+  font: 600 .7rem/1.45 Cinzel, Georgia, serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.home-offerings-footnote {
+  margin: 1rem auto 0;
+  color: var(--muted);
+  font-size: .83rem;
+  text-align: center;
+}
+@media (max-width: 800px) {
+  .home-offerings {
+    width: min(100%, calc(100% - 1.1rem));
+    margin-block: 2.1rem 1.4rem;
+  }
+  .home-offerings-heading { padding-inline: .75rem; }
+  .home-offerings-heading > .muted { font-size: .95rem; }
+  .home-offerings-swipe {
+    display: block;
+    margin: .85rem auto 0;
+    color: #e6b688;
+    font: 600 .69rem/1.3 Cinzel, Georgia, serif;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .home-offerings .home-offerings-cards {
+    display: flex;
+    gap: .8rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: .5rem .25rem 1rem;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(214, 154, 109, .45) transparent;
+    border-radius: 0;
+  }
+  .home-offerings .home-offering {
+    flex: 0 0 min(77vw, 320px);
+    scroll-snap-align: start;
+  }
+  .home-offering-photo { aspect-ratio: 4 / 5; }
+  .home-offering-copy {
+    gap: .5rem;
+    padding: 1rem 1.05rem 1.2rem;
+  }
+  .home-offering-description { font-size: .98rem; }
+  .home-offerings-footnote { padding-inline: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-offering-photo img { transition: none; }
+}
