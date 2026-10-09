@@ -590,7 +590,7 @@ h3 {
 
   .hero .hero-actions {
     flex-direction: column;
-    gap: 0;
+    gap: .75rem;
   }
 }
 
