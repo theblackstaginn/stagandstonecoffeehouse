@@ -2189,3 +2189,142 @@ h3 {
     transition: none;
   }
 }
+
+/* Compact Stag & Stone navigation: centered brand and copper menu on mobile. */
+.mobile-site-nav { display: none; }
+
+@media (max-width: 800px) {
+  .site-header {
+    position: sticky;
+    top: 12px;
+    z-index: 40;
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    align-items: center;
+    gap: .2rem;
+    min-height: 72px;
+    padding: .6rem .8rem;
+    text-align: center;
+    background: rgba(10, 12, 13, .93);
+    border: 1px solid rgba(214, 154, 109, .18);
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.38);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .site-header > .brand {
+    grid-column: 2;
+    justify-self: center;
+    justify-items: center;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .site-header .brand-name {
+    font-size: clamp(.86rem, 3.1vw, 1.05rem);
+    letter-spacing: .13em;
+    white-space: nowrap;
+  }
+
+  .site-header .brand-sub {
+    font-size: clamp(.49rem, 1.9vw, .6rem);
+    letter-spacing: .13em;
+    white-space: nowrap;
+  }
+
+  .site-header > .nav { display: none; }
+
+  .site-header > .mobile-site-nav {
+    display: block;
+    position: relative;
+    grid-column: 3;
+    justify-self: end;
+    margin: 0;
+  }
+
+  .mobile-site-nav > summary {
+    display: grid;
+    place-content: center;
+    width: 44px;
+    height: 44px;
+    list-style: none;
+    border: 1px solid rgba(214,154,109,.48);
+    border-radius: 12px;
+    background: linear-gradient(145deg,rgba(87,61,44,.58),rgba(19,23,21,.95));
+    box-shadow: inset 0 1px rgba(255,244,225,.09),0 4px 12px rgba(0,0,0,.22);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-site-nav > summary::-webkit-details-marker { display: none; }
+  .mobile-site-nav > summary::marker { content: ""; }
+
+  .mobile-nav-bars {
+    display: grid;
+    gap: 5px;
+  }
+
+  .mobile-nav-bars span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: #e3b584;
+    box-shadow: 0 1px rgba(0,0,0,.32);
+  }
+
+  .mobile-site-nav[open] > summary {
+    background: linear-gradient(145deg,rgba(120,77,49,.78),rgba(30,33,28,.98));
+    border-color: rgba(240,186,125,.78);
+  }
+
+  .mobile-site-nav > summary:focus-visible {
+    outline: 2px solid #f4dfc8;
+    outline-offset: 3px;
+  }
+
+  .mobile-site-nav-links {
+    position: absolute;
+    top: calc(100% + .65rem);
+    right: 0;
+    z-index: 50;
+    display: grid;
+    gap: .3rem;
+    width: min(282px, calc(100vw - 2rem));
+    padding: .65rem;
+    border: 1px solid rgba(225,177,127,.38);
+    border-radius: 16px;
+    background: linear-gradient(155deg,rgba(31,34,30,.98),rgba(12,15,15,.99));
+    box-shadow: 0 16px 45px rgba(0,0,0,.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .mobile-site-nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 45px;
+    padding: .65rem 1rem;
+    color: #eee4d6;
+    font-family: Cardo, Georgia, serif;
+    font-size: 1.07rem;
+    letter-spacing: .015em;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 9px;
+  }
+
+  .mobile-site-nav-links a:hover,
+  .mobile-site-nav-links a:focus-visible,
+  .mobile-site-nav-links a[aria-current="page"] {
+    color: #ffe5bd;
+    background: rgba(190,122,69,.17);
+    border-color: rgba(225,177,127,.25);
+  }
+
+  .mobile-site-nav-links a:focus-visible {
+    outline: 2px solid #f4dfc8;
+    outline-offset: 1px;
+  }
+}

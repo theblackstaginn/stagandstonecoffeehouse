@@ -10,7 +10,7 @@
   <link rel="icon" type="image/webp" href="stag-thumbs/favicon.webp" />
   <link rel="apple-touch-icon" href="stag-thumbs/icon-192.webp" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cardo:wght@400;700&display=swap" rel="stylesheet" />
@@ -25,7 +25,22 @@
   </div>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Stag and Stone home"><span class="brand-name">Stag &amp; Stone</span><span class="brand-sub">Coffee and Bakehouse</span></a>
-    <nav class="nav" aria-label="Primary navigation"><a href="index.html#visit">Visit</a><a href="index.html#bakehouse">Bakehouse</a><a href="coffee-cart.html" aria-current="page">Coffee cart</a><a href="mobile-tavern.html">Mobile tavern</a></nav>
+    <nav class="nav" aria-label="Primary navigation"><a href="menu.html">Menu</a><a href="index.html#visit">Visit</a><a href="bakehouse.html">Bakehouse</a><a href="coffee-cart.html" aria-current="page">Coffee cart</a><a href="mobile-tavern.html">Mobile tavern</a></nav>
+
+    <details class="mobile-site-nav">
+      <summary aria-label="Toggle site navigation">
+        <span class="mobile-nav-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </summary>
+      <nav class="mobile-site-nav-links" aria-label="Mobile navigation">
+        <a href="menu.html">Menu</a>
+        <a href="index.html#visit">Visit</a>
+        <a href="bakehouse.html">Bakehouse</a>
+        <a href="coffee-cart.html" aria-current="page">Coffee Cart</a>
+        <a href="mobile-tavern.html">Mobile Tavern</a>
+      </nav>
+    </details>
   </header>
   <main>
     <section class="section-shell service-hero">
@@ -40,6 +55,6 @@
   </main>
   <footer class="site-footer"><div><span class="footer-brand">STAG &amp; STONE</span><span class="footer-sub">Coffee and Bakehouse - Clarkesville, Georgia</span></div><a href="mailto:stagandstonecoffee@gmail.com">stagandstonecoffee@gmail.com</a><span class="copyright">Copyright <span id="year"></span> Stag &amp; Stone</span></footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="site-refresh.js?v=2"></script>
+  <script src="site-refresh.js?v=3"></script>
 </body>
 </html>

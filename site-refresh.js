@@ -247,9 +247,31 @@
     document.addEventListener("touchcancel", reset, { passive: true });
   };
 
+  const initMobileSiteNavigation = () => {
+    document.querySelectorAll(".mobile-site-nav").forEach(menu => {
+      const toggle = menu.querySelector("summary");
+
+      menu.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", () => { menu.open = false; });
+      });
+
+      document.addEventListener("pointerdown", event => {
+        if (menu.open && !menu.contains(event.target)) menu.open = false;
+      });
+
+      menu.addEventListener("keydown", event => {
+        if (event.key === "Escape" && menu.open) {
+          menu.open = false;
+          toggle?.focus();
+        }
+      });
+    });
+  };
+
   const init = () => {
     applyCacheBust();
     initPullToRefresh();
+    initMobileSiteNavigation();
 
     if (CACHE_BUST) {
       window.setTimeout(() => {
