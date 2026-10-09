@@ -554,66 +554,11 @@ h3 {
 
 
 
-/* Homepage menu CTA: primary action above the existing illustrated buttons. */
+/* Match the homepage menu CTA to the existing ornate sticker buttons. */
 .hero-primary-action {
   display: flex;
   justify-content: center;
   margin-top: 1.7rem;
-}
-
-.hero-menu-button {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .85rem;
-  min-height: 56px;
-  padding: .85rem 1.8rem;
-  border: 1px solid rgba(251, 216, 174, .58);
-  border-radius: 13px;
-  background:
-    linear-gradient(135deg, rgba(255, 225, 182, .17), transparent 42%, rgba(22, 9, 5, .24)),
-    linear-gradient(125deg, #a96944 0%, #8b4f32 36%, #6b3826 70%, #9b5937 100%);
-  box-shadow:
-    inset 0 1px rgba(255, 244, 225, .22),
-    inset 0 -2px rgba(31, 12, 7, .33),
-    0 12px 27px rgba(0, 0, 0, .35);
-  color: #fff4e5;
-  font: 600 .78rem/1.25 Cinzel, Georgia, serif;
-  letter-spacing: .12em;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-shadow: 0 1px 2px rgba(28, 11, 5, .45);
-  transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
-}
-
-.hero-menu-button::before {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border: 1px solid rgba(255, 230, 200, .16);
-  border-radius: 9px;
-  pointer-events: none;
-}
-
-.hero-menu-button-arrow {
-  font-family: Georgia, serif;
-  font-size: 1.12rem;
-  line-height: 1;
-}
-
-.hero-menu-button:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.13);
-  box-shadow:
-    inset 0 1px rgba(255, 244, 225, .25),
-    0 15px 32px rgba(0, 0, 0, .42);
-}
-
-.hero-menu-button:focus-visible {
-  outline: 3px solid #f4dfc8;
-  outline-offset: 4px;
 }
 
 .hero .hero-actions {
@@ -623,19 +568,6 @@ h3 {
 @media (max-width: 540px) {
   .hero-primary-action {
     margin-top: 1.35rem;
-  }
-
-  .hero-menu-button {
-    width: min(100%, 310px);
-    min-height: 54px;
-    padding: .8rem 1.15rem;
-    font-size: .72rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-menu-button {
-    transition: none;
   }
 }
 
