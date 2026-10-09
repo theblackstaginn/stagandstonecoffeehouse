@@ -208,6 +208,12 @@
     els.itemName.textContent = item.name;
     els.itemDescription.textContent = item.description || "From the Stag & Stone menu";
     els.specialRequest.value = "";
+    // Bottled soda selections do not need a special-requests field.
+    // Restore the field when opening any other menu item.
+    const specialRequestField = els.specialRequest.closest(".special-request-field");
+    if (specialRequestField) {
+      specialRequestField.style.display = item.categoryId === "soda" ? "none" : "";
+    }
     renderModifiers(item);
     els.itemSheet.showModal();
   }
