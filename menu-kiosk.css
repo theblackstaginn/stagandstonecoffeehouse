@@ -2020,3 +2020,43 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
     padding: 11px 10px 13px;
   }
 }
+
+
+/* Pre-opening customer clarity: menu browsing and saved samples are not live orders. */
+.menu-preview-notice {
+  width: min(760px, 100%);
+  margin: 0 auto 24px;
+  padding: 12px 17px;
+  display: grid;
+  gap: 5px;
+  border: 1px solid rgba(225, 177, 127, .28);
+  border-left: 3px solid #d5a16c;
+  border-radius: 12px;
+  background: linear-gradient(110deg, rgba(44, 38, 31, .95), rgba(19, 21, 22, .94));
+  color: #f2e5d6;
+  box-shadow: 0 9px 24px rgba(0, 0, 0, .18);
+}
+.menu-preview-notice strong {
+  color: #edbf88;
+  font: 600 .73rem/1.4 Cinzel, Georgia, serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.menu-preview-notice span {
+  font: 400 .93rem/1.4 Cardo, Georgia, serif;
+}
+.review-card #checkoutBtn:disabled {
+  opacity: .84;
+  cursor: not-allowed;
+  color: #ead2b7;
+  background: linear-gradient(145deg, #44372f, #292725);
+  border-color: rgba(225, 177, 127, .28);
+}
+@media (max-width: 960px) {
+  .menu-preview-notice {
+    margin-bottom: 17px;
+    padding: 11px 13px;
+  }
+  .menu-preview-notice strong { font-size: .7rem; }
+  .menu-preview-notice span { font-size: .91rem; }
+}

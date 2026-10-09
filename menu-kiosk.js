@@ -222,7 +222,7 @@
     els.modifierHost.innerHTML = "";
     els.modifierHost.onchange = null;
     els.addBtn.disabled = false;
-    els.addBtn.textContent = "Add to Order";
+    els.addBtn.textContent = "Add to Sample Order";
 
     if (!item.variations.length && !item.modifierGroups.length) {
       const placeholder = document.createElement("div");
@@ -270,7 +270,7 @@
           selected.some(input => input.dataset.groupId === group.id)
         );
         els.addBtn.disabled = !complete;
-        els.addBtn.textContent = complete ? "Add to Order" : (item.requiredAction || "Choose an Option");
+        els.addBtn.textContent = complete ? "Add to Sample Order" : (item.requiredAction || "Choose an Option");
       };
       els.modifierHost.onchange = updateRequiredSelections;
       updateRequiredSelections();
@@ -410,7 +410,7 @@
     });
 
     const mode = catalog.serviceModes.find(mode => mode.id === state.serviceMode);
-    els.reviewMode.textContent = "Order type: " + (mode?.label || "Dine In");
+    els.reviewMode.textContent = "Sample order type: " + (mode?.label || "Dine In");
   }
 
   function openReview() {
@@ -443,11 +443,6 @@
   $("#sourceBtn").addEventListener("click", () => {
     window.location.href = "https://stagandstonecoffee.com/";
   });
-  $("#checkoutBtn").addEventListener("click", () => {
-    $("#checkoutBtn").textContent = "Square connection comes next";
-    setTimeout(() => { $("#checkoutBtn").textContent = "Ready for Square Checkout"; }, 1800);
-  });
-
   els.itemSheet.addEventListener("click", event => {
     if (event.target === els.itemSheet) els.itemSheet.close();
   });

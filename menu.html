@@ -21,7 +21,7 @@
 
       const link = document.createElement("link");
       link.rel = "stylesheet";
-      link.href = "menu-kiosk.css?v=20" + (cacheBust ? "&_cb=" + encodeURIComponent(cacheBust) : "");
+      link.href = "menu-kiosk.css?v=21" + (cacheBust ? "&_cb=" + encodeURIComponent(cacheBust) : "");
       document.head.appendChild(link);
     })();
   </script>
@@ -73,8 +73,8 @@
 
       <div class="fulfillment" id="fulfillmentControl" aria-label="Order type"></div>
 
-      <button class="order-pill" id="orderPill" type="button" aria-label="Review order">
-        <span>Your Order</span>
+      <button class="order-pill" id="orderPill" type="button" aria-label="Review sample order">
+        <span>Sample Order</span>
         <strong id="orderCount">0</strong>
       </button>
     </header>
@@ -86,6 +86,10 @@
       </aside>
 
       <section class="menu-stage" aria-live="polite">
+        <aside class="menu-preview-notice" aria-label="Pre-opening menu notice">
+          <strong>Coming Soon · Menu Preview</strong>
+          <span>Browse the menu and build a sample order. We aren't accepting orders or payments yet.</span>
+        </aside>
         <div class="stage-heading">
           <div>
             <p class="eyebrow" id="categoryEyebrow"></p>
@@ -102,7 +106,7 @@
         <div class="order-panel-head">
           <div>
             <p class="eyebrow">At the counter</p>
-            <h2>Your Order</h2>
+            <h2>Sample Order</h2>
           </div>
           <button class="text-btn" id="clearOrderBtn" type="button">Clear</button>
         </div>
@@ -111,13 +115,13 @@
 
         <div class="order-empty" id="orderEmpty">
           <span aria-hidden="true">❦</span>
-          <strong>Your order is empty</strong>
-          <p>Choose something from the menu to begin.</p>
+          <strong>Sample order is empty</strong>
+          <p>Choose something from the menu to start a preview.</p>
         </div>
 
         <div class="order-panel-foot">
-          <p class="order-status" id="orderStatus">Prices and payment will come from Square when connected.</p>
-          <button class="primary-action" id="reviewBtn" type="button" disabled>Review Order</button>
+          <p class="order-status" id="orderStatus">Preview only. No orders or payments are accepted yet.</p>
+          <button class="primary-action" id="reviewBtn" type="button" disabled>Review Sample</button>
         </div>
       </aside>
     </main>
@@ -166,7 +170,7 @@
           </div>
         </div>
 
-        <button class="primary-action add-action" id="addToOrderBtn" type="button">Add to Order</button>
+        <button class="primary-action add-action" id="addToOrderBtn" type="button">Add to Sample Order</button>
       </div>
     </div>
   </dialog>
@@ -174,15 +178,15 @@
   <dialog class="review-sheet" id="reviewSheet" aria-labelledby="reviewTitle">
     <div class="review-card">
       <button class="sheet-close" id="reviewCloseBtn" type="button" aria-label="Close order review">×</button>
-      <p class="eyebrow">Final check</p>
-      <h2 id="reviewTitle">Review Order</h2>
+      <p class="eyebrow">Menu preview</p>
+      <h2 id="reviewTitle">Sample Order</h2>
       <div class="review-list" id="reviewList"></div>
       <div class="review-meta">
         <span id="reviewMode"></span>
-        <span>Pricing will be supplied by Square catalog data.</span>
+        <span>Prices and availability are preliminary and may change before opening.</span>
       </div>
-      <button class="primary-action" id="checkoutBtn" type="button">Ready for Square Checkout</button>
-      <p class="integration-note">This prototype stops here until Square Catalog / Orders / payment wiring is connected.</p>
+      <button class="primary-action" id="checkoutBtn" type="button" aria-describedby="integrationNote" disabled>Online Ordering Coming Soon</button>
+      <p class="integration-note" id="integrationNote">This is a preview only. No order is sent, and no payment is collected. Checkout will be enabled when online ordering launches.</p>
     </div>
   </dialog>
 
@@ -195,7 +199,7 @@
       menuData.src = "menu-kiosk-data.js?v=16" + suffix;
       menuData.onload = () => {
         const app = document.createElement("script");
-        app.src = "menu-kiosk.js?v=10" + suffix;
+        app.src = "menu-kiosk.js?v=11" + suffix;
         document.body.appendChild(app);
       };
       document.body.appendChild(menuData);
