@@ -1985,3 +1985,38 @@ url("assets/menu-page-bg.webp") center/cover no-repeat;background-color:#0c0a08}
 .product-card--soda .product-hint{
   white-space:normal;
 }
+
+
+/* Mobile legibility: comfortably readable menu item names and price hints. */
+@media (max-width: 960px) {
+  .product-grid .product-card .product-name {
+    font-size: .87rem;
+    line-height: 1.43;
+    letter-spacing: .018em;
+    overflow-wrap: break-word;
+  }
+
+  .product-grid .product-card .product-hint {
+    font-size: .82rem;
+    line-height: 1.4;
+  }
+
+  .product-grid .product-card:not(.product-card--hero) .product-meta {
+    padding: 12px 13px 14px;
+    gap: 6px;
+  }
+
+  .product-grid .product-card--hero .product-name {
+    font-size: .94rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .product-grid .product-card .product-name {
+    font-size: .83rem;
+  }
+
+  .product-grid .product-card:not(.product-card--hero) .product-meta {
+    padding: 11px 10px 13px;
+  }
+}
