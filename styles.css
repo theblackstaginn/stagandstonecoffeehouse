@@ -554,20 +554,43 @@ h3 {
 
 
 
-/* Match the homepage menu CTA to the existing ornate sticker buttons. */
+/* Homepage hero sticker buttons: balanced artwork sizes and a clean mobile stack. */
 .hero-primary-action {
   display: flex;
   justify-content: center;
-  margin-top: 1.7rem;
+  margin-top: .8rem;
+  margin-bottom: -.55rem;
+  line-height: 0;
+}
+
+/* Slightly compensate for the Menu sticker's extra transparent padding. */
+.hero-primary-action .image-button {
+  width: min(282px, 82vw);
 }
 
 .hero .hero-actions {
-  margin-top: .7rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .3rem;
+  margin-top: 0;
+  line-height: 0;
 }
 
-@media (max-width: 540px) {
+.hero .hero-actions .image-button {
+  width: min(270px, 81vw);
+}
+
+@media (max-width: 800px) {
   .hero-primary-action {
-    margin-top: 1.35rem;
+    margin-top: .7rem;
+    margin-bottom: -.9rem;
+  }
+
+  .hero .hero-actions {
+    flex-direction: column;
+    gap: 0;
   }
 }
 
