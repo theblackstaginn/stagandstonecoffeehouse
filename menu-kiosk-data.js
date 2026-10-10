@@ -47,13 +47,13 @@
   ];
 
 
-  // Planned glass-bottle lineup; confirm distributor stock and prices before opening.
+  // Glass-bottle soda selection.
   const commonSoda = [
     {
       id:"glass-bottle-soda",
       categoryId:"soda",
       name:"Choose Your Soda",
-      description:"Our planned glass-bottle soda lineup. Select your favorite below. Brands and availability are subject to supplier confirmation before opening.",
+      description:"Our glass-bottle soda lineup. Select your favorite below.",
       image:ASSET_BASE + "/assets/glass-bottles.webp",
       hero:true,
       cardVariant:"soda",
@@ -63,7 +63,7 @@
         {
           id:"soda-choice",
           name:"Choose Your Bottle",
-          note:"Select one soda. Pricing and availability will be confirmed before opening.",
+          note:"Select one soda.",
           maxSelections:1,
           required:true,
           options:[
@@ -236,7 +236,7 @@
     categories: [
       { id: "coffee", name: "Coffee & Espresso", shortName: "Coffee", eyebrow: "The morning ritual", note: "Roasted • pulled • poured", accent: "coffee" },
       { id: "house-apothecary", name: "House Drinks & Apothecary", shortName: "Apothecary", eyebrow: "House favorites • herbs • fruit • flowers • spice", note: "Familiar favorites and botanical drinks gathered for the season", accent: "botanical" },
-      { id: "soda", name: "Soda", shortName: "Soda", eyebrow: "Chilled glass-bottle favorites", note: "Choose a bottle from our planned soda lineup", accent: "soda", countLabel: "5 choices" },
+      { id: "soda", name: "Soda", shortName: "Soda", eyebrow: "Chilled glass-bottle favorites", note: "Choose your favorite glass-bottle soda", accent: "soda", countLabel: "5 choices" },
       { id: "breakfast-bakehouse", name: "Breakfast & Bakehouse", shortName: "Breakfast", eyebrow: "From the hearth • Lynn's bakehouse", note: "Warm breakfast • daily staples • rotating bakes", accent: "hearth" },
       { id: "lunch", name: "Lunch", shortName: "Lunch", eyebrow: "Midday at the bakehouse", note: "Toasted • stacked • made to order", accent: "lunch" },
       { id: "sides-addons", name: "Sides & Add-Ons", shortName: "Sides", eyebrow: "A little something extra", note: "Sides • sauces • jams • extras", accent: "pantry" }
