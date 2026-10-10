@@ -27,7 +27,8 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="newsletter.css?v=1" />
 </head>
 
 <body>
@@ -334,6 +335,32 @@
 
     </section>
 
+
+    <section class="section-shell newsletter-section" id="newsletter" aria-labelledby="newsletter-title">
+      <div class="newsletter-copy">
+        <p class="eyebrow">Letters from the Stag</p>
+        <h2 id="newsletter-title">Be first through the doors.</h2>
+        <p>Get our grand-opening announcement, seasonal menu reveals, and occasional community news.</p>
+        <p class="newsletter-small">A little news from Clarkesville. Never a daily flood of emails.</p>
+      </div>
+      <form id="newsletterForm" class="newsletter-form">
+        <label class="newsletter-label" for="newsletterEmail">Email address</label>
+        <div class="newsletter-form-row">
+          <input id="newsletterEmail" type="email" name="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required />
+          <button id="newsletterSubmit" type="submit">Join the List</button>
+        </div>
+        <div class="newsletter-honeypot" aria-hidden="true">
+          <label for="newsletterWebsite">Leave blank</label>
+          <input id="newsletterWebsite" type="text" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <label class="newsletter-optin" for="newsletterConsent">
+          <input id="newsletterConsent" type="checkbox" name="consent" required />
+          <span>Yes, email me Stag &amp; Stone opening announcements, seasonal menu news and occasional community/event updates. I can unsubscribe any time.</span>
+        </label>
+        <p class="newsletter-privacy">Your email is for Stag &amp; Stone updates only. <a href="privacy.html">Privacy and unsubscribe information</a>.</p>
+        <p class="newsletter-status" id="newsletterStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
 
     <!-- =====================================================
          EVENT SERVICE
@@ -724,5 +751,6 @@
   </script>
 
   <script src="site-refresh.js?v=3"></script>
+  <script src="newsletter.js?v=1" defer></script>
 </body>
 </html>
