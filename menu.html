@@ -73,8 +73,8 @@
 
       <div class="fulfillment" id="fulfillmentControl" aria-label="Order type"></div>
 
-      <button class="order-pill" id="orderPill" type="button" aria-label="Review sample order">
-        <span>Sample Order</span>
+      <button class="order-pill" id="orderPill" type="button" aria-label="Review your order">
+        <span>Your Order</span>
         <strong id="orderCount">0</strong>
       </button>
     </header>
@@ -87,8 +87,8 @@
 
       <section class="menu-stage" aria-live="polite">
         <aside class="menu-preview-notice" aria-label="Pre-opening menu notice">
-          <strong>Coming Soon · Menu Preview</strong>
-          <span>Browse the menu and build a sample order. We aren't accepting orders or payments yet.</span>
+          <strong>Coming Soon · Autumn Menu</strong>
+          <span>Explore our Autumn menu and choose your favorites. Ordering opens with the café.</span>
         </aside>
         <div class="stage-heading">
           <div>
@@ -96,7 +96,7 @@
             <h1 id="categoryTitle">Menu</h1>
             <p class="stage-note" id="categoryNote"></p>
           </div>
-          <div class="availability-note">Seasonal offerings may vary.</div>
+          <div class="availability-note">Autumn menu</div>
         </div>
 
         <div class="product-grid" id="productGrid"></div>
@@ -106,7 +106,7 @@
         <div class="order-panel-head">
           <div>
             <p class="eyebrow">At the counter</p>
-            <h2>Sample Order</h2>
+            <h2>Your Order</h2>
           </div>
           <button class="text-btn" id="clearOrderBtn" type="button">Clear</button>
         </div>
@@ -115,13 +115,13 @@
 
         <div class="order-empty" id="orderEmpty">
           <span aria-hidden="true">❦</span>
-          <strong>Sample order is empty</strong>
-          <p>Choose something from the menu to start a preview.</p>
+          <strong>Your order is empty</strong>
+          <p>Choose something from the menu to get started.</p>
         </div>
 
         <div class="order-panel-foot">
-          <p class="order-status" id="orderStatus">Preview only. No orders or payments are accepted yet.</p>
-          <button class="primary-action" id="reviewBtn" type="button" disabled>Review Sample</button>
+          <p class="order-status" id="orderStatus">Ordering begins when our doors open.</p>
+          <button class="primary-action" id="reviewBtn" type="button" disabled>Review Order</button>
         </div>
       </aside>
     </main>
@@ -170,7 +170,7 @@
           </div>
         </div>
 
-        <button class="primary-action add-action" id="addToOrderBtn" type="button">Add to Sample Order</button>
+        <button class="primary-action add-action" id="addToOrderBtn" type="button">Add to Order</button>
       </div>
     </div>
   </dialog>
@@ -178,15 +178,15 @@
   <dialog class="review-sheet" id="reviewSheet" aria-labelledby="reviewTitle">
     <div class="review-card">
       <button class="sheet-close" id="reviewCloseBtn" type="button" aria-label="Close order review">×</button>
-      <p class="eyebrow">Menu preview</p>
-      <h2 id="reviewTitle">Sample Order</h2>
+      <p class="eyebrow">Autumn menu</p>
+      <h2 id="reviewTitle">Your Order</h2>
       <div class="review-list" id="reviewList"></div>
       <div class="review-meta">
         <span id="reviewMode"></span>
-        <span>Prices and availability are preliminary and may change before opening.</span>
+        <span>Crafted for the morning ritual.</span>
       </div>
-      <button class="primary-action" id="checkoutBtn" type="button" aria-describedby="integrationNote" disabled>Online Ordering Coming Soon</button>
-      <p class="integration-note" id="integrationNote">This is a preview only. No order is sent, and no payment is collected. Checkout will be enabled when online ordering launches.</p>
+      <button class="primary-action" id="checkoutBtn" type="button" aria-describedby="integrationNote" disabled>Ordering Opens Soon</button>
+      <p class="integration-note" id="integrationNote">Online orders and payments begin when the café opens. Your selections here aren't submitted.</p>
     </div>
   </dialog>
 
@@ -196,10 +196,10 @@
       const suffix = cacheBust ? "&_cb=" + encodeURIComponent(cacheBust) : "";
 
       const menuData = document.createElement("script");
-      menuData.src = "menu-kiosk-data.js?v=16" + suffix;
+      menuData.src = "menu-kiosk-data.js?v=17" + suffix;
       menuData.onload = () => {
         const app = document.createElement("script");
-        app.src = "menu-kiosk.js?v=11" + suffix;
+        app.src = "menu-kiosk.js?v=12" + suffix;
         document.body.appendChild(app);
       };
       document.body.appendChild(menuData);
