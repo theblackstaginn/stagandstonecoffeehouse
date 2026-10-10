@@ -222,12 +222,12 @@
     els.modifierHost.innerHTML = "";
     els.modifierHost.onchange = null;
     els.addBtn.disabled = false;
-    els.addBtn.textContent = "Add to Sample Order";
+    els.addBtn.textContent = "Add to Order";
 
     if (!item.variations.length && !item.modifierGroups.length) {
       const placeholder = document.createElement("div");
       placeholder.className = "modifier-placeholder";
-      placeholder.innerHTML = "<strong>Square-ready customization</strong>Sizes, milk choices, flavors, add-ons, prices, and availability will populate here when the Square catalog is connected. Nothing has been invented in the prototype.";
+      placeholder.innerHTML = "<strong>Just as it is</strong>No additional selections needed for this item.";
       els.modifierHost.appendChild(placeholder);
       return;
     }
@@ -270,7 +270,7 @@
           selected.some(input => input.dataset.groupId === group.id)
         );
         els.addBtn.disabled = !complete;
-        els.addBtn.textContent = complete ? "Add to Sample Order" : (item.requiredAction || "Choose an Option");
+        els.addBtn.textContent = complete ? "Add to Order" : (item.requiredAction || "Choose an Option");
       };
       els.modifierHost.onchange = updateRequiredSelections;
       updateRequiredSelections();
@@ -410,7 +410,7 @@
     });
 
     const mode = catalog.serviceModes.find(mode => mode.id === state.serviceMode);
-    els.reviewMode.textContent = "Sample order type: " + (mode?.label || "Dine In");
+    els.reviewMode.textContent = "Order type: " + (mode?.label || "Dine In");
   }
 
   function openReview() {
