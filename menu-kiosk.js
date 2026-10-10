@@ -205,8 +205,14 @@
     els.itemImage.src = bustUrl(item.image);
     els.itemImage.alt = item.name;
     els.itemCategory.textContent = category?.name || "";
-    els.itemName.textContent = item.name;
+    els.itemName.textContent = item.categoryId === "soda" ? "Choose Your Bottle" : item.name;
     els.itemDescription.textContent = item.description || "From the Stag & Stone menu";
+    // The soda selector already has the only copy it needs in its fieldset.
+    // Hide the duplicate modal header and description; restore them for other items.
+    const isSoda = item.categoryId === "soda";
+    [els.itemCategory, els.itemName, els.itemDescription].forEach(element => {
+      element.style.display = isSoda ? "none" : "";
+    });
     els.specialRequest.value = "";
     // Bottled soda selections do not need a special-requests field.
     // Restore the field when opening any other menu item.
