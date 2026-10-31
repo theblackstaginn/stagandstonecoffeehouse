@@ -271,6 +271,10 @@
   // A single hearth blessing in every standard Stag & Stone footer.
   // Runic characters are Unicode Elder Futhark, never generated pseudo-runes.
   const initFooterRuneBlessing = () => {
+    // Keep this intention at the welcoming hearth, not on legal or ordering pages.
+    const page = window.location.pathname.split("/").pop().toLowerCase();
+    if (!["", "index.html", "bakehouse.html"].includes(page)) return;
+
     const footers = document.querySelectorAll(".site-footer");
     if (!footers.length || document.getElementById("stagStoneHearthBlessing")) return;
 
