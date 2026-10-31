@@ -292,10 +292,23 @@
       ".hearth-blessing-dialog{box-sizing:border-box;width:min(790px,calc(100vw - 24px));",
       "max-width:790px;max-height:calc(100dvh - 24px);margin:auto;padding:8px;",
       "border:1px solid rgba(198,143,81,.55);border-radius:12px;background:#120e0b;",
-      "color:#eddfc8;box-shadow:0 20px 80px rgba(0,0,0,.78);}",
-      ".hearth-blessing-dialog::backdrop{background:rgba(7,6,5,.85);backdrop-filter:blur(5px);}",
+      "color:#eddfc8;box-shadow:0 20px 80px rgba(0,0,0,.78);transition:opacity .9s ease;}",
+      ".hearth-blessing-dialog.is-dissolving{opacity:0;}",
+      ".hearth-blessing-dialog::backdrop{background:rgba(7,6,5,.85);backdrop-filter:blur(5px);",
+      "transition:background-color .9s ease,backdrop-filter .9s ease;}",
+      ".hearth-blessing-dialog.is-dissolving::backdrop{background:rgba(7,6,5,0);backdrop-filter:none;}",
+      ".hearth-blessing-stage{position:relative;overflow:hidden;border-radius:7px;}",
       ".hearth-blessing-dialog img{display:block;width:100%;height:auto;max-height:calc(100dvh - 42px);object-fit:contain;}",
-      "@media(prefers-reduced-motion:reduce){.hearth-blessing-dialog::backdrop{backdrop-filter:none;}}"
+      ".hearth-blessing-sparks{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;}",
+      ".hearth-blessing-sparks i{position:absolute;left:var(--x);top:var(--y);",
+      "width:var(--size);height:var(--size);border-radius:50%;opacity:0;",
+      "background:radial-gradient(circle,#fff8dd 0%,#f3c778 30%,rgba(181,93,26,.5) 55%,transparent 75%);",
+      "filter:drop-shadow(0 0 5px rgba(255,192,103,.8));",
+      "animation:hearth-blessing-spark var(--duration) ease-in-out infinite;animation-delay:var(--delay);}",
+      "@keyframes hearth-blessing-spark{0%,100%{opacity:0;transform:translateY(10px) scale(.35)}",
+      "30%{opacity:.92;transform:translateY(0) scale(1)}65%{opacity:.2;transform:translateY(-22px) scale(.7)}}",
+      "@media(prefers-reduced-motion:reduce){.hearth-blessing-dialog,.hearth-blessing-dialog::backdrop{transition:none;}",
+      ".hearth-blessing-dialog::backdrop{backdrop-filter:none;}.hearth-blessing-sparks{display:none;}}"
     ].join("");
     document.head.appendChild(style);
 
@@ -308,8 +321,57 @@
     artwork.alt = "Stag & Stone hearth blessing honoring supporters and welcoming guests, with seven Elder Futhark runes: Berkano, Raidho, Jera, Gebo, Mannaz, Wunjo and Fehu.";
     artwork.loading = "lazy";
     artwork.decoding = "async";
-    dialog.appendChild(artwork);
+    const stage = document.createElement("div");
+    stage.className = "hearth-blessing-stage";
+    stage.appendChild(artwork);
+
+    // Soft amber glints around the edges, never across the blessing's lettering.
+    const sparks = document.createElement("div");
+    sparks.className = "hearth-blessing-sparks";
+    sparks.setAttribute("aria-hidden", "true");
+    const sparkPositions = [
+      [6, 12], [14, 19], [86, 13], [94, 21], [4, 40], [95, 43],
+      [6, 67], [93, 68], [12, 89], [85, 88], [23, 6], [76, 7],
+      [37, 4], [64, 5], [4, 80], [97, 80], [20, 95], [80, 95]
+    ];
+    sparkPositions.forEach(([x, y], i) => {
+      const spark = document.createElement("i");
+      spark.style.setProperty("--x", x + "%");
+      spark.style.setProperty("--y", y + "%");
+      spark.style.setProperty("--size", (5 + i % 3 * 2) + "px");
+      spark.style.setProperty("--duration", (3.3 + (i % 4) * .5) + "s");
+      spark.style.setProperty("--delay", "-" + (i * .37).toFixed(2) + "s");
+      sparks.appendChild(spark);
+    });
+    stage.appendChild(sparks);
+    dialog.appendChild(stage);
     document.body.appendChild(dialog);
+
+    // Begin dismissal when the plaque opens, not on page load.
+    let fadeTimer = null;
+    let closeTimer = null;
+    const clearBlessingTimers = () => {
+      window.clearTimeout(fadeTimer);
+      window.clearTimeout(closeTimer);
+      fadeTimer = null;
+      closeTimer = null;
+    };
+    const openBlessing = () => {
+      if (dialog.open) return;
+      clearBlessingTimers();
+      dialog.classList.remove("is-dissolving");
+      dialog.showModal();
+      fadeTimer = window.setTimeout(() => {
+        if (dialog.open) dialog.classList.add("is-dissolving");
+      }, 9000);
+      closeTimer = window.setTimeout(() => {
+        if (dialog.open) dialog.close();
+      }, 10000);
+    };
+    dialog.addEventListener("close", () => {
+      clearBlessingTimers();
+      dialog.classList.remove("is-dissolving");
+    });
 
     footers.forEach(footer => {
       if (footer.querySelector(".hearth-rune-trigger")) return;
@@ -328,7 +390,7 @@
           }).catch(() => {});
         }
         if (typeof dialog.showModal === "function") {
-          if (!dialog.open) dialog.showModal();
+          openBlessing();
         } else {
           window.open(artwork.src, "_blank", "noopener");
         }
