@@ -321,6 +321,12 @@
       button.setAttribute("aria-controls", dialog.id);
       button.textContent = "ᛒ · ᚱ · ᛃ · ᚷ · ᛗ · ᚹ · ᚠ";
       button.addEventListener("click", () => {
+        // Quietly acknowledge the hospitality offering; do not display its artwork.
+        if (typeof window.fetch === "function") {
+          void window.fetch("assets/offering-hospitality-hearth.png", {
+            method: "HEAD", cache: "no-store"
+          }).catch(() => {});
+        }
         if (typeof dialog.showModal === "function") {
           if (!dialog.open) dialog.showModal();
         } else {
