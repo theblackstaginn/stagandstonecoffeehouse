@@ -268,10 +268,75 @@
     });
   };
 
+  // A single hearth blessing in every standard Stag & Stone footer.
+  // Runic characters are Unicode Elder Futhark, never generated pseudo-runes.
+  const initFooterRuneBlessing = () => {
+    const footers = document.querySelectorAll(".site-footer");
+    if (!footers.length || document.getElementById("stagStoneHearthBlessing")) return;
+
+    const style = document.createElement("style");
+    style.id = "stagStoneHearthBlessingStyles";
+    style.textContent = [
+      ".site-footer .hearth-rune-trigger{flex:1 0 100%;order:4;display:flex;align-items:center;justify-content:center;",
+      "width:max-content;max-width:100%;min-height:44px;margin:6px auto 0;padding:8px 16px;",
+      "border:0;border-top:1px solid rgba(193,137,77,.32);background:transparent;box-shadow:none;",
+      "color:#c39159;font-family:'Segoe UI Symbol','Noto Sans Runic',serif;",
+      "font-weight:400;font-size:clamp(1rem,3vw,1.2rem);line-height:1.35;letter-spacing:.11em;",
+      "cursor:pointer;-webkit-tap-highlight-color:transparent;}",
+      ".site-footer .hearth-rune-trigger:hover{color:#edc395;border-top-color:#c39159;}",
+      ".site-footer .hearth-rune-trigger:focus-visible{outline:2px solid #d9ac75;outline-offset:3px;}",
+      ".hearth-blessing-dialog{box-sizing:border-box;width:min(790px,calc(100vw - 24px));",
+      "max-width:790px;max-height:calc(100dvh - 24px);margin:auto;padding:8px;",
+      "border:1px solid rgba(198,143,81,.55);border-radius:12px;background:#120e0b;",
+      "color:#eddfc8;box-shadow:0 20px 80px rgba(0,0,0,.78);}",
+      ".hearth-blessing-dialog::backdrop{background:rgba(7,6,5,.85);backdrop-filter:blur(5px);}",
+      ".hearth-blessing-dialog img{display:block;width:100%;height:auto;max-height:calc(100dvh - 42px);object-fit:contain;}",
+      "@media(prefers-reduced-motion:reduce){.hearth-blessing-dialog::backdrop{backdrop-filter:none;}}"
+    ].join("");
+    document.head.appendChild(style);
+
+    const dialog = document.createElement("dialog");
+    dialog.id = "stagStoneHearthBlessing";
+    dialog.className = "hearth-blessing-dialog";
+    dialog.setAttribute("aria-label", "Stag & Stone hearth blessing");
+    const artwork = document.createElement("img");
+    artwork.src = "assets/stag-stone-hearth-blessing-verified-runes.png";
+    artwork.alt = "Stag & Stone hearth blessing honoring supporters and welcoming guests, with seven Elder Futhark runes: Berkano, Raidho, Jera, Gebo, Mannaz, Wunjo and Fehu.";
+    artwork.loading = "lazy";
+    artwork.decoding = "async";
+    dialog.appendChild(artwork);
+    document.body.appendChild(dialog);
+
+    footers.forEach(footer => {
+      if (footer.querySelector(".hearth-rune-trigger")) return;
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "hearth-rune-trigger";
+      button.setAttribute("aria-label", "Open the Stag & Stone hearth blessing");
+      button.setAttribute("aria-haspopup", "dialog");
+      button.setAttribute("aria-controls", dialog.id);
+      button.textContent = "ᛒ · ᚱ · ᛃ · ᚷ · ᛗ · ᚹ · ᚠ";
+      button.addEventListener("click", () => {
+        if (typeof dialog.showModal === "function") {
+          if (!dialog.open) dialog.showModal();
+        } else {
+          window.open(artwork.src, "_blank", "noopener");
+        }
+      });
+      footer.appendChild(button);
+    });
+
+    // Native dialog handles Escape; tapping the backdrop also dismisses it.
+    dialog.addEventListener("click", event => {
+      if (event.target === dialog) dialog.close();
+    });
+  };
+
   const init = () => {
     applyCacheBust();
     initPullToRefresh();
     initMobileSiteNavigation();
+    initFooterRuneBlessing();
 
     if (CACHE_BUST) {
       window.setTimeout(() => {
